@@ -1,0 +1,159 @@
+﻿<Page x:Class="Gas_station.Customer_managment.Views.AddCustomer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Gas_station.Customer_managment.Views" xmlns:validator="clr-namespace:Gas_station.Validation"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddCustomer" DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Page.Resources>
+        <Style x:Key="TitleText" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border CornerRadius="2" Padding="2" Background="#FFBCD0F3" BorderBrush="#FF13265D" BorderThickness="1">
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+
+    </Page.Resources>
+    <Page.Background>
+        <SolidColorBrush Color="#FF6B6060" Opacity="0.12"/>
+    </Page.Background>
+
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Margin="50">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="0*" />
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="172"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Style="{StaticResource TitleText}"  Grid.Row="0" Grid.ColumnSpan="3" Margin="131,-5,38,5.2" Width="203" >Personal information</Label>
+            <Label  Grid.Row="1" Style="{StaticResource TitleText}" Margin="22,0,22.2,20">Customer name:</Label>
+            <TextBox  Grid.Column="1" Margin="0.8,0,0,20" Grid.Row="1" Grid.ColumnSpan="2" >
+                <TextBox.Text>
+                    <Binding Path="person.Person_Name" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:LengthValidator MinValue="2" MaxValue="15" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+
+            </TextBox>
+            <Label Margin="11,0,11.2,20" Style="{StaticResource TitleText}" Grid.Row="3" Grid.Column="0" Content="Customer age"/>
+            <TextBox x:Name="person_surname_txt" Margin="1,0.4,0,19.8" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1">
+                <TextBox.Text>
+                    <Binding Path="person.Person_Surname" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:LengthValidator MinValue="2" MaxValue="20" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label  Style="{StaticResource TitleText}" Grid.Row="2" Margin="32,0,31.2,20" Content="Customer surname"/>
+            <TextBox x:Name="age_txt" Margin="1,0.4,0,19.8" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1">
+                <TextBox.Text>
+                    <Binding Path="person.Person_Age" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:RangeValidator MinValue="18" MaxValue="90" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label  Style="{StaticResource TitleText}" Grid.Row="4" Margin="21,0,22.2,20">Customer phone</Label>
+            <TextBox x:Name="phone_txt"  Grid.Row="4" Grid.Column="1" Margin="1,0.2,0,20" Grid.ColumnSpan="2">
+                <TextBox.Text>
+                    <Binding Path="person.Person_Phone" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:PhoneValidator/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label  Style="{StaticResource TitleText}"  Grid.Row="5" Margin="31,0,31.2,20">Customer sex</Label>
+
+            <Label  Style="{StaticResource TitleText}"  Grid.Row="0" Grid.Column="6" Margin="44.4,0,57,0" >Adress</Label>
+            <Label  Style="{StaticResource TitleText}"  Grid.Row="1" Grid.Column="3" Margin="35,0,34,20">Country</Label>
+            <TextBox Grid.Row="1" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3"  >
+                <TextBox.Text>
+                    <Binding Path="person.Location.Country" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:LengthValidator MinValue="2" MaxValue="20"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label  Style="{StaticResource TitleText}"  Grid.Row="2" Grid.Column="3" Margin="51,0,50,20">City</Label>
+            <TextBox Grid.Row="2" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3" >
+                <TextBox.Text>
+                    <Binding Path="person.Location.City" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:LengthValidator MinValue="2" MaxValue="20"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label  Style="{StaticResource TitleText}"  Grid.Row="3" Grid.Column="3" Margin="20,0,20,20">Postal code</Label>
+            <TextBox  Grid.Row="3" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3">
+                <TextBox.Text>
+                    <Binding Path="person.Location.Postal_Code" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:LengthValidator MinValue="2" MaxValue="20"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label  Style="{StaticResource TitleText}"  Grid.Row="4" Grid.Column="3" Margin="39,0,38,20">Street</Label>
+            <TextBox  Grid.Row="4" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3" >
+                <TextBox.Text>
+                    <Binding Path="person.Location.Street" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:LengthValidator MinValue="2" MaxValue="20"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label  Style="{StaticResource TitleText}"  Grid.Row="5" Grid.Column="3" Margin="47,0,46,20">Build</Label>
+            <TextBox  Grid.Row="5" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3">
+                <TextBox.Text>
+                    <Binding Path="person.Location.Build" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:LengthValidator MinValue="2" MaxValue="20"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <ComboBox Name="SexBox" Grid.Column="1" HorizontalAlignment="Left" Margin="1,0,0,0" Grid.Row="5" VerticalAlignment="Top" Width="143" Grid.ColumnSpan="2" Height="35" SelectionChanged="SexBox_SelectionChanged"/>
+            <Label Content="Add customer" Grid.Column="1" Margin="34,-64,0,0" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="3"/>
+            <Button Style="{StaticResource btnBlue}"  Content="Add customer" Grid.Column="5" HorizontalAlignment="Left" Margin="0,9.8,0,-43.8" VerticalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="AddCustomer_btn" Width="172"/>
+
+        </Grid>
+    </Viewbox>
+</Page>

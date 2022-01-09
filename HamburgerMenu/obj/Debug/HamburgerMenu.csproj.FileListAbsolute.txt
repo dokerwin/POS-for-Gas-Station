@@ -1,0 +1,284 @@
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\bin\Debug\HamburgerMenu.dll
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\bin\Debug\HamburgerMenu.pdb
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.AssemblyReference.cache
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\ToggleButtonStyle.baml
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\Generic.baml
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\ListBoxStyle.baml
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\ButtonStyle.baml
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.cache
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.lref
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\HamburgerMenuItem.baml
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\HamburgerMenu.baml
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.g.resources
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.CoreCompileInputs.cache
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.dll
+C:\Users\nikna\Downloads\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.pdb
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\bin\Debug\HamburgerMenu.dll
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\bin\Debug\HamburgerMenu.pdb
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.AssemblyReference.cache
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\ToggleButtonStyle.baml
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\Generic.baml
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\ListBoxStyle.baml
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\ButtonStyle.baml
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.cache
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.lref
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\HamburgerMenuItem.baml
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\HamburgerMenu.baml
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.g.resources
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.CoreCompileInputs.cache
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.dll
+F:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.pdb
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\bin\Debug\HamburgerMenu.dll
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\bin\Debug\HamburgerMenu.pdb
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.AssemblyReference.cache
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\ToggleButtonStyle.baml
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\Generic.baml
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\ListBoxStyle.baml
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\ButtonStyle.baml
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.cache
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.lref
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\HamburgerMenuItem.baml
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\Themes\HamburgerMenu.baml
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.g.resources
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.CoreCompileInputs.cache
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.dll
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.pdb
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\bin\Debug\HamburgerMenu.dll.config
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\bin\Debug\EntityFramework.dll
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\bin\Debug\EntityFramework.xml
+E:\HamburgerMenu-master\HamburgerMenu-master\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.CopyComplete
+F:\Gas station\HamburgerMenu\bin\Debug\HamburgerMenu.dll.config
+F:\Gas station\HamburgerMenu\bin\Debug\HamburgerMenu.dll
+F:\Gas station\HamburgerMenu\bin\Debug\HamburgerMenu.pdb
+F:\Gas station\HamburgerMenu\bin\Debug\EntityFramework.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Antiforgery.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Authorization.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Extensions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.JsonPatch.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Core.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Routing.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.WebUtilities.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.DotNet.InternalAbstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Localization.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Localization.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.ObjectPool.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Options.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.PlatformAbstractions.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Primitives.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.WebEncoders.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Net.Http.Headers.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Win32.Primitives.dll
+F:\Gas station\HamburgerMenu\bin\Debug\MotleyFlash.dll
+F:\Gas station\HamburgerMenu\bin\Debug\Newtonsoft.Json.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.AppContext.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Buffers.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.ComponentModel.Primitives.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.ComponentModel.TypeConverter.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Console.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Globalization.Calendars.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.IO.Compression.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.IO.Compression.ZipFile.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.IO.FileSystem.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.IO.FileSystem.Primitives.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Net.Http.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Net.Sockets.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Runtime.Serialization.Primitives.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Security.Cryptography.Algorithms.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Security.Cryptography.Encoding.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Security.Cryptography.Primitives.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+F:\Gas station\HamburgerMenu\bin\Debug\System.Text.Encodings.Web.dll
+F:\Gas station\HamburgerMenu\bin\Debug\EntityFramework.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Antiforgery.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Authorization.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.DataProtection.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Extensions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.JsonPatch.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Core.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Routing.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.WebUtilities.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Localization.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Localization.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.ObjectPool.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Options.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.PlatformAbstractions.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Primitives.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.WebEncoders.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Net.Http.Headers.xml
+F:\Gas station\HamburgerMenu\bin\Debug\Newtonsoft.Json.xml
+F:\Gas station\HamburgerMenu\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+F:\Gas station\HamburgerMenu\bin\Debug\System.Text.Encodings.Web.xml
+F:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.AssemblyReference.cache
+F:\Gas station\HamburgerMenu\obj\Debug\Themes\ToggleButtonStyle.baml
+F:\Gas station\HamburgerMenu\obj\Debug\Themes\Generic.baml
+F:\Gas station\HamburgerMenu\obj\Debug\Themes\ListBoxStyle.baml
+F:\Gas station\HamburgerMenu\obj\Debug\Themes\ButtonStyle.baml
+F:\Gas station\HamburgerMenu\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.cache
+F:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.lref
+F:\Gas station\HamburgerMenu\obj\Debug\Themes\HamburgerMenuItem.baml
+F:\Gas station\HamburgerMenu\obj\Debug\Themes\HamburgerMenu.baml
+F:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.g.resources
+F:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.CoreCompileInputs.cache
+F:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.CopyComplete
+F:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.dll
+F:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.pdb
+E:\Gas station\HamburgerMenu\bin\Debug\HamburgerMenu.dll.config
+E:\Gas station\HamburgerMenu\bin\Debug\HamburgerMenu.dll
+E:\Gas station\HamburgerMenu\bin\Debug\HamburgerMenu.pdb
+E:\Gas station\HamburgerMenu\bin\Debug\EntityFramework.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Antiforgery.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Authorization.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Extensions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.JsonPatch.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Core.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Routing.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.WebUtilities.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.DotNet.InternalAbstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Localization.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Localization.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.ObjectPool.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Options.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.PlatformAbstractions.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Primitives.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.WebEncoders.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Net.Http.Headers.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Win32.Primitives.dll
+E:\Gas station\HamburgerMenu\bin\Debug\MotleyFlash.dll
+E:\Gas station\HamburgerMenu\bin\Debug\Newtonsoft.Json.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.AppContext.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Buffers.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.ComponentModel.Primitives.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.ComponentModel.TypeConverter.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Console.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Globalization.Calendars.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.IO.Compression.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.IO.Compression.ZipFile.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.IO.FileSystem.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.IO.FileSystem.Primitives.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Net.Http.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Net.Sockets.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Runtime.Serialization.Primitives.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Security.Cryptography.Algorithms.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Security.Cryptography.Encoding.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Security.Cryptography.Primitives.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+E:\Gas station\HamburgerMenu\bin\Debug\System.Text.Encodings.Web.dll
+E:\Gas station\HamburgerMenu\bin\Debug\EntityFramework.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Antiforgery.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Authorization.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.DataProtection.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Extensions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.JsonPatch.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Core.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Routing.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.AspNetCore.WebUtilities.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Localization.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Localization.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.ObjectPool.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Options.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.PlatformAbstractions.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.Primitives.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Extensions.WebEncoders.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Microsoft.Net.Http.Headers.xml
+E:\Gas station\HamburgerMenu\bin\Debug\Newtonsoft.Json.xml
+E:\Gas station\HamburgerMenu\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+E:\Gas station\HamburgerMenu\bin\Debug\System.Text.Encodings.Web.xml
+E:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.AssemblyReference.cache
+E:\Gas station\HamburgerMenu\obj\Debug\Themes\ToggleButtonStyle.baml
+E:\Gas station\HamburgerMenu\obj\Debug\Themes\Generic.baml
+E:\Gas station\HamburgerMenu\obj\Debug\Themes\ListBoxStyle.baml
+E:\Gas station\HamburgerMenu\obj\Debug\Themes\ButtonStyle.baml
+E:\Gas station\HamburgerMenu\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.cache
+E:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu_MarkupCompile.lref
+E:\Gas station\HamburgerMenu\obj\Debug\Themes\HamburgerMenuItem.baml
+E:\Gas station\HamburgerMenu\obj\Debug\Themes\HamburgerMenu.baml
+E:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.g.resources
+E:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.CoreCompileInputs.cache
+E:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.csproj.CopyComplete
+E:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.dll
+E:\Gas station\HamburgerMenu\obj\Debug\HamburgerMenu.pdb

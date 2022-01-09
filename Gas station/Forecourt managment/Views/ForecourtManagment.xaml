@@ -1,0 +1,50 @@
+﻿<Page x:Class="Gas_station.Forecourt_managment.Views.ForecourtManagment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Gas_station.Forecourt_managment.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ForecourtManagment" DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Viewbox>
+        <Grid Width="764">
+            <Button Content="Start " HorizontalAlignment="Left" Margin="13,23,0,0" VerticalAlignment="Top" Width="66" Height="59" Style="{StaticResource btnBlue}" Background="#FF0BE73D" />
+            <Button Content="Stop" HorizontalAlignment="Left" Margin="91,23,0,0" VerticalAlignment="Top" Width="66" Height="59" Style="{StaticResource btnBlue}" Background="#FFF93211" />
+            <Button Content="Lock" HorizontalAlignment="Left" Margin="170,23,0,0" VerticalAlignment="Top" Width="62" Height="59" Style="{StaticResource btnBlue}" Background="#FFDBFF0F" />
+            <ComboBox HorizontalAlignment="Left" Margin="328,23,0,0" VerticalAlignment="Top" Width="74" Height="24" FontSize="20">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFF3F3F3" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <Button Content="Oder fuel &#xD;&#xA;delivery" HorizontalAlignment="Left" Margin="348,186,0,0" VerticalAlignment="Top" Width="97" Style="{StaticResource btnBlue}"  />
+            <Button Content="Prepay" HorizontalAlignment="Left" Margin="244,23,0,0" VerticalAlignment="Top" Width="61" Height="59" Style="{StaticResource btnBlue}" />
+            <Button Content="Declare&#xD;&#xA; cisterns " HorizontalAlignment="Left" Margin="348,107,0,0" VerticalAlignment="Top" Width="97" Height="55" Style="{StaticResource btnBlue}"/>
+            <ListView Name="CisternList" HorizontalAlignment="Left" Height="202" Margin="13,107,0,0" VerticalAlignment="Top" Width="322" RenderTransformOrigin="-0.328,-0.116" SelectionChanged="CisternList_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID_Cistern}" />
+                        <GridViewColumn Header="Fuel" Width="80" DisplayMemberBinding="{Binding Product.Pro_Name}" />
+                        <GridViewColumn Header="Actual level" Width="100" DisplayMemberBinding="{Binding ActualVolume}" />
+                        <GridViewColumn Header="Min Lt" Width="50" DisplayMemberBinding="{Binding MinVolume}" />
+                        <GridViewColumn Header="Max Lt" Width="50" DisplayMemberBinding="{Binding MaxVolume}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label Content="Please, declare cisterns before filling!" HorizontalAlignment="Left" Margin="202,329,0,-0.2" VerticalAlignment="Top" FontSize="22" Width="386" Background="#FFF37A00"/>
+            <ListView x:Name="FuelDeliveryList" HorizontalAlignment="Left" Height="202" Margin="462,107,0,0" VerticalAlignment="Top" Width="292" RenderTransformOrigin="-0.328,-0.116" SelectionChanged="CisternList_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Cistern" Width="100" DisplayMemberBinding="{Binding ID_Cistern}" />
+                        <GridViewColumn Header="Data next delivery" Width="200" DisplayMemberBinding="{Binding DataDelivery}" />
+
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Viewbox>
+</Page>

@@ -1,0 +1,36 @@
+﻿<Page x:Class="StattonManage.FuelSetting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StattonManage"
+      mc:Ignorable="d" 
+      Title="FuelSetting"
+       DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Grid>
+        <Button Content="Set new price" HorizontalAlignment="Left" Margin="53,178,0,0" VerticalAlignment="Top" Width="163" Height="23" Foreground="#FFFFEBEB" Click="Button_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFC09797" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Content="Fuel setting" HorizontalAlignment="Left" Margin="222,0,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FFF9F9F9"/>
+        <ListView x:Name="fuelList" ItemsSource="{Binding fuel}" HorizontalAlignment="Left" Height="295" Margin="292,72,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Fuel" Width="100" DisplayMemberBinding="{Binding FuelName}" />
+                    <GridViewColumn Header="Price" Width="80" DisplayMemberBinding="{Binding FuelPrice}" />
+                    <GridViewColumn Header="Last change" Width="230" DisplayMemberBinding="{Binding TimeLastPrice}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid Margin="53,76,490.4,307.6">
+            <ComboBox Name="FuelBox" HorizontalAlignment="Left" Margin="32,0,0,0" VerticalAlignment="Top" Width="131" Height="26"/>
+            <Label Content="Fuel" HorizontalAlignment="Left" Background="#FF90D1FF"/>
+        </Grid>
+        <TextBox  Text="{Binding price, Mode=TwoWay, TargetNullValue=Null}" HorizontalAlignment="Left" Height="23" Margin="53,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
+    </Grid>
+</Page>

@@ -1,0 +1,85 @@
+﻿<Page x:Class="Gas_station.Pos.Pos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Gas_station.Pos" xmlns:pageTransitions="clr-namespace:WpfPageTransitions;assembly=WpfPageTransitions"
+      mc:Ignorable="d" 
+    
+      Title="Pos"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <Grid Width="869">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="43*"/>
+                <RowDefinition Height="448*"/>
+            </Grid.RowDefinitions>
+            <ListView Name="receipt_list" HorizontalAlignment="Left" Height="282" Margin="10,53.8,0,0" VerticalAlignment="Top" Width="399" Grid.Row="1" SelectionChanged="receipt_list_SelectionChanged">
+                <ListView.Background>
+                    <ImageBrush ImageSource="list.jpg" Opacity="0.8"/>
+                </ListView.Background>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding product.Pro_Name}" />
+                        <GridViewColumn Header="Category" Width="100" DisplayMemberBinding="{Binding product.Category.Cat_Name}" />
+                        <GridViewColumn Header="Price" Width="90" DisplayMemberBinding="{Binding product.Pro_Price}" />
+                        <GridViewColumn Header="Discount" Width="60" DisplayMemberBinding="{Binding product.Promotion.Prom_Discount}" />
+                        <GridViewColumn Header="Qt" Width="auto" DisplayMemberBinding="{Binding quantity}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Grid Margin="224,335.8,576,10.2" Grid.Row="1">
+                <Image x:Name="imgNozzle3" HorizontalAlignment="Left" Height="71" Margin="0,0,-0.2,0" VerticalAlignment="Top" Width="69"  Source="pack://application:,,,/Resources/fuel_free.png"  MouseUp="Nozzle3_Click"/>
+                <Label Content="{Binding nozzle_3, Mode=TwoWay}" Name="nozzle3_lbl" HorizontalAlignment="Left" Margin="0,76,-0.2,0" VerticalAlignment="Top" Width="69" Height="26"/>
+            </Grid>
+            <Label Name="cashier_lbl" Content="Cashier ID:&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.719,0.483" Height="23" Margin="607,0,0,0"/>
+            <TextBox Name="searcProduct_txt" HorizontalAlignment="Left" Height="23" Margin="426,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402" Grid.RowSpan="2" TextChanged="searcProduct_txt_TextChanged" Background="#FFF2F7C9"/>
+            <ListView Name="search_list" MouseDoubleClick="receiptList_MouseDoubleClick" ItemsSource="{Binding products}" HorizontalAlignment="Left" Height="241" Margin="426,32.8,0,0" VerticalAlignment="Top" Width="428" Grid.Row="1" Foreground="Black" BorderBrush="#FF005AFA">
+                <ListView.Background>
+                    <ImageBrush ImageSource="list.jpg" Opacity="0.8"/>
+                </ListView.Background>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID Product" Width="80" DisplayMemberBinding="{Binding ProductID}" />
+                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Pro_Name}" />
+                        <GridViewColumn Header="Category" Width="150" DisplayMemberBinding="{Binding Category.Cat_Name}" />
+                        <GridViewColumn Header="Price" Width="40" DisplayMemberBinding="{Binding Pro_Price}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Image Name="search_img" HorizontalAlignment="Left" Height="23" Margin="828,28,0,0" VerticalAlignment="Top" Width="26"  Cursor="Hand" MouseUp="Button_Search_Click"  Source="pack://application:,,,/Resources/search.png" Grid.RowSpan="2"/>
+            <Button Name ="card_btn" Content="CARD" HorizontalAlignment="Left" Margin="710,402.8,0,0.2" Width="66" FontWeight="Bold" RenderTransformOrigin="1.503,0.487" Style="{StaticResource btnGreen}" Grid.Row="1" Click="card_btn_Click" />
+            <Button Name ="cash_btn" Content="CASH" HorizontalAlignment="Left" Margin="793,402.8,0,0" VerticalAlignment="Top" Width="66" Height="45" FontWeight="Bold" Style="{StaticResource btnBlue}"  Grid.Row="1" Click="cash_btn_Click" RenderTransformOrigin="0.442,0.129"/>
+            <Button Name ="total_btn" Content="TOTAL" HorizontalAlignment="Left" Margin="710,346.8,0,0" VerticalAlignment="Top" Width="149" Height="43" FontWeight="Bold" Style="{StaticResource btnBlue}" Grid.Row="1" Click="total_btn_Click" RenderTransformOrigin="0.539,1.933" />
+            <Label Content="Total price :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FFF11414" Grid.RowSpan="2"/>
+            <Label Name="total_lbl" Content="{Binding total_price, Mode=TwoWay}"  HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Foreground="#FFF11414" FontSize="36"  Width="167" Height="58" Grid.RowSpan="2"/>
+            <Grid Margin="51,335.8,749,15.2" Grid.Row="1">
+                <Image x:Name="imgNozzle1" HorizontalAlignment="Left" Height="71" Margin="0,0,-0.2,0" VerticalAlignment="Top" Width="69"  Source="pack://application:,,,/Resources/fuel_free.png"  MouseUp="Nozzle1_Click"/>
+                <Label Content="{Binding nozzle_1, Mode=TwoWay}" Name="nozzle1_lbl" HorizontalAlignment="Left" Margin="0,76,-0.2,0" VerticalAlignment="Top" Width="69" Height="21"/>
+            </Grid>
+            <Grid Margin="140,335.8,660,15.2" Grid.Row="1">
+                <Image x:Name="imgNozzle2" HorizontalAlignment="Left" Margin="0,0,-0.2,0" Width="69"  Source="pack://application:,,,/Resources/fuel_free.png" Height="71" VerticalAlignment="Top"  MouseUp="Nozzle2_Click"/>
+                <Label Content="{Binding nozzle_2, Mode=TwoWay}" Name="nozzle2_lbl" HorizontalAlignment="Left" Margin="0,76,-0.2,0" VerticalAlignment="Top" Width="69" Height="21"/>
+            </Grid>
+            <Grid Margin="308,335.8,492,10.2" Grid.Row="1">
+                <Image x:Name="imgNozzle4" HorizontalAlignment="Left" Height="71" Margin="0,0,-0.2,0" VerticalAlignment="Top" Width="69"  Source="pack://application:,,,/Resources/fuel_free.png"  MouseUp="Nozzle4_Click" />
+                <Label Content="{Binding nozzle_4, Mode=TwoWay}" Name="nozzle4_lbl" HorizontalAlignment="Left" Margin="0,76,-0.2,0" VerticalAlignment="Top" Width="69" Height="26"/>
+            </Grid>
+            <Label x:Name="time_lbl" Content="Time: &#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.719,0.483" Height="37" Margin="746,-6,0,0" FontSize="18" Grid.RowSpan="2"/>
+            <Button x:Name ="Mops" Content="MOPs" HorizontalAlignment="Left" Margin="607,402.8,0,0.2" Width="66" FontWeight="Bold" RenderTransformOrigin="1.503,0.487" Style="{StaticResource btnGreen}" Grid.Row="1" Click="Mops_Click" />
+            <Label x:Name="shift_lbl" Content="Shift ID: " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.719,0.483" Height="23" Margin="478,0,0,0" Width="85"/>
+            <ComboBox Name="category_box" ItemsSource="{Binding Path=categories}"
+          DisplayMemberPath="Cat_Name"
+          SelectedItem="{Binding category, Mode=TwoWay}"
+           HorizontalAlignment="Left" Margin="514,278.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="159" Height="32" RenderTransformOrigin="-0.476,0.464" SelectionChanged="ComboBox_SelectionChanged"/>
+            <Label Content="Category" HorizontalAlignment="Left" Margin="426,278.8,0,0" VerticalAlignment="Top" Foreground="#FFF11414" Grid.Row="1" Height="32" Width="88" RenderTransformOrigin="1.028,0.639" FontSize="16"/>
+            <TextBox Text ="{Binding qt, Mode=TwoWay}" HorizontalAlignment="Left" Height="32" Margin="734,278.8,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+            <Label Content="Qt:" HorizontalAlignment="Left" Margin="693,278.8,0,0" VerticalAlignment="Top" Foreground="#FFF11414" Grid.Row="1" Height="32" Width="41" RenderTransformOrigin="1.028,0.639" FontSize="16"/>
+            <Image x:Name="keyboard_btn" HorizontalAlignment="Left" Height="40" Margin="372,2.8,0,0" VerticalAlignment="Top" Width="49"  Cursor="Hand" MouseUp="Button_Keyboard_Click"  Source="/Gas station;component/Resources/key.png" RenderTransformOrigin="-20.838,1.626" Grid.Row="1"/>
+
+        </Grid>
+    </Viewbox>
+</Page>

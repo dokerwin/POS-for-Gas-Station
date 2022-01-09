@@ -1,0 +1,12 @@
+E:\Gas station\ForecourtSimulator\bin\Debug\net5.0-windows\ForecourtSimulator.deps.json
+E:\Gas station\ForecourtSimulator\bin\Debug\net5.0-windows\ForecourtSimulator.dll
+E:\Gas station\ForecourtSimulator\bin\Debug\net5.0-windows\ref\ForecourtSimulator.dll
+E:\Gas station\ForecourtSimulator\bin\Debug\net5.0-windows\ForecourtSimulator.pdb
+E:\Gas station\ForecourtSimulator\obj\Debug\net5.0-windows\ForecourtSimulator.csproj.AssemblyReference.cache
+E:\Gas station\ForecourtSimulator\obj\Debug\net5.0-windows\ForecourtSimulator.GeneratedMSBuildEditorConfig.editorconfig
+E:\Gas station\ForecourtSimulator\obj\Debug\net5.0-windows\ForecourtSimulator.AssemblyInfoInputs.cache
+E:\Gas station\ForecourtSimulator\obj\Debug\net5.0-windows\ForecourtSimulator.AssemblyInfo.cs
+E:\Gas station\ForecourtSimulator\obj\Debug\net5.0-windows\ForecourtSimulator.csproj.CoreCompileInputs.cache
+E:\Gas station\ForecourtSimulator\obj\Debug\net5.0-windows\ForecourtSimulator.dll
+E:\Gas station\ForecourtSimulator\obj\Debug\net5.0-windows\ref\ForecourtSimulator.dll
+E:\Gas station\ForecourtSimulator\obj\Debug\net5.0-windows\ForecourtSimulator.pdb

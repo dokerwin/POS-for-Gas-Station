@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c366b8491a4b4cee83c874eb08b4a427" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Advertising" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Cashier" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Company" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Customer" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Developer" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Distributor" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Forecourt" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Location" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LoyaltyCard" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MOP" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Person" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Promotion" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Receipt" Width="1.5" PointX="10.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Shift" Width="1.5" PointX="8.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Station" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Type_Product" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_CashierPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductCategorey" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CompanyLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DeveloperCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DistibutorCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CustomerLoyaltyCard" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CustomerPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductDeveloper" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductDistributor" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_StationForecourt" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PersonLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_StationLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_MOP" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ShiftCashier" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductPromotion" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ReceiptShift" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ShiftStation" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ProductReceipt" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,37 @@
+﻿<Page x:Class="Gas_station.Product_mangment.ProductsInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Gas_station.Product_mangment"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Customers"  DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Height="474" Width="835">
+            <ListView x:Name="customersList"  ItemsSource="{Binding ProductsList}" Margin="228,48,10,10" Background="#4DFFFFFF" SelectedItem="{Binding SelectedProduct}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Product ID " Width="auto" DisplayMemberBinding="{Binding ProductID}" />
+                        <GridViewColumn Header="Product name" Width="auto" DisplayMemberBinding="{Binding Pro_Name}"/>
+                        <GridViewColumn Header="Category" Width="auto" DisplayMemberBinding="{Binding Category.Cat_Name}" />
+                        <GridViewColumn Header="Product price" Width="auto" DisplayMemberBinding="{Binding Pro_Price}"/>
+                        <GridViewColumn Header="Supplier" Width="auto" DisplayMemberBinding="{Binding Distributor.Dis_Name}"/>
+                        <GridViewColumn Header="Developer" Width="auto" DisplayMemberBinding="{Binding Developer.Dev_Name}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Label Content="All products" HorizontalAlignment="Left" Margin="335,-10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="White"/>
+            <TextBox Text="{Binding productID, Mode=TwoWay}" x:Name="Id_receipt_txt" HorizontalAlignment="Left" Height="24" Margin="80,48,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" />
+            <Label Content="Product ID" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Background="#FF1E8AC2" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="70" Height="24"/>
+            <Button Style="{StaticResource btnBlue}"   Command="{Binding MyCommand}" 
+                    CommandParameter="ParameterValue"  Content="Find product" Margin="10,92,612,349"/>
+            <Button Style="{StaticResource btnBlue}"   Command="{Binding AddProductBtn}" 
+                CommandParameter="ParameterValue"  Content="Add product" Margin="10,433,665,10"/>
+
+        </Grid>
+    </Viewbox>
+
+</Page>

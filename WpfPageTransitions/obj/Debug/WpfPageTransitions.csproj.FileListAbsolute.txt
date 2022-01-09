@@ -1,0 +1,28 @@
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\bin\Debug\WpfPageTransitions.dll
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\bin\Debug\WpfPageTransitions.pdb
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\WpfPageTransitions.csproj.AssemblyReference.cache
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\PageTransition.g.cs
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\WpfPageTransitions_MarkupCompile.cache
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\WpfPageTransitions_MarkupCompile.lref
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\PageTransition.baml
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\WpfPageTransitions.g.resources
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\WpfPageTransitions.Properties.Resources.resources
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\WpfPageTransitions.csproj.GenerateResource.cache
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\WpfPageTransitions.csproj.CoreCompileInputs.cache
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\WpfPageTransitions.dll
+C:\Users\nikna\Downloads\PageTransitionsDemo\WpfPageTransitions\obj\Debug\WpfPageTransitions.pdb
+E:\Gas station\WpfPageTransitions\bin\Debug\WpfPageTransitions.dll
+E:\Gas station\WpfPageTransitions\bin\Debug\WpfPageTransitions.pdb
+E:\Gas station\WpfPageTransitions\obj\Debug\WpfPageTransitions.csproj.AssemblyReference.cache
+E:\Gas station\WpfPageTransitions\obj\Debug\PageTransition.g.cs
+E:\Gas station\WpfPageTransitions\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Gas station\WpfPageTransitions\obj\Debug\WpfPageTransitions_MarkupCompile.cache
+E:\Gas station\WpfPageTransitions\obj\Debug\WpfPageTransitions_MarkupCompile.lref
+E:\Gas station\WpfPageTransitions\obj\Debug\PageTransition.baml
+E:\Gas station\WpfPageTransitions\obj\Debug\WpfPageTransitions.g.resources
+E:\Gas station\WpfPageTransitions\obj\Debug\WpfPageTransitions.Properties.Resources.resources
+E:\Gas station\WpfPageTransitions\obj\Debug\WpfPageTransitions.csproj.GenerateResource.cache
+E:\Gas station\WpfPageTransitions\obj\Debug\WpfPageTransitions.csproj.CoreCompileInputs.cache
+E:\Gas station\WpfPageTransitions\obj\Debug\WpfPageTransitions.dll
+E:\Gas station\WpfPageTransitions\obj\Debug\WpfPageTransitions.pdb

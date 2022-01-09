@@ -1,0 +1,1474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Advertising">
+          <Key>
+            <PropertyRef Name="AdvertisingID" />
+          </Key>
+          <Property Name="AdvertisingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adv_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adv_Start" Type="datetime" Nullable="false" />
+          <Property Name="Adv_End" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cashier">
+          <Key>
+            <PropertyRef Name="CashierID" />
+          </Key>
+          <Property Name="CashierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cashier_Status" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cashier_login" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cashier_password" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID_Person" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cat_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cat_Description" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Cistern">
+          <Key>
+            <PropertyRef Name="ID_Cistern" />
+          </Key>
+          <Property Name="ID_Cistern" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Product" Type="int" Nullable="false" />
+          <Property Name="MaxVolume" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MinVolume" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ActualVolume" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Company_Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_Location" Type="int" Nullable="false" />
+          <Property Name="Company_Phone" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_LoyaltyCard" Type="int" Nullable="false" />
+          <Property Name="ID_Person" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Developer">
+          <Key>
+            <PropertyRef Name="DeveloperID" />
+          </Key>
+          <Property Name="DeveloperID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dev_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_Company" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Distributor">
+          <Key>
+            <PropertyRef Name="DistributorID" />
+          </Key>
+          <Property Name="DistributorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dis_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_Company" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Forecourt">
+          <Key>
+            <PropertyRef Name="ForecourtID" />
+          </Key>
+          <Property Name="ForecourtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NozzleAmount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FuelDelivery">
+          <Key>
+            <PropertyRef Name="ID_Delivery" />
+          </Key>
+          <Property Name="ID_Delivery" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Cistern" Type="int" Nullable="false" />
+          <Property Name="DataDelivery" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Postal_Code" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Build" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoyaltyCard">
+          <Key>
+            <PropertyRef Name="LoyaltyCardID" />
+          </Key>
+          <Property Name="LoyaltyCardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_MOP" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="MOP">
+          <Key>
+            <PropertyRef Name="MopID" />
+          </Key>
+          <Property Name="MopID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mop_Type" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Person_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Person_Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Person_Sex" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Person_Age" Type="int" Nullable="false" />
+          <Property Name="ID_Location" Type="int" Nullable="false" />
+          <Property Name="Person_Phone" Type="nvarchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pro_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pro_Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID_Discount" Type="int" />
+          <Property Name="ID_Developer" Type="int" Nullable="false" />
+          <Property Name="ID_Distributor" Type="int" Nullable="false" />
+          <Property Name="ID_Category" Type="int" Nullable="false" />
+          <Property Name="ID_Type_Product" Type="int" Nullable="false" />
+          <Property Name="Pro_Price" Type="money" Nullable="false" />
+          <Property Name="Pro_LastUpdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductReceipt">
+          <Key>
+            <PropertyRef Name="ProductReceiptID" />
+          </Key>
+          <Property Name="ProductReceiptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Receipt" Type="int" Nullable="false" />
+          <Property Name="ID_Product" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="PromotionID" />
+          </Key>
+          <Property Name="PromotionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Prom_Start" Type="datetime" Nullable="false" />
+          <Property Name="Prom_End" Type="datetime" Nullable="false" />
+          <Property Name="Prom_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prom_Discount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="ReceiptID" />
+          </Key>
+          <Property Name="ReceiptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DealTime" Type="datetime" Nullable="false" />
+          <Property Name="Receipt_Price" Type="money" Nullable="false" />
+          <Property Name="ID_Shift" Type="int" Nullable="false" />
+          <Property Name="Number_Product" Type="int" Nullable="false" />
+          <Property Name="ID_Customer" Type="int" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="ShiftID" />
+          </Key>
+          <Property Name="ShiftID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Cashier" Type="int" Nullable="false" />
+          <Property Name="ID_Station" Type="int" Nullable="false" />
+          <Property Name="ShiftStart" Type="datetime" Nullable="false" />
+          <Property Name="ShiftEnd" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="StationID" />
+          </Key>
+          <Property Name="StationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Station_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Location" Type="int" Nullable="false" />
+          <Property Name="ID_Forecourt" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Type_Product">
+          <Key>
+            <PropertyRef Name="Type_ProductID" />
+          </Key>
+          <Property Name="Type_ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Units" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_CashierPerson">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Cashier" Type="Self.Cashier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="Cashier">
+              <PropertyRef Name="ID_Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CisternProduct">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Cistern" Type="Self.Cistern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Cistern">
+              <PropertyRef Name="ID_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyLocation">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerLoyaltyCard">
+          <End Role="LoyaltyCard" Type="Self.LoyaltyCard" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoyaltyCard">
+              <PropertyRef Name="LoyaltyCardID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="ID_LoyaltyCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerPerson">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="ID_Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveyCistern">
+          <End Role="Cistern" Type="Self.Cistern" Multiplicity="1" />
+          <End Role="FuelDelivery" Type="Self.FuelDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cistern">
+              <PropertyRef Name="ID_Cistern" />
+            </Principal>
+            <Dependent Role="FuelDelivery">
+              <PropertyRef Name="ID_Cistern" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeveloperCompany">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Developer" Type="Self.Developer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Developer">
+              <PropertyRef Name="ID_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DistibutorCompany">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Distributor" Type="Self.Distributor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Distributor">
+              <PropertyRef Name="ID_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOP">
+          <End Role="MOP" Type="Self.MOP" Multiplicity="1" />
+          <End Role="LoyaltyCard" Type="Self.LoyaltyCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOP">
+              <PropertyRef Name="MopID" />
+            </Principal>
+            <Dependent Role="LoyaltyCard">
+              <PropertyRef Name="ID_MOP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonLocation">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategorey">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDeveloper">
+          <End Role="Developer" Type="Self.Developer" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Developer">
+              <PropertyRef Name="DeveloperID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Developer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDistributor">
+          <End Role="Distributor" Type="Self.Distributor" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distributor">
+              <PropertyRef Name="DistributorID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Distributor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductPromotion">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promotion">
+              <PropertyRef Name="PromotionID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Discount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductReceipt">
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="1" />
+          <End Role="ProductReceipt" Type="Self.ProductReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receipt">
+              <PropertyRef Name="ReceiptID" />
+            </Principal>
+            <Dependent Role="ProductReceipt">
+              <PropertyRef Name="ID_Receipt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductType">
+          <End Role="Type_Product" Type="Self.Type_Product" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_Product">
+              <PropertyRef Name="Type_ProductID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Type_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceiptProduct">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductReceipt" Type="Self.ProductReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductReceipt">
+              <PropertyRef Name="ID_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceiptShift">
+          <End Role="Shift" Type="Self.Shift" Multiplicity="1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="ID_Shift" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftCashier">
+          <End Role="Cashier" Type="Self.Cashier" Multiplicity="1" />
+          <End Role="Shift" Type="Self.Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cashier">
+              <PropertyRef Name="CashierID" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="ID_Cashier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftStation">
+          <End Role="Station" Type="Self.Station" Multiplicity="1" />
+          <End Role="Shift" Type="Self.Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="StationID" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="ID_Station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StationForecourt">
+          <End Role="Forecourt" Type="Self.Forecourt" Multiplicity="1" />
+          <End Role="Station" Type="Self.Station" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forecourt">
+              <PropertyRef Name="ForecourtID" />
+            </Principal>
+            <Dependent Role="Station">
+              <PropertyRef Name="ID_Forecourt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StationLocation">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="Station" Type="Self.Station" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Station">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Advertising" EntityType="Self.Advertising" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cashier" EntityType="Self.Cashier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cistern" EntityType="Self.Cistern" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Developer" EntityType="Self.Developer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distributor" EntityType="Self.Distributor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forecourt" EntityType="Self.Forecourt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FuelDelivery" EntityType="Self.FuelDelivery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoyaltyCard" EntityType="Self.LoyaltyCard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MOP" EntityType="Self.MOP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductReceipt" EntityType="Self.ProductReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shift" EntityType="Self.Shift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Station" EntityType="Self.Station" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type_Product" EntityType="Self.Type_Product" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CashierPerson" Association="Self.FK_CashierPerson">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Cashier" EntitySet="Cashier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CisternProduct" Association="Self.FK_CisternProduct">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Cistern" EntitySet="Cistern" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyLocation" Association="Self.FK_CompanyLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerLoyaltyCard" Association="Self.FK_CustomerLoyaltyCard">
+            <End Role="LoyaltyCard" EntitySet="LoyaltyCard" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerPerson" Association="Self.FK_CustomerPerson">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveyCistern" Association="Self.FK_DeliveyCistern">
+            <End Role="Cistern" EntitySet="Cistern" />
+            <End Role="FuelDelivery" EntitySet="FuelDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeveloperCompany" Association="Self.FK_DeveloperCompany">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Developer" EntitySet="Developer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DistibutorCompany" Association="Self.FK_DistibutorCompany">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Distributor" EntitySet="Distributor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOP" Association="Self.FK_MOP">
+            <End Role="MOP" EntitySet="MOP" />
+            <End Role="LoyaltyCard" EntitySet="LoyaltyCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonLocation" Association="Self.FK_PersonLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategorey" Association="Self.FK_ProductCategorey">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDeveloper" Association="Self.FK_ProductDeveloper">
+            <End Role="Developer" EntitySet="Developer" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDistributor" Association="Self.FK_ProductDistributor">
+            <End Role="Distributor" EntitySet="Distributor" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductPromotion" Association="Self.FK_ProductPromotion">
+            <End Role="Promotion" EntitySet="Promotion" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductReceipt" Association="Self.FK_ProductReceipt">
+            <End Role="Receipt" EntitySet="Receipt" />
+            <End Role="ProductReceipt" EntitySet="ProductReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductType" Association="Self.FK_ProductType">
+            <End Role="Type_Product" EntitySet="Type_Product" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiptProduct" Association="Self.FK_ReceiptProduct">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductReceipt" EntitySet="ProductReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiptShift" Association="Self.FK_ReceiptShift">
+            <End Role="Shift" EntitySet="Shift" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftCashier" Association="Self.FK_ShiftCashier">
+            <End Role="Cashier" EntitySet="Cashier" />
+            <End Role="Shift" EntitySet="Shift" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftStation" Association="Self.FK_ShiftStation">
+            <End Role="Station" EntitySet="Station" />
+            <End Role="Shift" EntitySet="Shift" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StationForecourt" Association="Self.FK_StationForecourt">
+            <End Role="Forecourt" EntitySet="Forecourt" />
+            <End Role="Station" EntitySet="Station" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StationLocation" Association="Self.FK_StationLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Station" EntitySet="Station" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Advertising">
+          <Key>
+            <PropertyRef Name="AdvertisingID" />
+          </Key>
+          <Property Name="AdvertisingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adv_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adv_Start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Adv_End" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Cashier">
+          <Key>
+            <PropertyRef Name="CashierID" />
+          </Key>
+          <Property Name="CashierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cashier_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cashier_login" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cashier_password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Person" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_CashierPerson" FromRole="Cashier" ToRole="Person" />
+          <NavigationProperty Name="Shifts" Relationship="Self.FK_ShiftCashier" FromRole="Cashier" ToRole="Shift" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cat_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cat_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_ProductCategorey" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Cistern">
+          <Key>
+            <PropertyRef Name="ID_Cistern" />
+          </Key>
+          <Property Name="ID_Cistern" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Product" Type="Int32" Nullable="false" />
+          <Property Name="MaxVolume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MinVolume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ActualVolume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_CisternProduct" FromRole="Cistern" ToRole="Product" />
+          <NavigationProperty Name="FuelDeliveries" Relationship="Self.FK_DeliveyCistern" FromRole="Cistern" ToRole="FuelDelivery" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Location" Type="Int32" Nullable="false" />
+          <Property Name="Company_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_CompanyLocation" FromRole="Company" ToRole="Location" />
+          <NavigationProperty Name="Developers" Relationship="Self.FK_DeveloperCompany" FromRole="Company" ToRole="Developer" />
+          <NavigationProperty Name="Distributors" Relationship="Self.FK_DistibutorCompany" FromRole="Company" ToRole="Distributor" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_LoyaltyCard" Type="Int32" Nullable="false" />
+          <Property Name="ID_Person" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LoyaltyCard" Relationship="Self.FK_CustomerLoyaltyCard" FromRole="Customer" ToRole="LoyaltyCard" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_CustomerPerson" FromRole="Customer" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Developer">
+          <Key>
+            <PropertyRef Name="DeveloperID" />
+          </Key>
+          <Property Name="DeveloperID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dev_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Company" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_DeveloperCompany" FromRole="Developer" ToRole="Company" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_ProductDeveloper" FromRole="Developer" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Distributor">
+          <Key>
+            <PropertyRef Name="DistributorID" />
+          </Key>
+          <Property Name="DistributorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dis_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Company" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_DistibutorCompany" FromRole="Distributor" ToRole="Company" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_ProductDistributor" FromRole="Distributor" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Forecourt">
+          <Key>
+            <PropertyRef Name="ForecourtID" />
+          </Key>
+          <Property Name="ForecourtID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NozzleAmount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Stations" Relationship="Self.FK_StationForecourt" FromRole="Forecourt" ToRole="Station" />
+        </EntityType>
+        <EntityType Name="FuelDelivery">
+          <Key>
+            <PropertyRef Name="ID_Delivery" />
+          </Key>
+          <Property Name="ID_Delivery" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Cistern" Type="Int32" Nullable="false" />
+          <Property Name="DataDelivery" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Cistern" Relationship="Self.FK_DeliveyCistern" FromRole="FuelDelivery" ToRole="Cistern" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Postal_Code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Build" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_CompanyLocation" FromRole="Location" ToRole="Company" />
+          <NavigationProperty Name="People" Relationship="Self.FK_PersonLocation" FromRole="Location" ToRole="Person" />
+          <NavigationProperty Name="Stations" Relationship="Self.FK_StationLocation" FromRole="Location" ToRole="Station" />
+        </EntityType>
+        <EntityType Name="LoyaltyCard">
+          <Key>
+            <PropertyRef Name="LoyaltyCardID" />
+          </Key>
+          <Property Name="LoyaltyCardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_MOP" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_CustomerLoyaltyCard" FromRole="LoyaltyCard" ToRole="Customer" />
+          <NavigationProperty Name="MOP" Relationship="Self.FK_MOP" FromRole="LoyaltyCard" ToRole="MOP" />
+        </EntityType>
+        <EntityType Name="MOP">
+          <Key>
+            <PropertyRef Name="MopID" />
+          </Key>
+          <Property Name="MopID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mop_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LoyaltyCards" Relationship="Self.FK_MOP" FromRole="MOP" ToRole="LoyaltyCard" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Person_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Person_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Person_Sex" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Person_Age" Type="Int32" Nullable="false" />
+          <Property Name="ID_Location" Type="Int32" Nullable="false" />
+          <Property Name="Person_Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cashiers" Relationship="Self.FK_CashierPerson" FromRole="Person" ToRole="Cashier" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_CustomerPerson" FromRole="Person" ToRole="Customer" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_PersonLocation" FromRole="Person" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pro_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pro_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Discount" Type="Int32" />
+          <Property Name="ID_Developer" Type="Int32" Nullable="false" />
+          <Property Name="ID_Distributor" Type="Int32" Nullable="false" />
+          <Property Name="ID_Category" Type="Int32" Nullable="false" />
+          <Property Name="ID_Type_Product" Type="Int32" Nullable="false" />
+          <Property Name="Pro_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Pro_LastUpdate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_ProductCategorey" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Cisterns" Relationship="Self.FK_CisternProduct" FromRole="Product" ToRole="Cistern" />
+          <NavigationProperty Name="Developer" Relationship="Self.FK_ProductDeveloper" FromRole="Product" ToRole="Developer" />
+          <NavigationProperty Name="Distributor" Relationship="Self.FK_ProductDistributor" FromRole="Product" ToRole="Distributor" />
+          <NavigationProperty Name="Promotion" Relationship="Self.FK_ProductPromotion" FromRole="Product" ToRole="Promotion" />
+          <NavigationProperty Name="Type_Product" Relationship="Self.FK_ProductType" FromRole="Product" ToRole="Type_Product" />
+          <NavigationProperty Name="ProductReceipts" Relationship="Self.FK_ReceiptProduct" FromRole="Product" ToRole="ProductReceipt" />
+        </EntityType>
+        <EntityType Name="ProductReceipt">
+          <Key>
+            <PropertyRef Name="ProductReceiptID" />
+          </Key>
+          <Property Name="ProductReceiptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Receipt" Type="Int32" Nullable="false" />
+          <Property Name="ID_Product" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ReceiptProduct" FromRole="ProductReceipt" ToRole="Product" />
+          <NavigationProperty Name="Receipt" Relationship="Self.FK_ProductReceipt" FromRole="ProductReceipt" ToRole="Receipt" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="PromotionID" />
+          </Key>
+          <Property Name="PromotionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Prom_Start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Prom_End" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Prom_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prom_Discount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_ProductPromotion" FromRole="Promotion" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="ReceiptID" />
+          </Key>
+          <Property Name="ReceiptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DealTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Receipt_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ID_Shift" Type="Int32" Nullable="false" />
+          <Property Name="Number_Product" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProductReceipts" Relationship="Self.FK_ProductReceipt" FromRole="Receipt" ToRole="ProductReceipt" />
+          <NavigationProperty Name="Shift" Relationship="Self.FK_ReceiptShift" FromRole="Receipt" ToRole="Shift" />
+          <Property Name="ID_Customer" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="ShiftID" />
+          </Key>
+          <Property Name="ShiftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Cashier" Type="Int32" Nullable="false" />
+          <Property Name="ID_Station" Type="Int32" Nullable="false" />
+          <Property Name="ShiftStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ShiftEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Cashier" Relationship="Self.FK_ShiftCashier" FromRole="Shift" ToRole="Cashier" />
+          <NavigationProperty Name="Receipts" Relationship="Self.FK_ReceiptShift" FromRole="Shift" ToRole="Receipt" />
+          <NavigationProperty Name="Station" Relationship="Self.FK_ShiftStation" FromRole="Shift" ToRole="Station" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="StationID" />
+          </Key>
+          <Property Name="StationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Station_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Location" Type="Int32" Nullable="false" />
+          <Property Name="ID_Forecourt" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Forecourt" Relationship="Self.FK_StationForecourt" FromRole="Station" ToRole="Forecourt" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_StationLocation" FromRole="Station" ToRole="Location" />
+          <NavigationProperty Name="Shifts" Relationship="Self.FK_ShiftStation" FromRole="Station" ToRole="Shift" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Type_Product">
+          <Key>
+            <PropertyRef Name="Type_ProductID" />
+          </Key>
+          <Property Name="Type_ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Units" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_ProductType" FromRole="Type_Product" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_CashierPerson">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Cashier" Type="Self.Cashier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="Cashier">
+              <PropertyRef Name="ID_Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftCashier">
+          <End Role="Cashier" Type="Self.Cashier" Multiplicity="1" />
+          <End Role="Shift" Type="Self.Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cashier">
+              <PropertyRef Name="CashierID" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="ID_Cashier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategorey">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CisternProduct">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Cistern" Type="Self.Cistern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Cistern">
+              <PropertyRef Name="ID_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveyCistern">
+          <End Role="Cistern" Type="Self.Cistern" Multiplicity="1" />
+          <End Role="FuelDelivery" Type="Self.FuelDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cistern">
+              <PropertyRef Name="ID_Cistern" />
+            </Principal>
+            <Dependent Role="FuelDelivery">
+              <PropertyRef Name="ID_Cistern" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyLocation">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeveloperCompany">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Developer" Type="Self.Developer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Developer">
+              <PropertyRef Name="ID_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DistibutorCompany">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Distributor" Type="Self.Distributor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Distributor">
+              <PropertyRef Name="ID_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerLoyaltyCard">
+          <End Role="LoyaltyCard" Type="Self.LoyaltyCard" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoyaltyCard">
+              <PropertyRef Name="LoyaltyCardID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="ID_LoyaltyCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerPerson">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="ID_Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDeveloper">
+          <End Role="Developer" Type="Self.Developer" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Developer">
+              <PropertyRef Name="DeveloperID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Developer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDistributor">
+          <End Role="Distributor" Type="Self.Distributor" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distributor">
+              <PropertyRef Name="DistributorID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Distributor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StationForecourt">
+          <End Role="Forecourt" Type="Self.Forecourt" Multiplicity="1" />
+          <End Role="Station" Type="Self.Station" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forecourt">
+              <PropertyRef Name="ForecourtID" />
+            </Principal>
+            <Dependent Role="Station">
+              <PropertyRef Name="ID_Forecourt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonLocation">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StationLocation">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="Station" Type="Self.Station" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Station">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOP">
+          <End Role="MOP" Type="Self.MOP" Multiplicity="1" />
+          <End Role="LoyaltyCard" Type="Self.LoyaltyCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOP">
+              <PropertyRef Name="MopID" />
+            </Principal>
+            <Dependent Role="LoyaltyCard">
+              <PropertyRef Name="ID_MOP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductPromotion">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promotion">
+              <PropertyRef Name="PromotionID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Discount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductType">
+          <End Role="Type_Product" Type="Self.Type_Product" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_Product">
+              <PropertyRef Name="Type_ProductID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Type_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceiptProduct">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductReceipt" Type="Self.ProductReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductReceipt">
+              <PropertyRef Name="ID_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductReceipt">
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="1" />
+          <End Role="ProductReceipt" Type="Self.ProductReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receipt">
+              <PropertyRef Name="ReceiptID" />
+            </Principal>
+            <Dependent Role="ProductReceipt">
+              <PropertyRef Name="ID_Receipt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceiptShift">
+          <End Role="Shift" Type="Self.Shift" Multiplicity="1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="ID_Shift" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftStation">
+          <End Role="Station" Type="Self.Station" Multiplicity="1" />
+          <End Role="Shift" Type="Self.Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="StationID" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="ID_Station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Gas_stationDb" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Advertisings" EntityType="Self.Advertising" />
+          <EntitySet Name="Cashiers" EntityType="Self.Cashier" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Cisterns" EntityType="Self.Cistern" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Developers" EntityType="Self.Developer" />
+          <EntitySet Name="Distributors" EntityType="Self.Distributor" />
+          <EntitySet Name="Forecourts" EntityType="Self.Forecourt" />
+          <EntitySet Name="FuelDeliveries" EntityType="Self.FuelDelivery" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="LoyaltyCards" EntityType="Self.LoyaltyCard" />
+          <EntitySet Name="MOPs" EntityType="Self.MOP" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductReceipts" EntityType="Self.ProductReceipt" />
+          <EntitySet Name="Promotions" EntityType="Self.Promotion" />
+          <EntitySet Name="Receipts" EntityType="Self.Receipt" />
+          <EntitySet Name="Shifts" EntityType="Self.Shift" />
+          <EntitySet Name="Stations" EntityType="Self.Station" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Type_Product" EntityType="Self.Type_Product" />
+          <AssociationSet Name="FK_CashierPerson" Association="Self.FK_CashierPerson">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Cashier" EntitySet="Cashiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftCashier" Association="Self.FK_ShiftCashier">
+            <End Role="Cashier" EntitySet="Cashiers" />
+            <End Role="Shift" EntitySet="Shifts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategorey" Association="Self.FK_ProductCategorey">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CisternProduct" Association="Self.FK_CisternProduct">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Cistern" EntitySet="Cisterns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveyCistern" Association="Self.FK_DeliveyCistern">
+            <End Role="Cistern" EntitySet="Cisterns" />
+            <End Role="FuelDelivery" EntitySet="FuelDeliveries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyLocation" Association="Self.FK_CompanyLocation">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeveloperCompany" Association="Self.FK_DeveloperCompany">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Developer" EntitySet="Developers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DistibutorCompany" Association="Self.FK_DistibutorCompany">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Distributor" EntitySet="Distributors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerLoyaltyCard" Association="Self.FK_CustomerLoyaltyCard">
+            <End Role="LoyaltyCard" EntitySet="LoyaltyCards" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerPerson" Association="Self.FK_CustomerPerson">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDeveloper" Association="Self.FK_ProductDeveloper">
+            <End Role="Developer" EntitySet="Developers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDistributor" Association="Self.FK_ProductDistributor">
+            <End Role="Distributor" EntitySet="Distributors" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StationForecourt" Association="Self.FK_StationForecourt">
+            <End Role="Forecourt" EntitySet="Forecourts" />
+            <End Role="Station" EntitySet="Stations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonLocation" Association="Self.FK_PersonLocation">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StationLocation" Association="Self.FK_StationLocation">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Station" EntitySet="Stations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOP" Association="Self.FK_MOP">
+            <End Role="MOP" EntitySet="MOPs" />
+            <End Role="LoyaltyCard" EntitySet="LoyaltyCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductPromotion" Association="Self.FK_ProductPromotion">
+            <End Role="Promotion" EntitySet="Promotions" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductType" Association="Self.FK_ProductType">
+            <End Role="Type_Product" EntitySet="Type_Product" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiptProduct" Association="Self.FK_ReceiptProduct">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductReceipt" EntitySet="ProductReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductReceipt" Association="Self.FK_ProductReceipt">
+            <End Role="Receipt" EntitySet="Receipts" />
+            <End Role="ProductReceipt" EntitySet="ProductReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiptShift" Association="Self.FK_ReceiptShift">
+            <End Role="Shift" EntitySet="Shifts" />
+            <End Role="Receipt" EntitySet="Receipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftStation" Association="Self.FK_ShiftStation">
+            <End Role="Station" EntitySet="Stations" />
+            <End Role="Shift" EntitySet="Shifts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Gas_stationDb">
+          <EntitySetMapping Name="Advertisings">
+            <EntityTypeMapping TypeName="Model.Advertising">
+              <MappingFragment StoreEntitySet="Advertising">
+                <ScalarProperty Name="AdvertisingID" ColumnName="AdvertisingID" />
+                <ScalarProperty Name="Adv_Name" ColumnName="Adv_Name" />
+                <ScalarProperty Name="Adv_Start" ColumnName="Adv_Start" />
+                <ScalarProperty Name="Adv_End" ColumnName="Adv_End" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cashiers">
+            <EntityTypeMapping TypeName="Model.Cashier">
+              <MappingFragment StoreEntitySet="Cashier">
+                <ScalarProperty Name="CashierID" ColumnName="CashierID" />
+                <ScalarProperty Name="Cashier_Status" ColumnName="Cashier_Status" />
+                <ScalarProperty Name="Cashier_login" ColumnName="Cashier_login" />
+                <ScalarProperty Name="Cashier_password" ColumnName="Cashier_password" />
+                <ScalarProperty Name="ID_Person" ColumnName="ID_Person" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Model.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+                <ScalarProperty Name="Cat_Description" ColumnName="Cat_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cisterns">
+            <EntityTypeMapping TypeName="Model.Cistern">
+              <MappingFragment StoreEntitySet="Cistern">
+                <ScalarProperty Name="ID_Cistern" ColumnName="ID_Cistern" />
+                <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
+                <ScalarProperty Name="MaxVolume" ColumnName="MaxVolume" />
+                <ScalarProperty Name="MinVolume" ColumnName="MinVolume" />
+                <ScalarProperty Name="ActualVolume" ColumnName="ActualVolume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="Model.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Company_Email" ColumnName="Company_Email" />
+                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+                <ScalarProperty Name="Company_Phone" ColumnName="Company_Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ID_LoyaltyCard" ColumnName="ID_LoyaltyCard" />
+                <ScalarProperty Name="ID_Person" ColumnName="ID_Person" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Developers">
+            <EntityTypeMapping TypeName="Model.Developer">
+              <MappingFragment StoreEntitySet="Developer">
+                <ScalarProperty Name="DeveloperID" ColumnName="DeveloperID" />
+                <ScalarProperty Name="Dev_Name" ColumnName="Dev_Name" />
+                <ScalarProperty Name="ID_Company" ColumnName="ID_Company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Distributors">
+            <EntityTypeMapping TypeName="Model.Distributor">
+              <MappingFragment StoreEntitySet="Distributor">
+                <ScalarProperty Name="DistributorID" ColumnName="DistributorID" />
+                <ScalarProperty Name="Dis_Name" ColumnName="Dis_Name" />
+                <ScalarProperty Name="ID_Company" ColumnName="ID_Company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forecourts">
+            <EntityTypeMapping TypeName="Model.Forecourt">
+              <MappingFragment StoreEntitySet="Forecourt">
+                <ScalarProperty Name="ForecourtID" ColumnName="ForecourtID" />
+                <ScalarProperty Name="NozzleAmount" ColumnName="NozzleAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FuelDeliveries">
+            <EntityTypeMapping TypeName="Model.FuelDelivery">
+              <MappingFragment StoreEntitySet="FuelDelivery">
+                <ScalarProperty Name="ID_Delivery" ColumnName="ID_Delivery" />
+                <ScalarProperty Name="ID_Cistern" ColumnName="ID_Cistern" />
+                <ScalarProperty Name="DataDelivery" ColumnName="DataDelivery" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="Model.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal_Code" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Build" ColumnName="Build" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoyaltyCards">
+            <EntityTypeMapping TypeName="Model.LoyaltyCard">
+              <MappingFragment StoreEntitySet="LoyaltyCard">
+                <ScalarProperty Name="LoyaltyCardID" ColumnName="LoyaltyCardID" />
+                <ScalarProperty Name="ID_MOP" ColumnName="ID_MOP" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MOPs">
+            <EntityTypeMapping TypeName="Model.MOP">
+              <MappingFragment StoreEntitySet="MOP">
+                <ScalarProperty Name="MopID" ColumnName="MopID" />
+                <ScalarProperty Name="Mop_Type" ColumnName="Mop_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="Model.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
+                <ScalarProperty Name="Person_Surname" ColumnName="Person_Surname" />
+                <ScalarProperty Name="Person_Sex" ColumnName="Person_Sex" />
+                <ScalarProperty Name="Person_Age" ColumnName="Person_Age" />
+                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+                <ScalarProperty Name="Person_Phone" ColumnName="Person_Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="Model.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Pro_Name" ColumnName="Pro_Name" />
+                <ScalarProperty Name="Pro_Description" ColumnName="Pro_Description" />
+                <ScalarProperty Name="ID_Discount" ColumnName="ID_Discount" />
+                <ScalarProperty Name="ID_Developer" ColumnName="ID_Developer" />
+                <ScalarProperty Name="ID_Distributor" ColumnName="ID_Distributor" />
+                <ScalarProperty Name="ID_Category" ColumnName="ID_Category" />
+                <ScalarProperty Name="ID_Type_Product" ColumnName="ID_Type_Product" />
+                <ScalarProperty Name="Pro_Price" ColumnName="Pro_Price" />
+                <ScalarProperty Name="Pro_LastUpdate" ColumnName="Pro_LastUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductReceipts">
+            <EntityTypeMapping TypeName="Model.ProductReceipt">
+              <MappingFragment StoreEntitySet="ProductReceipt">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductReceiptID" ColumnName="ProductReceiptID" />
+                <ScalarProperty Name="ID_Receipt" ColumnName="ID_Receipt" />
+                <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promotions">
+            <EntityTypeMapping TypeName="Model.Promotion">
+              <MappingFragment StoreEntitySet="Promotion">
+                <ScalarProperty Name="PromotionID" ColumnName="PromotionID" />
+                <ScalarProperty Name="Prom_Start" ColumnName="Prom_Start" />
+                <ScalarProperty Name="Prom_End" ColumnName="Prom_End" />
+                <ScalarProperty Name="Prom_Type" ColumnName="Prom_Type" />
+                <ScalarProperty Name="Prom_Discount" ColumnName="Prom_Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receipts">
+            <EntityTypeMapping TypeName="Model.Receipt">
+              <MappingFragment StoreEntitySet="Receipt">
+                <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
+                <ScalarProperty Name="ReceiptID" ColumnName="ReceiptID" />
+                <ScalarProperty Name="DealTime" ColumnName="DealTime" />
+                <ScalarProperty Name="Receipt_Price" ColumnName="Receipt_Price" />
+                <ScalarProperty Name="ID_Shift" ColumnName="ID_Shift" />
+                <ScalarProperty Name="Number_Product" ColumnName="Number_Product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shifts">
+            <EntityTypeMapping TypeName="Model.Shift">
+              <MappingFragment StoreEntitySet="Shift">
+                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+                <ScalarProperty Name="ID_Cashier" ColumnName="ID_Cashier" />
+                <ScalarProperty Name="ID_Station" ColumnName="ID_Station" />
+                <ScalarProperty Name="ShiftStart" ColumnName="ShiftStart" />
+                <ScalarProperty Name="ShiftEnd" ColumnName="ShiftEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stations">
+            <EntityTypeMapping TypeName="Model.Station">
+              <MappingFragment StoreEntitySet="Station">
+                <ScalarProperty Name="StationID" ColumnName="StationID" />
+                <ScalarProperty Name="Station_Name" ColumnName="Station_Name" />
+                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+                <ScalarProperty Name="ID_Forecourt" ColumnName="ID_Forecourt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type_Product">
+            <EntityTypeMapping TypeName="Model.Type_Product">
+              <MappingFragment StoreEntitySet="Type_Product">
+                <ScalarProperty Name="Type_ProductID" ColumnName="Type_ProductID" />
+                <ScalarProperty Name="Units" ColumnName="Units" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

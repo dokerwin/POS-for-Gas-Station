@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Gas_station.Receipt_managment.Views.ReceiptDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Gas_station.Receipt_managment.Views" xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+        <Grid  Width="952" Height="515" >
+            <Grid.Background>
+                <ImageBrush Opacity="0.9" ImageSource="list.jpg"/>
+            </Grid.Background>
+
+            <wpf:ChromiumWebBrowser Loaded="ChromiumWebBrowser_Loaded" x:Name="Browser"/>
+        <Button x:Name ="Close" Content="Back" HorizontalAlignment="Left" Margin="788,457,0,10" Width="154" FontWeight="Bold" RenderTransformOrigin="1.503,0.487" Style="{StaticResource btnGreen}" Click="Close_Click" />
+        </Grid>
+ 
+</UserControl>

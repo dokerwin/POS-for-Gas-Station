@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "XGK/4dajcj1TvCyw2WbxYbPwdcbh713jQdE8jTzncc6eiOhXFb615TFByAU5wlNb2OyEJCJgEFzKJaQut43AZw==",
+  "success": true,
+  "projectFilePath": "E:\\Gas station\\ForecourtSimulator\\ForecourtSimulator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nikna\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "C:\\Users\\nikna\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\nikna\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
