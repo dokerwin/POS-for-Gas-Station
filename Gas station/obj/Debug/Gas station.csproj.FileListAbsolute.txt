@@ -463,3 +463,280 @@ E:\Gas station\Gas station\obj\Debug\Gas station.csproj.CoreCompileInputs.cache
 E:\Gas station\Gas station\obj\Debug\Gas station.csproj.CopyComplete
 E:\Gas station\Gas station\obj\Debug\Gas station.exe
 E:\Gas station\Gas station\obj\Debug\Gas station.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.Core.Runtime.dll
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.Core.Runtime.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.Core.Runtime.xml
+C:\Projects\Gas station\Gas station\bin\Debug\grpc_csharp_ext.x86.dll
+C:\Projects\Gas station\Gas station\bin\Debug\grpc_csharp_ext.x64.dll
+C:\Projects\Gas station\Gas station\bin\Debug\libgrpc_csharp_ext.x64.so
+C:\Projects\Gas station\Gas station\bin\Debug\libgrpc_csharp_ext.x64.dylib
+C:\Projects\Gas station\Gas station\bin\Debug\chrome_100_percent.pak
+C:\Projects\Gas station\Gas station\bin\Debug\chrome_200_percent.pak
+C:\Projects\Gas station\Gas station\bin\Debug\chrome_elf.dll
+C:\Projects\Gas station\Gas station\bin\Debug\d3dcompiler_47.dll
+C:\Projects\Gas station\Gas station\bin\Debug\icudtl.dat
+C:\Projects\Gas station\Gas station\bin\Debug\libcef.dll
+C:\Projects\Gas station\Gas station\bin\Debug\libEGL.dll
+C:\Projects\Gas station\Gas station\bin\Debug\libGLESv2.dll
+C:\Projects\Gas station\Gas station\bin\Debug\LICENSE.txt
+C:\Projects\Gas station\Gas station\bin\Debug\locales\am.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\ar.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\bg.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\bn.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\ca.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\cs.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\da.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\de.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\el.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\en-GB.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\en-US.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\es-419.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\es.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\et.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\fa.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\fi.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\fil.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\fr.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\gu.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\he.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\hi.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\hr.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\hu.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\id.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\it.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\ja.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\kn.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\ko.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\lt.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\lv.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\ml.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\mr.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\ms.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\nb.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\nl.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\pl.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\pt-BR.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\pt-PT.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\ro.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\ru.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\sk.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\sl.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\sr.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\sv.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\sw.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\ta.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\te.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\th.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\tr.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\uk.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\vi.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\zh-CN.pak
+C:\Projects\Gas station\Gas station\bin\Debug\locales\zh-TW.pak
+C:\Projects\Gas station\Gas station\bin\Debug\README.txt
+C:\Projects\Gas station\Gas station\bin\Debug\resources.pak
+C:\Projects\Gas station\Gas station\bin\Debug\snapshot_blob.bin
+C:\Projects\Gas station\Gas station\bin\Debug\swiftshader\libEGL.dll
+C:\Projects\Gas station\Gas station\bin\Debug\swiftshader\libGLESv2.dll
+C:\Projects\Gas station\Gas station\bin\Debug\v8_context_snapshot.bin
+C:\Projects\Gas station\Gas station\bin\Debug\vk_swiftshader.dll
+C:\Projects\Gas station\Gas station\bin\Debug\vk_swiftshader_icd.json
+C:\Projects\Gas station\Gas station\bin\Debug\vulkan-1.dll
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.BrowserSubprocess.Core.dll
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.BrowserSubprocess.Core.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.BrowserSubprocess.exe
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.BrowserSubprocess.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\Gas station.exe.config
+C:\Projects\Gas station\Gas station\bin\Debug\Gas station.exe
+C:\Projects\Gas station\Gas station\bin\Debug\Gas station.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\Aspose.PDF.dll
+C:\Projects\Gas station\Gas station\bin\Debug\BouncyCastle.Crypto.dll
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.Core.dll
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.dll
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.Wpf.dll
+C:\Projects\Gas station\Gas station\bin\Debug\EntityFramework.dll
+C:\Projects\Gas station\Gas station\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\Gas station\Gas station\bin\Debug\FontAwesome5.dll
+C:\Projects\Gas station\Gas station\bin\Debug\FontAwesome5.Net.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Grpc.Core.Api.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Grpc.Core.dll
+C:\Projects\Gas station\Gas station\bin\Debug\HamburgerMenu.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.barcodes.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.commons.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.forms.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.io.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.kernel.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.layout.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.pdfa.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.sign.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.styledxmlparser.dll
+C:\Projects\Gas station\Gas station\bin\Debug\itext.svg.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Antiforgery.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Authorization.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Http.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Http.Extensions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.JsonPatch.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.Core.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Routing.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.WebUtilities.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.DotNet.InternalAbstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Localization.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Localization.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.ObjectPool.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.WebEncoders.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Net.Http.Headers.dll
+C:\Projects\Gas station\Gas station\bin\Debug\MotleyFlash.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\Gas station\Gas station\bin\Debug\Prism.dll
+C:\Projects\Gas station\Gas station\bin\Debug\System.Buffers.dll
+C:\Projects\Gas station\Gas station\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\Gas station\Gas station\bin\Debug\System.Memory.dll
+C:\Projects\Gas station\Gas station\bin\Debug\System.Numerics.Vectors.dll
+C:\Projects\Gas station\Gas station\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Projects\Gas station\Gas station\bin\Debug\System.Text.Encodings.Web.dll
+C:\Projects\Gas station\Gas station\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\System.ValueTuple.dll
+C:\Projects\Gas station\Gas station\bin\Debug\WpfPageTransitions.dll
+C:\Projects\Gas station\Gas station\bin\Debug\HamburgerMenu.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\HamburgerMenu.dll.config
+C:\Projects\Gas station\Gas station\bin\Debug\Aspose.PDF.xml
+C:\Projects\Gas station\Gas station\bin\Debug\BouncyCastle.Crypto.xml
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.xml
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.Core.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.Core.xml
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.Wpf.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\CefSharp.Wpf.xml
+C:\Projects\Gas station\Gas station\bin\Debug\EntityFramework.xml
+C:\Projects\Gas station\Gas station\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\Gas station\Gas station\bin\Debug\FontAwesome5.xml
+C:\Projects\Gas station\Gas station\bin\Debug\FontAwesome5.Net.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Grpc.Core.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\Grpc.Core.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Grpc.Core.Api.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\Grpc.Core.Api.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.barcodes.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.commons.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.forms.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.io.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.kernel.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.layout.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.pdfa.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.sign.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.styledxmlparser.xml
+C:\Projects\Gas station\Gas station\bin\Debug\itext.svg.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Antiforgery.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Authorization.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.DataProtection.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Http.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Http.Extensions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.JsonPatch.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.Core.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Routing.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.AspNetCore.WebUtilities.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Localization.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Localization.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.ObjectPool.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.PlatformAbstractions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Extensions.WebEncoders.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Microsoft.Net.Http.Headers.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\Gas station\Gas station\bin\Debug\Prism.pdb
+C:\Projects\Gas station\Gas station\bin\Debug\Prism.xml
+C:\Projects\Gas station\Gas station\bin\Debug\System.Buffers.xml
+C:\Projects\Gas station\Gas station\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Projects\Gas station\Gas station\bin\Debug\System.Memory.xml
+C:\Projects\Gas station\Gas station\bin\Debug\System.Numerics.Vectors.xml
+C:\Projects\Gas station\Gas station\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Projects\Gas station\Gas station\bin\Debug\System.Text.Encodings.Web.xml
+C:\Projects\Gas station\Gas station\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Projects\Gas station\Gas station\bin\Debug\System.ValueTuple.xml
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station.csproj.AssemblyReference.cache
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station.csproj.SuggestedBindingRedirects.cache
+C:\Projects\Gas station\Gas station\obj\Debug\Customer managment\Views\AddCustomer.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Customer managment\Views\Customers.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Forecourt managment\Views\ForecourtManagment.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Forecourt managment\Views\PrepayPomp.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Login managment\LoginPage.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\LoyaltyCard mamagment\Views\CardManagment.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\MainWindow.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\MOPS\MOP_managment.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Pos\Pos.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Product mangment\ProductsInfo.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Receipt managment\Views\ReceiptDetails.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Receipt managment\Views\ReceiptManagment.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Shift managment\ShiftManagment.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Util\MessageBox\MessageBox.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\App.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station_Content.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station_MarkupCompile.cache
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station_MarkupCompile.lref
+C:\Projects\Gas station\Gas station\obj\Debug\App.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Customer managment\Views\AddCustomer.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Customer managment\Views\Customers.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Forecourt managment\Views\ForecourtManagment.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Forecourt managment\Views\PrepayPomp.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Login managment\LoginPage.baml
+C:\Projects\Gas station\Gas station\obj\Debug\LoyaltyCard mamagment\Views\CardManagment.baml
+C:\Projects\Gas station\Gas station\obj\Debug\MainWindow.baml
+C:\Projects\Gas station\Gas station\obj\Debug\MOPS\MOP_managment.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Pos\Pos.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Product mangment\ProductsInfo.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Receipt managment\Views\ReceiptDetails.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Receipt managment\Views\ReceiptManagment.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Shift managment\ShiftManagment.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Util\MessageBox\MessageBox.baml
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station.g.resources
+C:\Projects\Gas station\Gas station\obj\Debug\Gas_station.Properties.Resources.resources
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station.csproj.GenerateResource.cache
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station.csproj.CoreCompileInputs.cache
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station.csproj.CopyComplete
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station.exe
+C:\Projects\Gas station\Gas station\obj\Debug\Gas station.pdb

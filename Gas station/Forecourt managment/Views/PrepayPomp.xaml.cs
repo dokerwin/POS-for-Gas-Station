@@ -27,6 +27,9 @@ namespace Gas_station.Forecourt_managment.Views
         public int amount { get; set; }
         ReceiptHanler receiptHanler;
         public List<Product> fuelList { get; set; }
+
+        private int forecourt { get; set; }
+        
         public PrepayPomp(Pos.Pos pos, int forecout, ReceiptHanler a)
         {
             receiptHanler = a;
@@ -49,10 +52,12 @@ namespace Gas_station.Forecourt_managment.Views
             {
                 return;
             }
-                receiptHanler.AddProduct(fuel);
+            receiptHanler.AddProduct(fuel);
             Pos.updateReceiptList();
+            ForecourtHandler.Prepay(forecourt, amount, fuel.product);
             UserControl parentWindow = (UserControl)this;
             parentWindow.Visibility = Visibility.Collapsed;
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Gas_station.Product_management;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +29,8 @@ namespace Gas_station.Product_mangment
             DataContext = new ProductsModel();
         }
 
-  
+
+
 
         //private void customersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{

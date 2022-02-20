@@ -14,9 +14,9 @@ namespace Gas_station
     
     public partial class FuelDelivery
     {
-        public int ID_Delivery { get; set; }
+        public int DeliveryID { get; set; }
         public int ID_Cistern { get; set; }
-        public System.DateTime DataDelivery { get; set; }
+        public System.DateTime Data_delivery { get; set; }
     
         public virtual Cistern Cistern { get; set; }
     }

@@ -34,7 +34,7 @@ namespace Gas_station.Receipt_managment.Views
 
         private void ChromiumWebBrowser_Loaded(object sender, RoutedEventArgs e)
         {
-            Browser.Address= "E:\\Gas station\\Gas station\\bin\\Debug\\invoice.pdf";
+            Browser.Address= "C:\\Projects\\Gas station\\Gas station\\bin\\Debug\\invoice.pdf";
         }
     }
 }

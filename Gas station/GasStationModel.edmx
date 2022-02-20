@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Gas_stationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Advertising">
           <Key>
             <PropertyRef Name="AdvertisingID" />
@@ -19,9 +19,14 @@
             <PropertyRef Name="CashierID" />
           </Key>
           <Property Name="CashierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Cashier_Status" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="Cashier_login" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="Cashier_password" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PESEL" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Salary" Type="money" Nullable="false" />
+          <Property Name="Hire_date" Type="date" Nullable="false" />
+          <Property Name="Fire_date" Type="date" />
+          <Property Name="ID_Type_of_employment" Type="int" Nullable="false" />
+          <Property Name="Work_email" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Work_phone" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="ID_Person" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
@@ -29,28 +34,54 @@
             <PropertyRef Name="CategoryID" />
           </Key>
           <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Cat_Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Cat_Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CatPromotion">
+          <Key>
+            <PropertyRef Name="PromotionID" />
+          </Key>
+          <Property Name="PromotionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Category" Type="int" />
+          <Property Name="Prom_start" Type="datetime" Nullable="false" />
+          <Property Name="Prom_end" Type="datetime" Nullable="false" />
+          <Property Name="Prom_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prom_discount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Cistern">
           <Key>
-            <PropertyRef Name="ID_Cistern" />
+            <PropertyRef Name="CisternID" />
           </Key>
-          <Property Name="ID_Cistern" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CisternID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Product" Type="int" Nullable="false" />
-          <Property Name="MaxVolume" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MinVolume" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="ActualVolume" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Max_volume" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Min_volume" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Actual_volume" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="CompanyID" />
           </Key>
           <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Company_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Company_Email" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="ID_Location" Type="int" Nullable="false" />
-          <Property Name="Company_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="KRS" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="REGON" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NIP" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adres_country" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_city" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_street" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_level" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adress_build" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_zip" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Tax" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
+          <Property Name="WWW" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegisterDate" Type="date" Nullable="false" />
+          <Property Name="Additional1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Additional2" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -59,13 +90,14 @@
           <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_LoyaltyCard" Type="int" Nullable="false" />
           <Property Name="ID_Person" Type="int" Nullable="false" />
+          <Property Name="Register_date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Developer">
           <Key>
             <PropertyRef Name="DeveloperID" />
           </Key>
           <Property Name="DeveloperID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Dev_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ID_Company" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Distributor">
@@ -73,7 +105,7 @@
             <PropertyRef Name="DistributorID" />
           </Key>
           <Property Name="DistributorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Dis_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ID_Company" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Forecourt">
@@ -85,22 +117,22 @@
         </EntityType>
         <EntityType Name="FuelDelivery">
           <Key>
-            <PropertyRef Name="ID_Delivery" />
+            <PropertyRef Name="DeliveryID" />
           </Key>
-          <Property Name="ID_Delivery" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeliveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Cistern" Type="int" Nullable="false" />
-          <Property Name="DataDelivery" Type="datetime" Nullable="false" />
+          <Property Name="Data_delivery" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="Location">
+        <EntityType Name="Lgn">
           <Key>
-            <PropertyRef Name="LocationID" />
+            <PropertyRef Name="LoginID" />
           </Key>
-          <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Postal_Code" Type="varchar" MaxLength="6" Nullable="false" />
-          <Property Name="Street" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Build" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="City" Type="nvarchar" MaxLength="255" />
-          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Cashier" Type="int" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Last_login" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Last_Password" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="LoyaltyCard">
           <Key>
@@ -108,7 +140,7 @@
           </Key>
           <Property Name="LoyaltyCardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_MOP" Type="int" Nullable="false" />
-          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Balance" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="MOP">
           <Key>
@@ -116,33 +148,62 @@
           </Key>
           <Property Name="MopID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Mop_Type" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
             <PropertyRef Name="PersonID" />
           </Key>
           <Property Name="PersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Person_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Person_Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Person_Sex" Type="nvarchar" MaxLength="6" Nullable="false" />
-          <Property Name="Person_Age" Type="int" Nullable="false" />
-          <Property Name="ID_Location" Type="int" Nullable="false" />
-          <Property Name="Person_Phone" Type="nvarchar" MaxLength="12" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDCard" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="12" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="12" />
+          <Property Name="Email1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adres_country" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_city" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_street" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_level" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adress_build" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_zip" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Tax" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProdPromotion">
+          <Key>
+            <PropertyRef Name="PromotionID" />
+          </Key>
+          <Property Name="PromotionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Product" Type="int" />
+          <Property Name="Prom_start" Type="datetime" Nullable="false" />
+          <Property Name="Prom_end" Type="datetime" Nullable="false" />
+          <Property Name="Prom_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prom_discount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
           <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Pro_Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Pro_Description" Type="nvarchar" MaxLength="100" />
-          <Property Name="ID_Discount" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Short_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description1" Type="nvarchar" MaxLength="100" />
           <Property Name="ID_Developer" Type="int" Nullable="false" />
           <Property Name="ID_Distributor" Type="int" Nullable="false" />
           <Property Name="ID_Category" Type="int" Nullable="false" />
           <Property Name="ID_Type_Product" Type="int" Nullable="false" />
-          <Property Name="Pro_Price" Type="money" Nullable="false" />
-          <Property Name="Pro_LastUpdate" Type="datetime" />
+          <Property Name="List_price" Type="money" Nullable="false" />
+          <Property Name="Stock_price" Type="money" Nullable="false" />
+          <Property Name="StandartPrice" Type="money" Nullable="false" />
+          <Property Name="SellStartDate" Type="datetime" />
+          <Property Name="SellEndDate" Type="datetime" />
+          <Property Name="LastUpdate" Type="datetime" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="Restriction_age" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductReceipt">
           <Key>
@@ -151,27 +212,20 @@
           <Property Name="ProductReceiptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Receipt" Type="int" Nullable="false" />
           <Property Name="ID_Product" Type="int" Nullable="false" />
-          <Property Name="Quantity" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Promotion">
-          <Key>
-            <PropertyRef Name="PromotionID" />
-          </Key>
-          <Property Name="PromotionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Prom_Start" Type="datetime" Nullable="false" />
-          <Property Name="Prom_End" Type="datetime" Nullable="false" />
-          <Property Name="Prom_Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Prom_Discount" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Receipt">
           <Key>
             <PropertyRef Name="ReceiptID" />
           </Key>
           <Property Name="ReceiptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DealTime" Type="datetime" Nullable="false" />
-          <Property Name="Receipt_Price" Type="money" Nullable="false" />
+          <Property Name="Deal_time" Type="datetime" Nullable="false" />
+          <Property Name="Sel_price" Type="money" Nullable="false" />
+          <Property Name="Discount_price" Type="money" Nullable="false" />
+          <Property Name="NIP" Type="varchar" MaxLength="1" />
+          <Property Name="VRN" Type="varchar" MaxLength="1" />
           <Property Name="ID_Shift" Type="int" Nullable="false" />
-          <Property Name="Number_Product" Type="int" Nullable="false" />
+          <Property Name="Qt_product" Type="float" Nullable="false" />
           <Property Name="ID_Customer" Type="int" />
         </EntityType>
         <EntityType Name="Shift">
@@ -181,8 +235,12 @@
           <Property Name="ShiftID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Cashier" Type="int" Nullable="false" />
           <Property Name="ID_Station" Type="int" Nullable="false" />
-          <Property Name="ShiftStart" Type="datetime" Nullable="false" />
-          <Property Name="ShiftEnd" Type="datetime" Nullable="false" />
+          <Property Name="Shift_start" Type="datetime" Nullable="false" />
+          <Property Name="Shift_end" Type="datetime" Nullable="false" />
+          <Property Name="Income" Type="money" />
+          <Property Name="Sales_volume" Type="money" />
+          <Property Name="Cash_amount_start" Type="money" />
+          <Property Name="Cash_amount_end" Type="money" />
         </EntityType>
         <EntityType Name="Station">
           <Key>
@@ -190,8 +248,18 @@
           </Key>
           <Property Name="StationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Station_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ID_Location" Type="int" Nullable="false" />
           <Property Name="ID_Forecourt" Type="int" Nullable="false" />
+          <Property Name="Email1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adres_country" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_city" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_street" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_build" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress_zip" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Tax" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
+          <Property Name="WWW" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -209,6 +277,15 @@
           </Key>
           <Property Name="Type_ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Units" Type="nvarchar" MaxLength="10" />
+          <Property Name="Type1" Type="nvarchar" MaxLength="1" />
+          <Property Name="Type2" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TypeOfEmployment">
+          <Key>
+            <PropertyRef Name="TypeOfEmploymentID" />
+          </Key>
+          <Property Name="TypeOfEmploymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_CashierPerson">
           <End Role="Person" Type="Self.Person" Multiplicity="1" />
@@ -222,6 +299,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CashierTypeEmployment">
+          <End Role="TypeOfEmployment" Type="Self.TypeOfEmployment" Multiplicity="1" />
+          <End Role="Cashier" Type="Self.Cashier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfEmployment">
+              <PropertyRef Name="TypeOfEmploymentID" />
+            </Principal>
+            <Dependent Role="Cashier">
+              <PropertyRef Name="ID_Type_of_employment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatPromotionProduct">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="CatPromotion" Type="Self.CatPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="CatPromotion">
+              <PropertyRef Name="ID_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CisternProduct">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="Cistern" Type="Self.Cistern" Multiplicity="*" />
@@ -231,18 +332,6 @@
             </Principal>
             <Dependent Role="Cistern">
               <PropertyRef Name="ID_Product" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CompanyLocation">
-          <End Role="Location" Type="Self.Location" Multiplicity="1" />
-          <End Role="Company" Type="Self.Company" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Company">
-              <PropertyRef Name="ID_Location" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -270,18 +359,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DeliveyCistern">
-          <End Role="Cistern" Type="Self.Cistern" Multiplicity="1" />
-          <End Role="FuelDelivery" Type="Self.FuelDelivery" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cistern">
-              <PropertyRef Name="ID_Cistern" />
-            </Principal>
-            <Dependent Role="FuelDelivery">
-              <PropertyRef Name="ID_Cistern" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_DeveloperCompany">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="Developer" Type="Self.Developer" Multiplicity="*" />
@@ -294,7 +371,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DistibutorCompany">
+        <Association Name="FK_DistributorCompany">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="Distributor" Type="Self.Distributor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -306,7 +383,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MOP">
+        <Association Name="FK_FuelDeliveryCistern">
+          <End Role="Cistern" Type="Self.Cistern" Multiplicity="1" />
+          <End Role="FuelDelivery" Type="Self.FuelDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cistern">
+              <PropertyRef Name="CisternID" />
+            </Principal>
+            <Dependent Role="FuelDelivery">
+              <PropertyRef Name="ID_Cistern" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginCashier">
+          <End Role="Cashier" Type="Self.Cashier" Multiplicity="1" />
+          <End Role="Lgn" Type="Self.Lgn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cashier">
+              <PropertyRef Name="CashierID" />
+            </Principal>
+            <Dependent Role="Lgn">
+              <PropertyRef Name="ID_Cashier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoyaltyCardMOP">
           <End Role="MOP" Type="Self.MOP" Multiplicity="1" />
           <End Role="LoyaltyCard" Type="Self.LoyaltyCard" Multiplicity="*" />
           <ReferentialConstraint>
@@ -318,19 +419,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PersonLocation">
-          <End Role="Location" Type="Self.Location" Multiplicity="1" />
-          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+        <Association Name="FK_ProdPromotionProduct">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProdPromotion" Type="Self.ProdPromotion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
             </Principal>
-            <Dependent Role="Person">
-              <PropertyRef Name="ID_Location" />
+            <Dependent Role="ProdPromotion">
+              <PropertyRef Name="ID_Product" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductCategorey">
+        <Association Name="FK_ProductCategory">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -362,23 +463,23 @@
               <PropertyRef Name="DistributorID" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="ID_Distributor" />
+              <PropertyRef Name="ID_Developer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductPromotion">
-          <End Role="Promotion" Type="Self.Promotion" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        <Association Name="FK_ProductReceiptProduct">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductReceipt" Type="Self.ProductReceipt" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Promotion">
-              <PropertyRef Name="PromotionID" />
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
             </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="ID_Discount" />
+            <Dependent Role="ProductReceipt">
+              <PropertyRef Name="ID_Product" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductReceipt">
+        <Association Name="FK_ProductReceiptReceipt">
           <End Role="Receipt" Type="Self.Receipt" Multiplicity="1" />
           <End Role="ProductReceipt" Type="Self.ProductReceipt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -390,7 +491,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductType">
+        <Association Name="FK_ProductTypeProduct">
           <End Role="Type_Product" Type="Self.Type_Product" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -402,15 +503,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ReceiptProduct">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="ProductReceipt" Type="Self.ProductReceipt" Multiplicity="*" />
+        <Association Name="FK_ReceiptCustomer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
             </Principal>
-            <Dependent Role="ProductReceipt">
-              <PropertyRef Name="ID_Product" />
+            <Dependent Role="Receipt">
+              <PropertyRef Name="ID_Customer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -427,11 +528,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ShiftCashier">
-          <End Role="Cashier" Type="Self.Cashier" Multiplicity="1" />
+          <End Role="Station" Type="Self.Station" Multiplicity="1" />
           <End Role="Shift" Type="Self.Shift" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cashier">
-              <PropertyRef Name="CashierID" />
+            <Principal Role="Station">
+              <PropertyRef Name="StationID" />
             </Principal>
             <Dependent Role="Shift">
               <PropertyRef Name="ID_Cashier" />
@@ -462,22 +563,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StationLocation">
-          <End Role="Location" Type="Self.Location" Multiplicity="1" />
-          <End Role="Station" Type="Self.Station" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Station">
-              <PropertyRef Name="ID_Location" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="ModelStoreContainer">
+        <EntityContainer Name="Gas_stationModelStoreContainer">
           <EntitySet Name="Advertising" EntityType="Self.Advertising" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cashier" EntityType="Self.Cashier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatPromotion" EntityType="Self.CatPromotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cistern" EntityType="Self.Cistern" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
@@ -485,29 +575,34 @@
           <EntitySet Name="Distributor" EntityType="Self.Distributor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Forecourt" EntityType="Self.Forecourt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FuelDelivery" EntityType="Self.FuelDelivery" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lgn" EntityType="Self.Lgn" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoyaltyCard" EntityType="Self.LoyaltyCard" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MOP" EntityType="Self.MOP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdPromotion" EntityType="Self.ProdPromotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductReceipt" EntityType="Self.ProductReceipt" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shift" EntityType="Self.Shift" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Station" EntityType="Self.Station" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type_Product" EntityType="Self.Type_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfEmployment" EntityType="Self.TypeOfEmployment" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CashierPerson" Association="Self.FK_CashierPerson">
             <End Role="Person" EntitySet="Person" />
             <End Role="Cashier" EntitySet="Cashier" />
           </AssociationSet>
+          <AssociationSet Name="FK_CashierTypeEmployment" Association="Self.FK_CashierTypeEmployment">
+            <End Role="TypeOfEmployment" EntitySet="TypeOfEmployment" />
+            <End Role="Cashier" EntitySet="Cashier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatPromotionProduct" Association="Self.FK_CatPromotionProduct">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="CatPromotion" EntitySet="CatPromotion" />
+          </AssociationSet>
           <AssociationSet Name="FK_CisternProduct" Association="Self.FK_CisternProduct">
             <End Role="Product" EntitySet="Product" />
             <End Role="Cistern" EntitySet="Cistern" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CompanyLocation" Association="Self.FK_CompanyLocation">
-            <End Role="Location" EntitySet="Location" />
-            <End Role="Company" EntitySet="Company" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerLoyaltyCard" Association="Self.FK_CustomerLoyaltyCard">
             <End Role="LoyaltyCard" EntitySet="LoyaltyCard" />
@@ -517,27 +612,31 @@
             <End Role="Person" EntitySet="Person" />
             <End Role="Customer" EntitySet="Customer" />
           </AssociationSet>
-          <AssociationSet Name="FK_DeliveyCistern" Association="Self.FK_DeliveyCistern">
-            <End Role="Cistern" EntitySet="Cistern" />
-            <End Role="FuelDelivery" EntitySet="FuelDelivery" />
-          </AssociationSet>
           <AssociationSet Name="FK_DeveloperCompany" Association="Self.FK_DeveloperCompany">
             <End Role="Company" EntitySet="Company" />
             <End Role="Developer" EntitySet="Developer" />
           </AssociationSet>
-          <AssociationSet Name="FK_DistibutorCompany" Association="Self.FK_DistibutorCompany">
+          <AssociationSet Name="FK_DistributorCompany" Association="Self.FK_DistributorCompany">
             <End Role="Company" EntitySet="Company" />
             <End Role="Distributor" EntitySet="Distributor" />
           </AssociationSet>
-          <AssociationSet Name="FK_MOP" Association="Self.FK_MOP">
+          <AssociationSet Name="FK_FuelDeliveryCistern" Association="Self.FK_FuelDeliveryCistern">
+            <End Role="Cistern" EntitySet="Cistern" />
+            <End Role="FuelDelivery" EntitySet="FuelDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginCashier" Association="Self.FK_LoginCashier">
+            <End Role="Cashier" EntitySet="Cashier" />
+            <End Role="Lgn" EntitySet="Lgn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoyaltyCardMOP" Association="Self.FK_LoyaltyCardMOP">
             <End Role="MOP" EntitySet="MOP" />
             <End Role="LoyaltyCard" EntitySet="LoyaltyCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_PersonLocation" Association="Self.FK_PersonLocation">
-            <End Role="Location" EntitySet="Location" />
-            <End Role="Person" EntitySet="Person" />
+          <AssociationSet Name="FK_ProdPromotionProduct" Association="Self.FK_ProdPromotionProduct">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProdPromotion" EntitySet="ProdPromotion" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductCategorey" Association="Self.FK_ProductCategorey">
+          <AssociationSet Name="FK_ProductCategory" Association="Self.FK_ProductCategory">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
@@ -549,28 +648,28 @@
             <End Role="Distributor" EntitySet="Distributor" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductPromotion" Association="Self.FK_ProductPromotion">
-            <End Role="Promotion" EntitySet="Promotion" />
+          <AssociationSet Name="FK_ProductReceiptProduct" Association="Self.FK_ProductReceiptProduct">
             <End Role="Product" EntitySet="Product" />
+            <End Role="ProductReceipt" EntitySet="ProductReceipt" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductReceipt" Association="Self.FK_ProductReceipt">
+          <AssociationSet Name="FK_ProductReceiptReceipt" Association="Self.FK_ProductReceiptReceipt">
             <End Role="Receipt" EntitySet="Receipt" />
             <End Role="ProductReceipt" EntitySet="ProductReceipt" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductType" Association="Self.FK_ProductType">
+          <AssociationSet Name="FK_ProductTypeProduct" Association="Self.FK_ProductTypeProduct">
             <End Role="Type_Product" EntitySet="Type_Product" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_ReceiptProduct" Association="Self.FK_ReceiptProduct">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductReceipt" EntitySet="ProductReceipt" />
+          <AssociationSet Name="FK_ReceiptCustomer" Association="Self.FK_ReceiptCustomer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Receipt" EntitySet="Receipt" />
           </AssociationSet>
           <AssociationSet Name="FK_ReceiptShift" Association="Self.FK_ReceiptShift">
             <End Role="Shift" EntitySet="Shift" />
             <End Role="Receipt" EntitySet="Receipt" />
           </AssociationSet>
           <AssociationSet Name="FK_ShiftCashier" Association="Self.FK_ShiftCashier">
-            <End Role="Cashier" EntitySet="Cashier" />
+            <End Role="Station" EntitySet="Station" />
             <End Role="Shift" EntitySet="Shift" />
           </AssociationSet>
           <AssociationSet Name="FK_ShiftStation" Association="Self.FK_ShiftStation">
@@ -581,15 +680,12 @@
             <End Role="Forecourt" EntitySet="Forecourt" />
             <End Role="Station" EntitySet="Station" />
           </AssociationSet>
-          <AssociationSet Name="FK_StationLocation" Association="Self.FK_StationLocation">
-            <End Role="Location" EntitySet="Location" />
-            <End Role="Station" EntitySet="Station" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Gas_stationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Advertising">
           <Key>
             <PropertyRef Name="AdvertisingID" />
@@ -604,46 +700,79 @@
             <PropertyRef Name="CashierID" />
           </Key>
           <Property Name="CashierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Cashier_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cashier_login" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cashier_password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PESEL" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Hire_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fire_date" Type="DateTime" Precision="0" />
+          <Property Name="ID_Type_of_employment" Type="Int32" Nullable="false" />
+          <Property Name="Work_email" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Work_phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID_Person" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_CashierPerson" FromRole="Cashier" ToRole="Person" />
-          <NavigationProperty Name="Shifts" Relationship="Self.FK_ShiftCashier" FromRole="Cashier" ToRole="Shift" />
+          <NavigationProperty Name="TypeOfEmployment" Relationship="Self.FK_CashierTypeEmployment" FromRole="Cashier" ToRole="TypeOfEmployment" />
+          <NavigationProperty Name="Lgns" Relationship="Self.FK_LoginCashier" FromRole="Cashier" ToRole="Lgn" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Cat_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Cat_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_ProductCategorey" FromRole="Category" ToRole="Product" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatPromotions" Relationship="Self.FK_CatPromotionProduct" FromRole="Category" ToRole="CatPromotion" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_ProductCategory" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="CatPromotion">
+          <Key>
+            <PropertyRef Name="PromotionID" />
+          </Key>
+          <Property Name="PromotionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Category" Type="Int32" />
+          <Property Name="Prom_start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Prom_end" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Prom_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prom_discount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_CatPromotionProduct" FromRole="CatPromotion" ToRole="Category" />
         </EntityType>
         <EntityType Name="Cistern">
           <Key>
-            <PropertyRef Name="ID_Cistern" />
+            <PropertyRef Name="CisternID" />
           </Key>
-          <Property Name="ID_Cistern" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CisternID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Product" Type="Int32" Nullable="false" />
-          <Property Name="MaxVolume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="MinVolume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="ActualVolume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Max_volume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Min_volume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Actual_volume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_CisternProduct" FromRole="Cistern" ToRole="Product" />
-          <NavigationProperty Name="FuelDeliveries" Relationship="Self.FK_DeliveyCistern" FromRole="Cistern" ToRole="FuelDelivery" />
+          <NavigationProperty Name="FuelDeliveries" Relationship="Self.FK_FuelDeliveryCistern" FromRole="Cistern" ToRole="FuelDelivery" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="CompanyID" />
           </Key>
           <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Company_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ID_Location" Type="Int32" Nullable="false" />
-          <Property Name="Company_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_CompanyLocation" FromRole="Company" ToRole="Location" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KRS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="REGON" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NIP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adres_country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_city" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_level" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adress_build" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_zip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tax" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WWW" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Additional1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Additional2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Developers" Relationship="Self.FK_DeveloperCompany" FromRole="Company" ToRole="Developer" />
-          <NavigationProperty Name="Distributors" Relationship="Self.FK_DistibutorCompany" FromRole="Company" ToRole="Distributor" />
+          <NavigationProperty Name="Distributors" Relationship="Self.FK_DistributorCompany" FromRole="Company" ToRole="Distributor" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -652,15 +781,17 @@
           <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_LoyaltyCard" Type="Int32" Nullable="false" />
           <Property Name="ID_Person" Type="Int32" Nullable="false" />
+          <Property Name="Register_date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="LoyaltyCard" Relationship="Self.FK_CustomerLoyaltyCard" FromRole="Customer" ToRole="LoyaltyCard" />
           <NavigationProperty Name="Person" Relationship="Self.FK_CustomerPerson" FromRole="Customer" ToRole="Person" />
+          <NavigationProperty Name="Receipts" Relationship="Self.FK_ReceiptCustomer" FromRole="Customer" ToRole="Receipt" />
         </EntityType>
         <EntityType Name="Developer">
           <Key>
             <PropertyRef Name="DeveloperID" />
           </Key>
           <Property Name="DeveloperID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Dev_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID_Company" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Company" Relationship="Self.FK_DeveloperCompany" FromRole="Developer" ToRole="Company" />
           <NavigationProperty Name="Products" Relationship="Self.FK_ProductDeveloper" FromRole="Developer" ToRole="Product" />
@@ -670,9 +801,9 @@
             <PropertyRef Name="DistributorID" />
           </Key>
           <Property Name="DistributorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Dis_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID_Company" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Company" Relationship="Self.FK_DistibutorCompany" FromRole="Distributor" ToRole="Company" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_DistributorCompany" FromRole="Distributor" ToRole="Company" />
           <NavigationProperty Name="Products" Relationship="Self.FK_ProductDistributor" FromRole="Distributor" ToRole="Product" />
         </EntityType>
         <EntityType Name="Forecourt">
@@ -685,26 +816,24 @@
         </EntityType>
         <EntityType Name="FuelDelivery">
           <Key>
-            <PropertyRef Name="ID_Delivery" />
+            <PropertyRef Name="DeliveryID" />
           </Key>
-          <Property Name="ID_Delivery" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Cistern" Type="Int32" Nullable="false" />
-          <Property Name="DataDelivery" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Cistern" Relationship="Self.FK_DeliveyCistern" FromRole="FuelDelivery" ToRole="Cistern" />
+          <Property Name="Data_delivery" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Cistern" Relationship="Self.FK_FuelDeliveryCistern" FromRole="FuelDelivery" ToRole="Cistern" />
         </EntityType>
-        <EntityType Name="Location">
+        <EntityType Name="Lgn">
           <Key>
-            <PropertyRef Name="LocationID" />
+            <PropertyRef Name="LoginID" />
           </Key>
-          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Postal_Code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Build" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Companies" Relationship="Self.FK_CompanyLocation" FromRole="Location" ToRole="Company" />
-          <NavigationProperty Name="People" Relationship="Self.FK_PersonLocation" FromRole="Location" ToRole="Person" />
-          <NavigationProperty Name="Stations" Relationship="Self.FK_StationLocation" FromRole="Location" ToRole="Station" />
+          <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Cashier" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Last_login" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Last_Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cashier" Relationship="Self.FK_LoginCashier" FromRole="Lgn" ToRole="Cashier" />
         </EntityType>
         <EntityType Name="LoyaltyCard">
           <Key>
@@ -712,9 +841,9 @@
           </Key>
           <Property Name="LoyaltyCardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_MOP" Type="Int32" Nullable="false" />
-          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="Customers" Relationship="Self.FK_CustomerLoyaltyCard" FromRole="LoyaltyCard" ToRole="Customer" />
-          <NavigationProperty Name="MOP" Relationship="Self.FK_MOP" FromRole="LoyaltyCard" ToRole="MOP" />
+          <NavigationProperty Name="MOP" Relationship="Self.FK_LoyaltyCardMOP" FromRole="LoyaltyCard" ToRole="MOP" />
         </EntityType>
         <EntityType Name="MOP">
           <Key>
@@ -722,44 +851,73 @@
           </Key>
           <Property Name="MopID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Mop_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="LoyaltyCards" Relationship="Self.FK_MOP" FromRole="MOP" ToRole="LoyaltyCard" />
+          <Property Name="Currency" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LoyaltyCards" Relationship="Self.FK_LoyaltyCardMOP" FromRole="MOP" ToRole="LoyaltyCard" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
             <PropertyRef Name="PersonID" />
           </Key>
           <Property Name="PersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Person_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Person_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Person_Sex" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Person_Age" Type="Int32" Nullable="false" />
-          <Property Name="ID_Location" Type="Int32" Nullable="false" />
-          <Property Name="Person_Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDCard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sex" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Phone1" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Email1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adres_country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_city" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_level" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adress_build" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_zip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tax" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Cashiers" Relationship="Self.FK_CashierPerson" FromRole="Person" ToRole="Cashier" />
           <NavigationProperty Name="Customers" Relationship="Self.FK_CustomerPerson" FromRole="Person" ToRole="Customer" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_PersonLocation" FromRole="Person" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="ProdPromotion">
+          <Key>
+            <PropertyRef Name="PromotionID" />
+          </Key>
+          <Property Name="PromotionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Product" Type="Int32" />
+          <Property Name="Prom_start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Prom_end" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Prom_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prom_discount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProdPromotionProduct" FromRole="ProdPromotion" ToRole="Product" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
           <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Pro_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Pro_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Discount" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Short_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ID_Developer" Type="Int32" Nullable="false" />
           <Property Name="ID_Distributor" Type="Int32" Nullable="false" />
           <Property Name="ID_Category" Type="Int32" Nullable="false" />
           <Property Name="ID_Type_Product" Type="Int32" Nullable="false" />
-          <Property Name="Pro_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Pro_LastUpdate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_ProductCategorey" FromRole="Product" ToRole="Category" />
+          <Property Name="List_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Stock_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="StandartPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SellStartDate" Type="DateTime" Precision="3" />
+          <Property Name="SellEndDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Restriction_age" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_ProductCategory" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Cisterns" Relationship="Self.FK_CisternProduct" FromRole="Product" ToRole="Cistern" />
           <NavigationProperty Name="Developer" Relationship="Self.FK_ProductDeveloper" FromRole="Product" ToRole="Developer" />
           <NavigationProperty Name="Distributor" Relationship="Self.FK_ProductDistributor" FromRole="Product" ToRole="Distributor" />
-          <NavigationProperty Name="Promotion" Relationship="Self.FK_ProductPromotion" FromRole="Product" ToRole="Promotion" />
-          <NavigationProperty Name="Type_Product" Relationship="Self.FK_ProductType" FromRole="Product" ToRole="Type_Product" />
-          <NavigationProperty Name="ProductReceipts" Relationship="Self.FK_ReceiptProduct" FromRole="Product" ToRole="ProductReceipt" />
+          <NavigationProperty Name="ProdPromotions" Relationship="Self.FK_ProdPromotionProduct" FromRole="Product" ToRole="ProdPromotion" />
+          <NavigationProperty Name="ProductReceipts" Relationship="Self.FK_ProductReceiptProduct" FromRole="Product" ToRole="ProductReceipt" />
+          <NavigationProperty Name="Type_Product" Relationship="Self.FK_ProductTypeProduct" FromRole="Product" ToRole="Type_Product" />
         </EntityType>
         <EntityType Name="ProductReceipt">
           <Key>
@@ -768,33 +926,26 @@
           <Property Name="ProductReceiptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Receipt" Type="Int32" Nullable="false" />
           <Property Name="ID_Product" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_ReceiptProduct" FromRole="ProductReceipt" ToRole="Product" />
-          <NavigationProperty Name="Receipt" Relationship="Self.FK_ProductReceipt" FromRole="ProductReceipt" ToRole="Receipt" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Promotion">
-          <Key>
-            <PropertyRef Name="PromotionID" />
-          </Key>
-          <Property Name="PromotionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Prom_Start" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Prom_End" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Prom_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Prom_Discount" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_ProductPromotion" FromRole="Promotion" ToRole="Product" />
+          <Property Name="Quantity" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductReceiptProduct" FromRole="ProductReceipt" ToRole="Product" />
+          <NavigationProperty Name="Receipt" Relationship="Self.FK_ProductReceiptReceipt" FromRole="ProductReceipt" ToRole="Receipt" />
         </EntityType>
         <EntityType Name="Receipt">
           <Key>
             <PropertyRef Name="ReceiptID" />
           </Key>
           <Property Name="ReceiptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DealTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Receipt_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Deal_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sel_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Discount_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="NIP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="VRN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ID_Shift" Type="Int32" Nullable="false" />
-          <Property Name="Number_Product" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ProductReceipts" Relationship="Self.FK_ProductReceipt" FromRole="Receipt" ToRole="ProductReceipt" />
-          <NavigationProperty Name="Shift" Relationship="Self.FK_ReceiptShift" FromRole="Receipt" ToRole="Shift" />
+          <Property Name="Qt_product" Type="Double" Nullable="false" />
           <Property Name="ID_Customer" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_ReceiptCustomer" FromRole="Receipt" ToRole="Customer" />
+          <NavigationProperty Name="ProductReceipts" Relationship="Self.FK_ProductReceiptReceipt" FromRole="Receipt" ToRole="ProductReceipt" />
+          <NavigationProperty Name="Shift" Relationship="Self.FK_ReceiptShift" FromRole="Receipt" ToRole="Shift" />
         </EntityType>
         <EntityType Name="Shift">
           <Key>
@@ -803,11 +954,15 @@
           <Property Name="ShiftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Cashier" Type="Int32" Nullable="false" />
           <Property Name="ID_Station" Type="Int32" Nullable="false" />
-          <Property Name="ShiftStart" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ShiftEnd" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Cashier" Relationship="Self.FK_ShiftCashier" FromRole="Shift" ToRole="Cashier" />
+          <Property Name="Shift_start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Shift_end" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Income" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Sales_volume" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Cash_amount_start" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Cash_amount_end" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Receipts" Relationship="Self.FK_ReceiptShift" FromRole="Shift" ToRole="Receipt" />
-          <NavigationProperty Name="Station" Relationship="Self.FK_ShiftStation" FromRole="Shift" ToRole="Station" />
+          <NavigationProperty Name="Station" Relationship="Self.FK_ShiftCashier" FromRole="Shift" ToRole="Station" />
+          <NavigationProperty Name="Station1" Relationship="Self.FK_ShiftStation" FromRole="Shift" ToRole="Station" />
         </EntityType>
         <EntityType Name="Station">
           <Key>
@@ -815,11 +970,21 @@
           </Key>
           <Property Name="StationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Station_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ID_Location" Type="Int32" Nullable="false" />
           <Property Name="ID_Forecourt" Type="Int32" Nullable="false" />
+          <Property Name="Email1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adres_country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_city" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_build" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress_zip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tax" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WWW" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Forecourt" Relationship="Self.FK_StationForecourt" FromRole="Station" ToRole="Forecourt" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_StationLocation" FromRole="Station" ToRole="Location" />
-          <NavigationProperty Name="Shifts" Relationship="Self.FK_ShiftStation" FromRole="Station" ToRole="Shift" />
+          <NavigationProperty Name="Shifts" Relationship="Self.FK_ShiftCashier" FromRole="Station" ToRole="Shift" />
+          <NavigationProperty Name="Shifts1" Relationship="Self.FK_ShiftStation" FromRole="Station" ToRole="Shift" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -837,7 +1002,17 @@
           </Key>
           <Property Name="Type_ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Units" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_ProductType" FromRole="Type_Product" ToRole="Product" />
+          <Property Name="Type1" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Type2" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_ProductTypeProduct" FromRole="Type_Product" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="TypeOfEmployment">
+          <Key>
+            <PropertyRef Name="TypeOfEmploymentID" />
+          </Key>
+          <Property Name="TypeOfEmploymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cashiers" Relationship="Self.FK_CashierTypeEmployment" FromRole="TypeOfEmployment" ToRole="Cashier" />
         </EntityType>
         <Association Name="FK_CashierPerson">
           <End Role="Person" Type="Self.Person" Multiplicity="1" />
@@ -851,19 +1026,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ShiftCashier">
+        <Association Name="FK_CashierTypeEmployment">
+          <End Role="TypeOfEmployment" Type="Self.TypeOfEmployment" Multiplicity="1" />
+          <End Role="Cashier" Type="Self.Cashier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfEmployment">
+              <PropertyRef Name="TypeOfEmploymentID" />
+            </Principal>
+            <Dependent Role="Cashier">
+              <PropertyRef Name="ID_Type_of_employment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginCashier">
           <End Role="Cashier" Type="Self.Cashier" Multiplicity="1" />
-          <End Role="Shift" Type="Self.Shift" Multiplicity="*" />
+          <End Role="Lgn" Type="Self.Lgn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cashier">
               <PropertyRef Name="CashierID" />
             </Principal>
-            <Dependent Role="Shift">
+            <Dependent Role="Lgn">
               <PropertyRef Name="ID_Cashier" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductCategorey">
+        <Association Name="FK_CatPromotionProduct">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="CatPromotion" Type="Self.CatPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="CatPromotion">
+              <PropertyRef Name="ID_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -887,27 +1086,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DeliveyCistern">
+        <Association Name="FK_FuelDeliveryCistern">
           <End Role="Cistern" Type="Self.Cistern" Multiplicity="1" />
           <End Role="FuelDelivery" Type="Self.FuelDelivery" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cistern">
-              <PropertyRef Name="ID_Cistern" />
+              <PropertyRef Name="CisternID" />
             </Principal>
             <Dependent Role="FuelDelivery">
               <PropertyRef Name="ID_Cistern" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CompanyLocation">
-          <End Role="Location" Type="Self.Location" Multiplicity="1" />
-          <End Role="Company" Type="Self.Company" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Company">
-              <PropertyRef Name="ID_Location" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -923,7 +1110,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DistibutorCompany">
+        <Association Name="FK_DistributorCompany">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="Distributor" Type="Self.Distributor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -959,6 +1146,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ReceiptCustomer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="ID_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProductDeveloper">
           <End Role="Developer" Type="Self.Developer" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -979,7 +1178,7 @@
               <PropertyRef Name="DistributorID" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="ID_Distributor" />
+              <PropertyRef Name="ID_Developer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -995,31 +1194,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PersonLocation">
-          <End Role="Location" Type="Self.Location" Multiplicity="1" />
-          <End Role="Person" Type="Self.Person" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Person">
-              <PropertyRef Name="ID_Location" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StationLocation">
-          <End Role="Location" Type="Self.Location" Multiplicity="1" />
-          <End Role="Station" Type="Self.Station" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="Station">
-              <PropertyRef Name="ID_Location" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MOP">
+        <Association Name="FK_LoyaltyCardMOP">
           <End Role="MOP" Type="Self.MOP" Multiplicity="1" />
           <End Role="LoyaltyCard" Type="Self.LoyaltyCard" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1031,31 +1206,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductPromotion">
-          <End Role="Promotion" Type="Self.Promotion" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        <Association Name="FK_ProdPromotionProduct">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProdPromotion" Type="Self.ProdPromotion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Promotion">
-              <PropertyRef Name="PromotionID" />
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
             </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="ID_Discount" />
+            <Dependent Role="ProdPromotion">
+              <PropertyRef Name="ID_Product" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductType">
-          <End Role="Type_Product" Type="Self.Type_Product" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Type_Product">
-              <PropertyRef Name="Type_ProductID" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="ID_Type_Product" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ReceiptProduct">
+        <Association Name="FK_ProductReceiptProduct">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ProductReceipt" Type="Self.ProductReceipt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1067,7 +1230,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductReceipt">
+        <Association Name="FK_ProductTypeProduct">
+          <End Role="Type_Product" Type="Self.Type_Product" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_Product">
+              <PropertyRef Name="Type_ProductID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_Type_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductReceiptReceipt">
           <End Role="Receipt" Type="Self.Receipt" Multiplicity="1" />
           <End Role="ProductReceipt" Type="Self.ProductReceipt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1088,6 +1263,18 @@
             </Principal>
             <Dependent Role="Receipt">
               <PropertyRef Name="ID_Shift" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftCashier">
+          <End Role="Station" Type="Self.Station" Multiplicity="1" />
+          <End Role="Shift" Type="Self.Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="StationID" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="ID_Cashier" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1107,6 +1294,7 @@
           <EntitySet Name="Advertisings" EntityType="Self.Advertising" />
           <EntitySet Name="Cashiers" EntityType="Self.Cashier" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="CatPromotions" EntityType="Self.CatPromotion" />
           <EntitySet Name="Cisterns" EntityType="Self.Cistern" />
           <EntitySet Name="Companies" EntityType="Self.Company" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
@@ -1114,27 +1302,36 @@
           <EntitySet Name="Distributors" EntityType="Self.Distributor" />
           <EntitySet Name="Forecourts" EntityType="Self.Forecourt" />
           <EntitySet Name="FuelDeliveries" EntityType="Self.FuelDelivery" />
-          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Lgns" EntityType="Self.Lgn" />
           <EntitySet Name="LoyaltyCards" EntityType="Self.LoyaltyCard" />
           <EntitySet Name="MOPs" EntityType="Self.MOP" />
           <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="ProdPromotions" EntityType="Self.ProdPromotion" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="ProductReceipts" EntityType="Self.ProductReceipt" />
-          <EntitySet Name="Promotions" EntityType="Self.Promotion" />
           <EntitySet Name="Receipts" EntityType="Self.Receipt" />
           <EntitySet Name="Shifts" EntityType="Self.Shift" />
           <EntitySet Name="Stations" EntityType="Self.Station" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Type_Product" EntityType="Self.Type_Product" />
+          <EntitySet Name="TypeOfEmployments" EntityType="Self.TypeOfEmployment" />
           <AssociationSet Name="FK_CashierPerson" Association="Self.FK_CashierPerson">
             <End Role="Person" EntitySet="People" />
             <End Role="Cashier" EntitySet="Cashiers" />
           </AssociationSet>
-          <AssociationSet Name="FK_ShiftCashier" Association="Self.FK_ShiftCashier">
+          <AssociationSet Name="FK_CashierTypeEmployment" Association="Self.FK_CashierTypeEmployment">
+            <End Role="TypeOfEmployment" EntitySet="TypeOfEmployments" />
             <End Role="Cashier" EntitySet="Cashiers" />
-            <End Role="Shift" EntitySet="Shifts" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductCategorey" Association="Self.FK_ProductCategorey">
+          <AssociationSet Name="FK_LoginCashier" Association="Self.FK_LoginCashier">
+            <End Role="Cashier" EntitySet="Cashiers" />
+            <End Role="Lgn" EntitySet="Lgns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatPromotionProduct" Association="Self.FK_CatPromotionProduct">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="CatPromotion" EntitySet="CatPromotions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory" Association="Self.FK_ProductCategory">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
@@ -1142,19 +1339,15 @@
             <End Role="Product" EntitySet="Products" />
             <End Role="Cistern" EntitySet="Cisterns" />
           </AssociationSet>
-          <AssociationSet Name="FK_DeliveyCistern" Association="Self.FK_DeliveyCistern">
+          <AssociationSet Name="FK_FuelDeliveryCistern" Association="Self.FK_FuelDeliveryCistern">
             <End Role="Cistern" EntitySet="Cisterns" />
             <End Role="FuelDelivery" EntitySet="FuelDeliveries" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CompanyLocation" Association="Self.FK_CompanyLocation">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="Company" EntitySet="Companies" />
           </AssociationSet>
           <AssociationSet Name="FK_DeveloperCompany" Association="Self.FK_DeveloperCompany">
             <End Role="Company" EntitySet="Companies" />
             <End Role="Developer" EntitySet="Developers" />
           </AssociationSet>
-          <AssociationSet Name="FK_DistibutorCompany" Association="Self.FK_DistibutorCompany">
+          <AssociationSet Name="FK_DistributorCompany" Association="Self.FK_DistributorCompany">
             <End Role="Company" EntitySet="Companies" />
             <End Role="Distributor" EntitySet="Distributors" />
           </AssociationSet>
@@ -1165,6 +1358,10 @@
           <AssociationSet Name="FK_CustomerPerson" Association="Self.FK_CustomerPerson">
             <End Role="Person" EntitySet="People" />
             <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiptCustomer" Association="Self.FK_ReceiptCustomer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Receipt" EntitySet="Receipts" />
           </AssociationSet>
           <AssociationSet Name="FK_ProductDeveloper" Association="Self.FK_ProductDeveloper">
             <End Role="Developer" EntitySet="Developers" />
@@ -1178,37 +1375,33 @@
             <End Role="Forecourt" EntitySet="Forecourts" />
             <End Role="Station" EntitySet="Stations" />
           </AssociationSet>
-          <AssociationSet Name="FK_PersonLocation" Association="Self.FK_PersonLocation">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="Person" EntitySet="People" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StationLocation" Association="Self.FK_StationLocation">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="Station" EntitySet="Stations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MOP" Association="Self.FK_MOP">
+          <AssociationSet Name="FK_LoyaltyCardMOP" Association="Self.FK_LoyaltyCardMOP">
             <End Role="MOP" EntitySet="MOPs" />
             <End Role="LoyaltyCard" EntitySet="LoyaltyCards" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductPromotion" Association="Self.FK_ProductPromotion">
-            <End Role="Promotion" EntitySet="Promotions" />
+          <AssociationSet Name="FK_ProdPromotionProduct" Association="Self.FK_ProdPromotionProduct">
             <End Role="Product" EntitySet="Products" />
+            <End Role="ProdPromotion" EntitySet="ProdPromotions" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductType" Association="Self.FK_ProductType">
-            <End Role="Type_Product" EntitySet="Type_Product" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReceiptProduct" Association="Self.FK_ReceiptProduct">
+          <AssociationSet Name="FK_ProductReceiptProduct" Association="Self.FK_ProductReceiptProduct">
             <End Role="Product" EntitySet="Products" />
             <End Role="ProductReceipt" EntitySet="ProductReceipts" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductReceipt" Association="Self.FK_ProductReceipt">
+          <AssociationSet Name="FK_ProductTypeProduct" Association="Self.FK_ProductTypeProduct">
+            <End Role="Type_Product" EntitySet="Type_Product" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductReceiptReceipt" Association="Self.FK_ProductReceiptReceipt">
             <End Role="Receipt" EntitySet="Receipts" />
             <End Role="ProductReceipt" EntitySet="ProductReceipts" />
           </AssociationSet>
           <AssociationSet Name="FK_ReceiptShift" Association="Self.FK_ReceiptShift">
             <End Role="Shift" EntitySet="Shifts" />
             <End Role="Receipt" EntitySet="Receipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftCashier" Association="Self.FK_ShiftCashier">
+            <End Role="Station" EntitySet="Stations" />
+            <End Role="Shift" EntitySet="Shifts" />
           </AssociationSet>
           <AssociationSet Name="FK_ShiftStation" Association="Self.FK_ShiftStation">
             <End Role="Station" EntitySet="Stations" />
@@ -1220,9 +1413,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Gas_stationDb">
+        <EntityContainerMapping StorageEntityContainer="Gas_stationModelStoreContainer" CdmEntityContainer="Gas_stationDb">
           <EntitySetMapping Name="Advertisings">
-            <EntityTypeMapping TypeName="Model.Advertising">
+            <EntityTypeMapping TypeName="Gas_stationModel.Advertising">
               <MappingFragment StoreEntitySet="Advertising">
                 <ScalarProperty Name="AdvertisingID" ColumnName="AdvertisingID" />
                 <ScalarProperty Name="Adv_Name" ColumnName="Adv_Name" />
@@ -1232,76 +1425,109 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cashiers">
-            <EntityTypeMapping TypeName="Model.Cashier">
+            <EntityTypeMapping TypeName="Gas_stationModel.Cashier">
               <MappingFragment StoreEntitySet="Cashier">
                 <ScalarProperty Name="CashierID" ColumnName="CashierID" />
-                <ScalarProperty Name="Cashier_Status" ColumnName="Cashier_Status" />
-                <ScalarProperty Name="Cashier_login" ColumnName="Cashier_login" />
-                <ScalarProperty Name="Cashier_password" ColumnName="Cashier_password" />
+                <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Hire_date" ColumnName="Hire_date" />
+                <ScalarProperty Name="Fire_date" ColumnName="Fire_date" />
+                <ScalarProperty Name="ID_Type_of_employment" ColumnName="ID_Type_of_employment" />
+                <ScalarProperty Name="Work_email" ColumnName="Work_email" />
+                <ScalarProperty Name="Work_phone" ColumnName="Work_phone" />
                 <ScalarProperty Name="ID_Person" ColumnName="ID_Person" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="Model.Category">
+            <EntityTypeMapping TypeName="Gas_stationModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
-                <ScalarProperty Name="Cat_Description" ColumnName="Cat_Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatPromotions">
+            <EntityTypeMapping TypeName="Gas_stationModel.CatPromotion">
+              <MappingFragment StoreEntitySet="CatPromotion">
+                <ScalarProperty Name="PromotionID" ColumnName="PromotionID" />
+                <ScalarProperty Name="ID_Category" ColumnName="ID_Category" />
+                <ScalarProperty Name="Prom_start" ColumnName="Prom_start" />
+                <ScalarProperty Name="Prom_end" ColumnName="Prom_end" />
+                <ScalarProperty Name="Prom_type" ColumnName="Prom_type" />
+                <ScalarProperty Name="Prom_discount" ColumnName="Prom_discount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cisterns">
-            <EntityTypeMapping TypeName="Model.Cistern">
+            <EntityTypeMapping TypeName="Gas_stationModel.Cistern">
               <MappingFragment StoreEntitySet="Cistern">
-                <ScalarProperty Name="ID_Cistern" ColumnName="ID_Cistern" />
+                <ScalarProperty Name="CisternID" ColumnName="CisternID" />
                 <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
-                <ScalarProperty Name="MaxVolume" ColumnName="MaxVolume" />
-                <ScalarProperty Name="MinVolume" ColumnName="MinVolume" />
-                <ScalarProperty Name="ActualVolume" ColumnName="ActualVolume" />
+                <ScalarProperty Name="Max_volume" ColumnName="Max_volume" />
+                <ScalarProperty Name="Min_volume" ColumnName="Min_volume" />
+                <ScalarProperty Name="Actual_volume" ColumnName="Actual_volume" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Companies">
-            <EntityTypeMapping TypeName="Model.Company">
+            <EntityTypeMapping TypeName="Gas_stationModel.Company">
               <MappingFragment StoreEntitySet="Company">
                 <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
-                <ScalarProperty Name="Company_Email" ColumnName="Company_Email" />
-                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
-                <ScalarProperty Name="Company_Phone" ColumnName="Company_Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="KRS" ColumnName="KRS" />
+                <ScalarProperty Name="REGON" ColumnName="REGON" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="Email1" ColumnName="Email1" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Adres_country" ColumnName="Adres_country" />
+                <ScalarProperty Name="Adress_city" ColumnName="Adress_city" />
+                <ScalarProperty Name="Adress_street" ColumnName="Adress_street" />
+                <ScalarProperty Name="Adress_level" ColumnName="Adress_level" />
+                <ScalarProperty Name="Adress_build" ColumnName="Adress_build" />
+                <ScalarProperty Name="Adress_zip" ColumnName="Adress_zip" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="WWW" ColumnName="WWW" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Additional1" ColumnName="Additional1" />
+                <ScalarProperty Name="Additional2" ColumnName="Additional2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="Model.Customer">
+            <EntityTypeMapping TypeName="Gas_stationModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="ID_LoyaltyCard" ColumnName="ID_LoyaltyCard" />
                 <ScalarProperty Name="ID_Person" ColumnName="ID_Person" />
+                <ScalarProperty Name="Register_date" ColumnName="Register_date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Developers">
-            <EntityTypeMapping TypeName="Model.Developer">
+            <EntityTypeMapping TypeName="Gas_stationModel.Developer">
               <MappingFragment StoreEntitySet="Developer">
                 <ScalarProperty Name="DeveloperID" ColumnName="DeveloperID" />
-                <ScalarProperty Name="Dev_Name" ColumnName="Dev_Name" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID_Company" ColumnName="ID_Company" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Distributors">
-            <EntityTypeMapping TypeName="Model.Distributor">
+            <EntityTypeMapping TypeName="Gas_stationModel.Distributor">
               <MappingFragment StoreEntitySet="Distributor">
                 <ScalarProperty Name="DistributorID" ColumnName="DistributorID" />
-                <ScalarProperty Name="Dis_Name" ColumnName="Dis_Name" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID_Company" ColumnName="ID_Company" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Forecourts">
-            <EntityTypeMapping TypeName="Model.Forecourt">
+            <EntityTypeMapping TypeName="Gas_stationModel.Forecourt">
               <MappingFragment StoreEntitySet="Forecourt">
                 <ScalarProperty Name="ForecourtID" ColumnName="ForecourtID" />
                 <ScalarProperty Name="NozzleAmount" ColumnName="NozzleAmount" />
@@ -1309,128 +1535,164 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FuelDeliveries">
-            <EntityTypeMapping TypeName="Model.FuelDelivery">
+            <EntityTypeMapping TypeName="Gas_stationModel.FuelDelivery">
               <MappingFragment StoreEntitySet="FuelDelivery">
-                <ScalarProperty Name="ID_Delivery" ColumnName="ID_Delivery" />
+                <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
                 <ScalarProperty Name="ID_Cistern" ColumnName="ID_Cistern" />
-                <ScalarProperty Name="DataDelivery" ColumnName="DataDelivery" />
+                <ScalarProperty Name="Data_delivery" ColumnName="Data_delivery" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Locations">
-            <EntityTypeMapping TypeName="Model.Location">
-              <MappingFragment StoreEntitySet="Location">
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="Postal_Code" ColumnName="Postal_Code" />
-                <ScalarProperty Name="Street" ColumnName="Street" />
-                <ScalarProperty Name="Build" ColumnName="Build" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
+          <EntitySetMapping Name="Lgns">
+            <EntityTypeMapping TypeName="Gas_stationModel.Lgn">
+              <MappingFragment StoreEntitySet="Lgn">
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="ID_Cashier" ColumnName="ID_Cashier" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Last_login" ColumnName="Last_login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Last_Password" ColumnName="Last_Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoyaltyCards">
-            <EntityTypeMapping TypeName="Model.LoyaltyCard">
+            <EntityTypeMapping TypeName="Gas_stationModel.LoyaltyCard">
               <MappingFragment StoreEntitySet="LoyaltyCard">
                 <ScalarProperty Name="LoyaltyCardID" ColumnName="LoyaltyCardID" />
                 <ScalarProperty Name="ID_MOP" ColumnName="ID_MOP" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MOPs">
-            <EntityTypeMapping TypeName="Model.MOP">
+            <EntityTypeMapping TypeName="Gas_stationModel.MOP">
               <MappingFragment StoreEntitySet="MOP">
                 <ScalarProperty Name="MopID" ColumnName="MopID" />
                 <ScalarProperty Name="Mop_Type" ColumnName="Mop_Type" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="People">
-            <EntityTypeMapping TypeName="Model.Person">
+            <EntityTypeMapping TypeName="Gas_stationModel.Person">
               <MappingFragment StoreEntitySet="Person">
                 <ScalarProperty Name="PersonID" ColumnName="PersonID" />
-                <ScalarProperty Name="Person_Name" ColumnName="Person_Name" />
-                <ScalarProperty Name="Person_Surname" ColumnName="Person_Surname" />
-                <ScalarProperty Name="Person_Sex" ColumnName="Person_Sex" />
-                <ScalarProperty Name="Person_Age" ColumnName="Person_Age" />
-                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
-                <ScalarProperty Name="Person_Phone" ColumnName="Person_Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Email1" ColumnName="Email1" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Adres_country" ColumnName="Adres_country" />
+                <ScalarProperty Name="Adress_city" ColumnName="Adress_city" />
+                <ScalarProperty Name="Adress_street" ColumnName="Adress_street" />
+                <ScalarProperty Name="Adress_level" ColumnName="Adress_level" />
+                <ScalarProperty Name="Adress_build" ColumnName="Adress_build" />
+                <ScalarProperty Name="Adress_zip" ColumnName="Adress_zip" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdPromotions">
+            <EntityTypeMapping TypeName="Gas_stationModel.ProdPromotion">
+              <MappingFragment StoreEntitySet="ProdPromotion">
+                <ScalarProperty Name="PromotionID" ColumnName="PromotionID" />
+                <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
+                <ScalarProperty Name="Prom_start" ColumnName="Prom_start" />
+                <ScalarProperty Name="Prom_end" ColumnName="Prom_end" />
+                <ScalarProperty Name="Prom_type" ColumnName="Prom_type" />
+                <ScalarProperty Name="Prom_discount" ColumnName="Prom_discount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="Model.Product">
+            <EntityTypeMapping TypeName="Gas_stationModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Pro_Name" ColumnName="Pro_Name" />
-                <ScalarProperty Name="Pro_Description" ColumnName="Pro_Description" />
-                <ScalarProperty Name="ID_Discount" ColumnName="ID_Discount" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Short_name" ColumnName="Short_name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Description1" ColumnName="Description1" />
                 <ScalarProperty Name="ID_Developer" ColumnName="ID_Developer" />
                 <ScalarProperty Name="ID_Distributor" ColumnName="ID_Distributor" />
                 <ScalarProperty Name="ID_Category" ColumnName="ID_Category" />
                 <ScalarProperty Name="ID_Type_Product" ColumnName="ID_Type_Product" />
-                <ScalarProperty Name="Pro_Price" ColumnName="Pro_Price" />
-                <ScalarProperty Name="Pro_LastUpdate" ColumnName="Pro_LastUpdate" />
+                <ScalarProperty Name="List_price" ColumnName="List_price" />
+                <ScalarProperty Name="Stock_price" ColumnName="Stock_price" />
+                <ScalarProperty Name="StandartPrice" ColumnName="StandartPrice" />
+                <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+                <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Restriction_age" ColumnName="Restriction_age" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductReceipts">
-            <EntityTypeMapping TypeName="Model.ProductReceipt">
+            <EntityTypeMapping TypeName="Gas_stationModel.ProductReceipt">
               <MappingFragment StoreEntitySet="ProductReceipt">
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="ProductReceiptID" ColumnName="ProductReceiptID" />
                 <ScalarProperty Name="ID_Receipt" ColumnName="ID_Receipt" />
                 <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Promotions">
-            <EntityTypeMapping TypeName="Model.Promotion">
-              <MappingFragment StoreEntitySet="Promotion">
-                <ScalarProperty Name="PromotionID" ColumnName="PromotionID" />
-                <ScalarProperty Name="Prom_Start" ColumnName="Prom_Start" />
-                <ScalarProperty Name="Prom_End" ColumnName="Prom_End" />
-                <ScalarProperty Name="Prom_Type" ColumnName="Prom_Type" />
-                <ScalarProperty Name="Prom_Discount" ColumnName="Prom_Discount" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Receipts">
-            <EntityTypeMapping TypeName="Model.Receipt">
+            <EntityTypeMapping TypeName="Gas_stationModel.Receipt">
               <MappingFragment StoreEntitySet="Receipt">
-                <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
                 <ScalarProperty Name="ReceiptID" ColumnName="ReceiptID" />
-                <ScalarProperty Name="DealTime" ColumnName="DealTime" />
-                <ScalarProperty Name="Receipt_Price" ColumnName="Receipt_Price" />
+                <ScalarProperty Name="Deal_time" ColumnName="Deal_time" />
+                <ScalarProperty Name="Sel_price" ColumnName="Sel_price" />
+                <ScalarProperty Name="Discount_price" ColumnName="Discount_price" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="VRN" ColumnName="VRN" />
                 <ScalarProperty Name="ID_Shift" ColumnName="ID_Shift" />
-                <ScalarProperty Name="Number_Product" ColumnName="Number_Product" />
+                <ScalarProperty Name="Qt_product" ColumnName="Qt_product" />
+                <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Shifts">
-            <EntityTypeMapping TypeName="Model.Shift">
+            <EntityTypeMapping TypeName="Gas_stationModel.Shift">
               <MappingFragment StoreEntitySet="Shift">
                 <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
                 <ScalarProperty Name="ID_Cashier" ColumnName="ID_Cashier" />
                 <ScalarProperty Name="ID_Station" ColumnName="ID_Station" />
-                <ScalarProperty Name="ShiftStart" ColumnName="ShiftStart" />
-                <ScalarProperty Name="ShiftEnd" ColumnName="ShiftEnd" />
+                <ScalarProperty Name="Shift_start" ColumnName="Shift_start" />
+                <ScalarProperty Name="Shift_end" ColumnName="Shift_end" />
+                <ScalarProperty Name="Income" ColumnName="Income" />
+                <ScalarProperty Name="Sales_volume" ColumnName="Sales_volume" />
+                <ScalarProperty Name="Cash_amount_start" ColumnName="Cash_amount_start" />
+                <ScalarProperty Name="Cash_amount_end" ColumnName="Cash_amount_end" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stations">
-            <EntityTypeMapping TypeName="Model.Station">
+            <EntityTypeMapping TypeName="Gas_stationModel.Station">
               <MappingFragment StoreEntitySet="Station">
                 <ScalarProperty Name="StationID" ColumnName="StationID" />
                 <ScalarProperty Name="Station_Name" ColumnName="Station_Name" />
-                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
                 <ScalarProperty Name="ID_Forecourt" ColumnName="ID_Forecourt" />
+                <ScalarProperty Name="Email1" ColumnName="Email1" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Adres_country" ColumnName="Adres_country" />
+                <ScalarProperty Name="Adress_city" ColumnName="Adress_city" />
+                <ScalarProperty Name="Adress_street" ColumnName="Adress_street" />
+                <ScalarProperty Name="Adress_build" ColumnName="Adress_build" />
+                <ScalarProperty Name="Adress_zip" ColumnName="Adress_zip" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="WWW" ColumnName="WWW" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Model.sysdiagram">
+            <EntityTypeMapping TypeName="Gas_stationModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1441,10 +1703,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Type_Product">
-            <EntityTypeMapping TypeName="Model.Type_Product">
+            <EntityTypeMapping TypeName="Gas_stationModel.Type_Product">
               <MappingFragment StoreEntitySet="Type_Product">
                 <ScalarProperty Name="Type_ProductID" ColumnName="Type_ProductID" />
                 <ScalarProperty Name="Units" ColumnName="Units" />
+                <ScalarProperty Name="Type1" ColumnName="Type1" />
+                <ScalarProperty Name="Type2" ColumnName="Type2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfEmployments">
+            <EntityTypeMapping TypeName="Gas_stationModel.TypeOfEmployment">
+              <MappingFragment StoreEntitySet="TypeOfEmployment">
+                <ScalarProperty Name="TypeOfEmploymentID" ColumnName="TypeOfEmploymentID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

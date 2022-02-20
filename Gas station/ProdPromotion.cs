@@ -12,14 +12,15 @@ namespace Gas_station
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductReceipt
+    public partial class ProdPromotion
     {
-        public int ProductReceiptID { get; set; }
-        public int ID_Receipt { get; set; }
-        public int ID_Product { get; set; }
-        public double Quantity { get; set; }
+        public int PromotionID { get; set; }
+        public Nullable<int> ID_Product { get; set; }
+        public System.DateTime Prom_start { get; set; }
+        public System.DateTime Prom_end { get; set; }
+        public string Prom_type { get; set; }
+        public int Prom_discount { get; set; }
     
         public virtual Product Product { get; set; }
-        public virtual Receipt Receipt { get; set; }
     }
 }

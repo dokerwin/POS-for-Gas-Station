@@ -22,12 +22,26 @@ namespace Gas_station
         }
     
         public int CompanyID { get; set; }
-        public string Company_Name { get; set; }
-        public string Company_Email { get; set; }
-        public int ID_Location { get; set; }
-        public string Company_Phone { get; set; }
+        public string Name { get; set; }
+        public string KRS { get; set; }
+        public string REGON { get; set; }
+        public string NIP { get; set; }
+        public string Email1 { get; set; }
+        public string Email2 { get; set; }
+        public string Adres_country { get; set; }
+        public string Adress_city { get; set; }
+        public string Adress_street { get; set; }
+        public string Adress_level { get; set; }
+        public string Adress_build { get; set; }
+        public string Adress_zip { get; set; }
+        public string Tax { get; set; }
+        public string Phone1 { get; set; }
+        public string Phone2 { get; set; }
+        public string WWW { get; set; }
+        public System.DateTime RegisterDate { get; set; }
+        public string Additional1 { get; set; }
+        public string Additional2 { get; set; }
     
-        public virtual Location Location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Developer> Developers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -428,6 +428,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfPageTransitions, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfPageTransitions.1.0.0.1\lib\net40\WpfPageTransitions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -435,20 +438,23 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Advertising.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Cashier managment\CashierHandler.cs" />
     <Compile Include="Cashier.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatPromotion.cs">
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Cistern.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Company.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Customer managment\Controllers\CustomerHandler.cs" />
     <Compile Include="Customer managment\Views\AddCustomer.xaml.cs">
@@ -458,14 +464,15 @@
       <DependentUpon>Customers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Developer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Distributor.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forecourt managment\Controllers\ForeccourtServer.cs" />
     <Compile Include="Forecourt managment\Controllers\ForecourtHandler.cs" />
     <Compile Include="Forecourt managment\Views\ForecourtManagment.xaml.cs">
       <DependentUpon>ForecourtManagment.xaml</DependentUpon>
@@ -475,16 +482,31 @@
       <DependentUpon>PrepayPomp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forecourt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FuelDelivery.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Location.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="GasStationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GasStationModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Login\LoginManagment.cs" />
-    <Compile Include="Login\LoginPage.xaml.cs">
+    <Compile Include="GasStationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GasStationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GasStationModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Lgn.cs">
+      <DependentUpon>GasStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login managment\LoginManagment.cs" />
+    <Compile Include="Login managment\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoyaltyCard mamagment\Controllers\LoyaltyCardHandler.cs" />
@@ -492,67 +514,36 @@
       <DependentUpon>CardManagment.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoyaltyCard.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MOP.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MOPS\MOP_managment.xaml.cs">
       <DependentUpon>MOP_managment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Person.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Pos\Pos.xaml.cs">
       <DependentUpon>Pos.xaml</DependentUpon>
     </Compile>
     <Compile Include="PrepareStation\InitStation.cs" />
-    <Compile Include="Product mangment\AddProduct.xaml.cs" />
-    <Compile Include="Product mangment\Category managment\AddCategory.xaml.cs">
-      <DependentUpon>AddCategory.xaml</DependentUpon>
+    <Compile Include="ProdPromotion.cs">
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product mangment\Category managment\CategoryHandler.cs" />
-    <Compile Include="Product mangment\Developer managment\AddDeveloper.xaml.cs">
-      <DependentUpon>AddDeveloper.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Product mangment\Distributor managment\AddDistributor.xaml.cs">
-      <DependentUpon>AddDistributor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Product mangment\Messure managment\AddMessure.xaml.cs">
-      <DependentUpon>AddMessure.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Product mangment\ProductsInfo.xaml.cs">
       <DependentUpon>ProductsInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product mangment\ProductsModel.cs" />
     <Compile Include="Product mangment\ProductUtill.cs" />
-    <Compile Include="Product mangment\Promotion managment\AddPromotion.xaml.cs">
-      <DependentUpon>AddPromotion.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductReceipt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Promotion.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Receipt managment\Item.cs" />
     <Compile Include="Receipt managment\ReceiptHanler.cs" />
@@ -563,7 +554,7 @@
       <DependentUpon>ReceiptManagment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Receipt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Shift managment\ShiftHandler.cs" />
     <Compile Include="Shift managment\ShiftInfo.cs" />
@@ -571,16 +562,19 @@
       <DependentUpon>ShiftManagment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shift.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Station.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeOfEmployment.cs">
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Type_Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GasStationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Util\MessageBox\MessageBox.xaml.cs">
       <DependentUpon>MessageBox.xaml</DependentUpon>
@@ -610,7 +604,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login\LoginPage.xaml">
+    <Page Include="Login managment\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -638,31 +632,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Product mangment\AddProduct.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Product mangment\Category managment\AddCategory.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Product mangment\Developer managment\AddDeveloper.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Product mangment\Distributor managment\AddDistributor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Product mangment\Messure managment\AddMessure.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Product mangment\ProductsInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Product mangment\Promotion managment\AddPromotion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -701,12 +671,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="GasStationModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>GasStationModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="GasStationModel.edmx.diagram">
+      <DependentUpon>GasStationModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -762,10 +732,6 @@
       <Project>{cf1b7d25-4744-4b04-b725-7f2d8223806b}</Project>
       <Name>HamburgerMenu</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WpfPageTransitions\WpfPageTransitions.csproj">
-      <Project>{22a46d61-1d40-43a9-802c-b9d43dadd9ec}</Project>
-      <Name>WpfPageTransitions</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\customers.png" />
@@ -787,29 +753,30 @@
   <ItemGroup>
     <Resource Include="Resources\key.png" />
     <Resource Include="Receipt managment\Views\list.jpg" />
-    <Resource Include="Product mangment\Messure managment\messagebox.jpg" />
-    <Resource Include="Product mangment\Promotion managment\messagebox.jpg" />
-    <Resource Include="Product mangment\Distributor managment\messagebox.jpg" />
-    <Resource Include="Product mangment\Developer managment\messagebox.jpg" />
     <Resource Include="Product mangment\Category managment\messagebox.jpg" />
     <Resource Include="Assets\oreders.png" />
     <Resource Include="Forecourt managment\Views\messagebox.jpg" />
     <Resource Include="Assets\addCustomer.png" />
     <Resource Include="Assets\addProduct.png" />
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\oreders.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Receipt managment\Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\total.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GasStationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GasStationModel.edmx</DependentUpon>
+      <LastGenOutput>GasStationModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GasStationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GasStationModel.edmx</DependentUpon>
+      <LastGenOutput>GasStationModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.2.42.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.2.42.0\build\net45\Grpc.Core.targets')" />

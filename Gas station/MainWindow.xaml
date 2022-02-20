@@ -36,12 +36,11 @@
             </HamburgerMenu:HamburgerMenu.Background>
             <HamburgerMenu:HamburgerMenu.Content>
                 <HamburgerMenu:HamburgerMenuItem Icon="Assets/home.png" Text="POS" SelectionCommand="{Binding ElementName=this_}" Selected="PosWindowSelected"/>
-                <HamburgerMenu:HamburgerMenuItem Icon="Assets/Customers.png" Text="User managment" Selected="CustomerManagmentSelected"/>
-                <HamburgerMenu:HamburgerMenuItem Icon="Assets/list.png" Text="Product managment" Selected="ProductManagmentSelected" />
-                <HamburgerMenu:HamburgerMenuItem Icon="Assets/person.png" Text="Shift managment" Selected="ShiftManagmentSelected"/>
-                <HamburgerMenu:HamburgerMenuItem Icon="Assets/card.png" Text="Card managment" Selected="CardManagmentSelected" Height="41"/>
-                <HamburgerMenu:HamburgerMenuItem Icon="Assets/fuel.png" Text="Fuel managment" Selected="FuelManagmentSelected" Height="41"/>
-                <HamburgerMenu:HamburgerMenuItem Icon="Assets/oreders.png" Text="Receipt managment" Selected="OredersManagmentSelected" Height="41"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="Assets/Customers.png" Text="User management" Selected="CustomerManagmentSelected"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="Assets/person.png" Text="Shift management" Selected="ShiftManagmentSelected"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="Assets/card.png" Text="Card management" Selected="CardManagmentSelected" Height="41"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="Assets/fuel.png" Text="Fuel management" Selected="FuelManagmentSelected" Height="41"/>
+                <HamburgerMenu:HamburgerMenuItem Icon="Assets/oreders.png" Text="Receipt management" Selected="OredersManagmentSelected" Height="41"/>
             </HamburgerMenu:HamburgerMenu.Content>
         </HamburgerMenu:HamburgerMenu>
     </Grid>

@@ -47,10 +47,10 @@ namespace Gas_station.Receipt_managment
         public void CloseReceipt()
         {
             Receipt receipt = new Receipt();
-            receipt.DealTime = DateTime.Now;
+            receipt.Deal_time = DateTime.Now;
             receipt.Shift = ShiftHandler.GetActualShift();
-            receipt.Receipt_Price = getSumReceipt();
-            receipt.Number_Product = receipt_basket.Count;
+            receipt.Sel_price = getSumReceipt();
+            receipt.Qt_product = receipt_basket.Count;
 
             using (Gas_stationDb db = new Gas_stationDb())
             {
@@ -77,7 +77,7 @@ namespace Gas_station.Receipt_managment
 
         public decimal getSumReceipt()
         {
-            return receipt_basket.Sum(item => item.product.Pro_Price * item.quantity);
+            return receipt_basket.Sum(item => item.product.List_price * item.quantity);
         }
 
 

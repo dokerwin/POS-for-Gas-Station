@@ -17,17 +17,23 @@ namespace Gas_station
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cashier()
         {
-            this.Shifts = new HashSet<Shift>();
+            this.Lgns = new HashSet<Lgn>();
         }
     
         public int CashierID { get; set; }
-        public string Cashier_Status { get; set; }
-        public string Cashier_login { get; set; }
-        public string Cashier_password { get; set; }
+        public string PESEL { get; set; }
+        public string Position { get; set; }
+        public decimal Salary { get; set; }
+        public System.DateTime Hire_date { get; set; }
+        public Nullable<System.DateTime> Fire_date { get; set; }
+        public int ID_Type_of_employment { get; set; }
+        public string Work_email { get; set; }
+        public string Work_phone { get; set; }
         public int ID_Person { get; set; }
     
         public virtual Person Person { get; set; }
+        public virtual TypeOfEmployment TypeOfEmployment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Shift> Shifts { get; set; }
+        public virtual ICollection<Lgn> Lgns { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Gas_station.LoyaltyCard_mamagment
         {
             if (findLoyalitycard(card))
             {
-                return (decimal)loyaltyCard.Amount;
+                return (decimal)loyaltyCard.Balance;
             }
             else
             {
@@ -39,7 +39,7 @@ namespace Gas_station.LoyaltyCard_mamagment
             using (Gas_stationDb db = new Gas_stationDb())
             {
                 var a = db.LoyaltyCards.FirstOrDefault(m => m.LoyaltyCardID == loyaltyCard.LoyaltyCardID);
-                a.Amount = sum;
+                a.Balance = sum;
                 db.SaveChanges();
             }
         }

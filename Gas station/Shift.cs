@@ -23,12 +23,16 @@ namespace Gas_station
         public int ShiftID { get; set; }
         public int ID_Cashier { get; set; }
         public int ID_Station { get; set; }
-        public System.DateTime ShiftStart { get; set; }
-        public System.DateTime ShiftEnd { get; set; }
+        public System.DateTime Shift_start { get; set; }
+        public System.DateTime Shift_end { get; set; }
+        public Nullable<decimal> Income { get; set; }
+        public Nullable<decimal> Sales_volume { get; set; }
+        public Nullable<decimal> Cash_amount_start { get; set; }
+        public Nullable<decimal> Cash_amount_end { get; set; }
     
-        public virtual Cashier Cashier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipt> Receipts { get; set; }
         public virtual Station Station { get; set; }
+        public virtual Station Station1 { get; set; }
     }
 }

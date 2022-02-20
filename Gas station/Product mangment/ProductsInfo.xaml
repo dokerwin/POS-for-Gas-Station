@@ -14,22 +14,39 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Product ID " Width="auto" DisplayMemberBinding="{Binding ProductID}" />
-                        <GridViewColumn Header="Product name" Width="auto" DisplayMemberBinding="{Binding Pro_Name}"/>
-                        <GridViewColumn Header="Category" Width="auto" DisplayMemberBinding="{Binding Category.Cat_Name}" />
-                        <GridViewColumn Header="Product price" Width="auto" DisplayMemberBinding="{Binding Pro_Price}"/>
-                        <GridViewColumn Header="Supplier" Width="auto" DisplayMemberBinding="{Binding Distributor.Dis_Name}"/>
-                        <GridViewColumn Header="Developer" Width="auto" DisplayMemberBinding="{Binding Developer.Dev_Name}"/>
+                        <GridViewColumn Header="Product name" Width="auto" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Category" Width="auto" DisplayMemberBinding="{Binding Category.Name}" />
+                        <GridViewColumn Header="Product price" Width="auto" DisplayMemberBinding="{Binding List_Price}"/>
+                        <GridViewColumn Header="Supplier" Width="auto" DisplayMemberBinding="{Binding Distributor.Name}"/>
+                        <GridViewColumn Header="Developer" Width="auto" DisplayMemberBinding="{Binding Developer.Name}"/>
+                        <GridViewColumn Header="Stock Qt" Width="auto" DisplayMemberBinding="{Binding Quantity}"/>
+                        <GridViewColumn Header="Restriction" Width="auto" DisplayMemberBinding="{Binding Restriction_age}"/>
+                        <GridViewColumn Header="Last update" Width="auto" DisplayMemberBinding="{Binding LastUpdate}"/>
+                        <GridViewColumn Header="Edit" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit"  CommandParameter="{Binding}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Delete" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete"  CommandParameter="{Binding}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
 
             <Label Content="All products" HorizontalAlignment="Left" Margin="335,-10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="White"/>
-            <TextBox Text="{Binding productID, Mode=TwoWay}" x:Name="Id_receipt_txt" HorizontalAlignment="Left" Height="24" Margin="80,48,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" />
-            <Label Content="Product ID" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Background="#FF1E8AC2" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="70" Height="24"/>
+            <TextBox Text="{Binding productID, Mode=TwoWay}" x:Name="Id_receipt_txt" HorizontalAlignment="Left" Height="24" Margin="10,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" />
+            <Label Content="                Product barcode" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Background="#FF1E8AC2" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="213" Height="24"/>
             <Button Style="{StaticResource btnBlue}"   Command="{Binding MyCommand}" 
-                    CommandParameter="ParameterValue"  Content="Find product" Margin="10,92,612,349"/>
+                    CommandParameter="ParameterValue"  Content="Find product" Margin="10,106,612,335"/>
             <Button Style="{StaticResource btnBlue}"   Command="{Binding AddProductBtn}" 
-                CommandParameter="ParameterValue"  Content="Add product" Margin="10,433,665,10"/>
+                CommandParameter="ParameterValue"  Content="Add new product" Margin="10,153,612,290"/>
 
         </Grid>
     </Viewbox>

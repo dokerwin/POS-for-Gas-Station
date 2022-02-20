@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using Gas_station.Shift_managment;
-using Gas_station.Login;
+using Gas_station.Login_managment;
 using Gas_station.PrepareStation;
 using Gas_station.Customer_managment.Views;
 using Gas_station.LoyaltyCard_mamagment.Views;
@@ -9,7 +9,6 @@ using System;
 using System.Windows.Navigation;
 using System.Windows.Media.Animation;
 using System.Windows.Controls;
-using Gas_station.Product_management;
 
 namespace Gas_station
 {
@@ -22,7 +21,7 @@ namespace Gas_station
     {
 
         Pos.Pos posWindow;
-        LoginPage loginPage;
+        Gas_station.Login.LoginPage loginPage;
         ShiftManagment shiftManagmentPage;
         AddCustomer addCustomerPage;
         CardManagment _loyaltyCardManagment;
@@ -68,14 +67,6 @@ namespace Gas_station
                 Main.Content = shiftManagmentPage;
             }
           
-        }
-
-        private void ProductManagmentSelected(object sender, RoutedEventArgs e)
-        {
-            if (ShiftHandler.IsShiftOpen())
-            {
-                Main.Content = new Product_mangment.ProductsInfo(this);
-            }
         }
 
         private void CustomerManagmentSelected(object sender, RoutedEventArgs e)
@@ -126,9 +117,5 @@ namespace Gas_station
             Main.Content = new Customer_managment.Views.AddCustomer();
         }
 
-        private void AddProductSelected(object sender, RoutedEventArgs e)
-        {
-             Main.Content = new AddProduct(this, new Product());
-        }
     }
     }

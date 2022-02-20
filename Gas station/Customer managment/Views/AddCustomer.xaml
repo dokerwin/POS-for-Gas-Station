@@ -59,7 +59,7 @@
             <Label  Grid.Row="1" Style="{StaticResource TitleText}" Margin="22,0,22.2,20">Customer name:</Label>
             <TextBox  Grid.Column="1" Margin="0.8,0,0,20" Grid.Row="1" Grid.ColumnSpan="2" >
                 <TextBox.Text>
-                    <Binding Path="person.Person_Name" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="person.Name" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="15" />
                         </Binding.ValidationRules>
@@ -70,7 +70,7 @@
             <Label Margin="11,0,11.2,20" Style="{StaticResource TitleText}" Grid.Row="3" Grid.Column="0" Content="Customer age"/>
             <TextBox x:Name="person_surname_txt" Margin="1,0.4,0,19.8" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1">
                 <TextBox.Text>
-                    <Binding Path="person.Person_Surname" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="person.Surname" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="20" />
                         </Binding.ValidationRules>
@@ -80,7 +80,7 @@
             <Label  Style="{StaticResource TitleText}" Grid.Row="2" Margin="32,0,31.2,20" Content="Customer surname"/>
             <TextBox x:Name="age_txt" Margin="1,0.4,0,19.8" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1">
                 <TextBox.Text>
-                    <Binding Path="person.Person_Age" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="person.Age" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validator:RangeValidator MinValue="18" MaxValue="90" />
                         </Binding.ValidationRules>
@@ -90,7 +90,7 @@
             <Label  Style="{StaticResource TitleText}" Grid.Row="4" Margin="21,0,22.2,20">Customer phone</Label>
             <TextBox x:Name="phone_txt"  Grid.Row="4" Grid.Column="1" Margin="1,0.2,0,20" Grid.ColumnSpan="2">
                 <TextBox.Text>
-                    <Binding Path="person.Person_Phone" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="person.Phone1" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validator:PhoneValidator/>
                         </Binding.ValidationRules>
@@ -103,7 +103,7 @@
             <Label  Style="{StaticResource TitleText}"  Grid.Row="1" Grid.Column="3" Margin="35,0,34,20">Country</Label>
             <TextBox Grid.Row="1" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3"  >
                 <TextBox.Text>
-                    <Binding Path="person.Location.Country" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="person.Adres_country" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="20"/>
                         </Binding.ValidationRules>
@@ -113,7 +113,7 @@
             <Label  Style="{StaticResource TitleText}"  Grid.Row="2" Grid.Column="3" Margin="51,0,50,20">City</Label>
             <TextBox Grid.Row="2" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3" >
                 <TextBox.Text>
-                    <Binding Path="person.Location.City" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="person.Adress_city" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="20"/>
                         </Binding.ValidationRules>
@@ -123,7 +123,7 @@
             <Label  Style="{StaticResource TitleText}"  Grid.Row="3" Grid.Column="3" Margin="20,0,20,20">Postal code</Label>
             <TextBox  Grid.Row="3" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3">
                 <TextBox.Text>
-                    <Binding Path="person.Location.Postal_Code" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="person.Adress_zip" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="20"/>
                         </Binding.ValidationRules>
@@ -133,7 +133,7 @@
             <Label  Style="{StaticResource TitleText}"  Grid.Row="4" Grid.Column="3" Margin="39,0,38,20">Street</Label>
             <TextBox  Grid.Row="4" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3" >
                 <TextBox.Text>
-                    <Binding Path="person.Location.Street" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="person.Adress_street" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="20"/>
                         </Binding.ValidationRules>
@@ -143,7 +143,7 @@
             <Label  Style="{StaticResource TitleText}"  Grid.Row="5" Grid.Column="3" Margin="47,0,46,20">Build</Label>
             <TextBox  Grid.Row="5" Grid.Column="4" Margin="0,0,0,20" Grid.ColumnSpan="3">
                 <TextBox.Text>
-                    <Binding Path="person.Location.Build" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="person.Adress_build" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="20"/>
                         </Binding.ValidationRules>

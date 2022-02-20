@@ -40,8 +40,6 @@ namespace Gas_station.Pos
         public int qt { get; set; }
         ObservableCollection<Item> receiptProducts { set; get; } = new ObservableCollection<Item>();
 
-      
-
         private CategoryHandler categoryHandler;
         private ReceiptHanler receiptHandler;
         private MainWindow main;
@@ -113,7 +111,6 @@ namespace Gas_station.Pos
                     }
                     else
                     {
-
                         imgNozzle2.Source = new BitmapImage(new Uri(@"/Resources/fuel_lock.png", UriKind.Relative));
                     }
                     break;
@@ -125,7 +122,6 @@ namespace Gas_station.Pos
                     }
                     else
                     {
-
                         imgNozzle3.Source = new BitmapImage(new Uri(@"/Resources/fuel_lock.png", UriKind.Relative));
                     }
                     break;
@@ -166,14 +162,8 @@ namespace Gas_station.Pos
             {
                 db.Configuration.ProxyCreationEnabled = true;
                 db.Configuration.LazyLoadingEnabled = true;
-                var list = db.Products.Where(c => c.Pro_Name.StartsWith(searcProduct_txt.Text)).ToList();
-                foreach (var list1 in list)
-                {
-                    if (list1.Category == null || list1.Promotion == null)
-                    {
-                        return;
-                    }
-                }
+                var list = db.Products.Where(c => c.Name.StartsWith(searcProduct_txt.Text)).ToList();
+
                 if (list.Count > 0)
                 {
                     updateProductList(list);

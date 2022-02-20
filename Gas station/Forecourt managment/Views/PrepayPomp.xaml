@@ -19,7 +19,7 @@
             <Label x:Name="forecourt_txt" HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Top" Height="34" Width="116" Background="{x:Null}" FontSize="18"/>
             <Label Content="Amount" HorizontalAlignment="Left" Margin="29,44,0,0" VerticalAlignment="Top" Height="30" Width="64" Background="#FFC7FDC8" FontSize="14"/>
             <ComboBox Name="category_box" ItemsSource="{Binding Path=fuelList}"
-          DisplayMemberPath="Pro_Name"
+          DisplayMemberPath="Name"
           SelectedItem="{Binding fuel.product, Mode=TwoWay}"
            HorizontalAlignment="Left" Margin="93,105,0,0" VerticalAlignment="Top" Width="163" Height="30" RenderTransformOrigin="-0.476,0.464"/>
             <Label Content="Amount" HorizontalAlignment="Left" Margin="29,105,0,0" VerticalAlignment="Top" Height="30" Width="64" Background="#FFC7FDC8" FontSize="14"/>

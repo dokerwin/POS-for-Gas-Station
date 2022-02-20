@@ -12,14 +12,15 @@ namespace Gas_station
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductReceipt
+    public partial class Lgn
     {
-        public int ProductReceiptID { get; set; }
-        public int ID_Receipt { get; set; }
-        public int ID_Product { get; set; }
-        public double Quantity { get; set; }
+        public int LoginID { get; set; }
+        public int ID_Cashier { get; set; }
+        public string Login { get; set; }
+        public string Last_login { get; set; }
+        public string Password { get; set; }
+        public string Last_Password { get; set; }
     
-        public virtual Product Product { get; set; }
-        public virtual Receipt Receipt { get; set; }
+        public virtual Cashier Cashier { get; set; }
     }
 }

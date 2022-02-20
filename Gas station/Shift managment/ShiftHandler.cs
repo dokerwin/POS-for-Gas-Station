@@ -25,8 +25,8 @@ namespace Gas_station.Shift_managment
 
         public static void StartShift(Cashier cashier)
         {
-            actualShift.ShiftStart = DateTime.Now;
-            actualShift.ShiftEnd = DateTime.Now;
+            actualShift.Shift_start = DateTime.Now;
+            actualShift.Shift_end = DateTime.Now;
             actualShift.ID_Cashier = cashier.CashierID;
             actualShift.ID_Station = 1;
             isShiftOpen = true;
@@ -49,7 +49,7 @@ namespace Gas_station.Shift_managment
 
                     if (result != null)
                     {
-                        result.ShiftEnd = DateTime.Now;
+                        result.Shift_end = DateTime.Now;
                         db.SaveChanges();
                         MessageBox.Show("Sign off", "Sign off is successfull", MessageBoxButton.OK, MessageBoxImage.Information);
                     }

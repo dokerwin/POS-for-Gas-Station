@@ -14,11 +14,20 @@ namespace Gas_station
     
     public partial class Customer
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Customer()
+        {
+            this.Receipts = new HashSet<Receipt>();
+        }
+    
         public int CustomerID { get; set; }
         public int ID_LoyaltyCard { get; set; }
         public int ID_Person { get; set; }
+        public System.DateTime Register_date { get; set; }
     
         public virtual LoyaltyCard LoyaltyCard { get; set; }
         public virtual Person Person { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Receipt> Receipts { get; set; }
     }
 }

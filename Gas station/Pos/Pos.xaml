@@ -9,6 +9,11 @@
       Title="Pos"
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
+
+
+
+
+
     <Viewbox Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
         <Grid Width="869">
@@ -23,11 +28,10 @@
                 </ListView.Background>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding product.Pro_Name}" />
-                        <GridViewColumn Header="Category" Width="100" DisplayMemberBinding="{Binding product.Category.Cat_Name}" />
-                        <GridViewColumn Header="Price" Width="90" DisplayMemberBinding="{Binding product.Pro_Price}" />
-                        <GridViewColumn Header="Discount" Width="60" DisplayMemberBinding="{Binding product.Promotion.Prom_Discount}" />
-                        <GridViewColumn Header="Qt" Width="auto" DisplayMemberBinding="{Binding quantity}" />
+                        <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding product.Name}" />
+                        <GridViewColumn Header="Category" Width="100" DisplayMemberBinding="{Binding product.Category.Name}" />
+                        <GridViewColumn Header="Price" Width="100" DisplayMemberBinding="{Binding product.List_price}" />
+                        <GridViewColumn Header="Qt" Width="100" DisplayMemberBinding="{Binding quantity}" />
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -37,25 +41,48 @@
             </Grid>
             <Label Name="cashier_lbl" Content="Cashier ID:&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.719,0.483" Height="23" Margin="607,0,0,0"/>
             <TextBox Name="searcProduct_txt" HorizontalAlignment="Left" Height="23" Margin="426,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402" Grid.RowSpan="2" TextChanged="searcProduct_txt_TextChanged" Background="#FFF2F7C9"/>
-            <ListView Name="search_list" MouseDoubleClick="receiptList_MouseDoubleClick" ItemsSource="{Binding products}" HorizontalAlignment="Left" Height="241" Margin="426,32.8,0,0" VerticalAlignment="Top" Width="428" Grid.Row="1" Foreground="Black" BorderBrush="#FF005AFA">
+            <ListView Name="search_list" MouseDoubleClick="receiptList_MouseDoubleClick" ItemsSource="{Binding products}" HorizontalAlignment="Left" Height="241" Margin="426,32.8,0,0" VerticalAlignment="Top" Width="428" Grid.Row="1" Foreground="Black" BorderBrush="#FF005AFA" >
                 <ListView.Background>
                     <ImageBrush ImageSource="list.jpg" Opacity="0.8"/>
                 </ListView.Background>
                 <ListView.View>
-                    <GridView>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
                         <GridViewColumn Header="ID Product" Width="80" DisplayMemberBinding="{Binding ProductID}" />
-                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Pro_Name}" />
-                        <GridViewColumn Header="Category" Width="150" DisplayMemberBinding="{Binding Category.Cat_Name}" />
-                        <GridViewColumn Header="Price" Width="40" DisplayMemberBinding="{Binding Pro_Price}" />
+                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Category" Width="150" DisplayMemberBinding="{Binding Category.Name}" />
+                        <GridViewColumn Header="Price" Width="40" DisplayMemberBinding="{Binding List_price}" />
                     </GridView>
                 </ListView.View>
+
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="#FF0ED145"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </ListView.ItemContainerStyle>
+
+
+
+
+
+
             </ListView>
             <Image Name="search_img" HorizontalAlignment="Left" Height="23" Margin="828,28,0,0" VerticalAlignment="Top" Width="26"  Cursor="Hand" MouseUp="Button_Search_Click"  Source="pack://application:,,,/Resources/search.png" Grid.RowSpan="2"/>
             <Button Name ="card_btn" Content="CARD" HorizontalAlignment="Left" Margin="710,402.8,0,0.2" Width="66" FontWeight="Bold" RenderTransformOrigin="1.503,0.487" Style="{StaticResource btnGreen}" Grid.Row="1" Click="card_btn_Click" />
             <Button Name ="cash_btn" Content="CASH" HorizontalAlignment="Left" Margin="793,402.8,0,0" VerticalAlignment="Top" Width="66" Height="45" FontWeight="Bold" Style="{StaticResource btnBlue}"  Grid.Row="1" Click="cash_btn_Click" RenderTransformOrigin="0.442,0.129"/>
             <Button Name ="total_btn" Content="TOTAL" HorizontalAlignment="Left" Margin="710,346.8,0,0" VerticalAlignment="Top" Width="149" Height="43" FontWeight="Bold" Style="{StaticResource btnBlue}" Grid.Row="1" Click="total_btn_Click" RenderTransformOrigin="0.539,1.933" />
-            <Label Content="Total price :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FFF11414" Grid.RowSpan="2"/>
-            <Label Name="total_lbl" Content="{Binding total_price, Mode=TwoWay}"  HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Foreground="#FFF11414" FontSize="36"  Width="167" Height="58" Grid.RowSpan="2"/>
+            <Label Content="Total price :" ContentStringFormat="{}{0:0.##}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FFF11414" Grid.RowSpan="2"/>
+            <Label Name="total_lbl" Content="{Binding total_price, Mode=TwoWay }" ContentStringFormat="{}{0:0.##}" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Foreground="#FFF11414" FontSize="36"  Width="167" Height="58" Grid.RowSpan="2"/>
             <Grid Margin="51,335.8,749,15.2" Grid.Row="1">
                 <Image x:Name="imgNozzle1" HorizontalAlignment="Left" Height="71" Margin="0,0,-0.2,0" VerticalAlignment="Top" Width="69"  Source="pack://application:,,,/Resources/fuel_free.png"  MouseUp="Nozzle1_Click"/>
                 <Label Content="{Binding nozzle_1, Mode=TwoWay}" Name="nozzle1_lbl" HorizontalAlignment="Left" Margin="0,76,-0.2,0" VerticalAlignment="Top" Width="69" Height="21"/>
@@ -72,9 +99,40 @@
             <Button x:Name ="Mops" Content="MOPs" HorizontalAlignment="Left" Margin="607,402.8,0,0.2" Width="66" FontWeight="Bold" RenderTransformOrigin="1.503,0.487" Style="{StaticResource btnGreen}" Grid.Row="1" Click="Mops_Click" />
             <Label x:Name="shift_lbl" Content="Shift ID: " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.719,0.483" Height="23" Margin="478,0,0,0" Width="85"/>
             <ComboBox Name="category_box" ItemsSource="{Binding Path=categories}"
-          DisplayMemberPath="Cat_Name"
+          DisplayMemberPath="Name"
           SelectedItem="{Binding category, Mode=TwoWay}"
-           HorizontalAlignment="Left" Margin="514,278.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="159" Height="32" RenderTransformOrigin="-0.476,0.464" SelectionChanged="ComboBox_SelectionChanged"/>
+           HorizontalAlignment="Left" Margin="514,279,0,0" Grid.Row="1" VerticalAlignment="Top" Width="159" Height="32" RenderTransformOrigin="-0.476,0.464" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ComboBoxItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                                    <Border x:Name="Bd"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                            <Label Content="{Binding Title}" Width="100"/>
+                                            <Label Content="{Binding BranchName}" />
+                                        </StackPanel>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsHighlighted" Value="True">
+                                            <Setter TargetName="Bd" Property="Background" Value="Green" />
+                                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrush}}" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
             <Label Content="Category" HorizontalAlignment="Left" Margin="426,278.8,0,0" VerticalAlignment="Top" Foreground="#FFF11414" Grid.Row="1" Height="32" Width="88" RenderTransformOrigin="1.028,0.639" FontSize="16"/>
             <TextBox Text ="{Binding qt, Mode=TwoWay}" HorizontalAlignment="Left" Height="32" Margin="734,278.8,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
             <Label Content="Qt:" HorizontalAlignment="Left" Margin="693,278.8,0,0" VerticalAlignment="Top" Foreground="#FFF11414" Grid.Row="1" Height="32" Width="41" RenderTransformOrigin="1.028,0.639" FontSize="16"/>

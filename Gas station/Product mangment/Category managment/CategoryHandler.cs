@@ -22,7 +22,7 @@ namespace Gas_station.Product_mangment.Category_managment
             {
                 foreach(Product p in db.Products.Where(r => r.Category.CategoryID == category.CategoryID).ToList())
                 {
-                    if (p.Category != null && p.Promotion!= null )
+                    if (p.Category != null)
                     {
                         a.Add(p);
                     }
@@ -37,7 +37,6 @@ namespace Gas_station.Product_mangment.Category_managment
                 return db.Categories.FirstOrDefault(r => r.CategoryID == CategoryID);
             }
         }
-
 
     }
 }

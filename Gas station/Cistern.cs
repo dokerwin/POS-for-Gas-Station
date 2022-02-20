@@ -20,11 +20,11 @@ namespace Gas_station
             this.FuelDeliveries = new HashSet<FuelDelivery>();
         }
     
-        public int ID_Cistern { get; set; }
+        public int CisternID { get; set; }
         public int ID_Product { get; set; }
-        public decimal MaxVolume { get; set; }
-        public decimal MinVolume { get; set; }
-        public decimal ActualVolume { get; set; }
+        public decimal Max_volume { get; set; }
+        public decimal Min_volume { get; set; }
+        public decimal Actual_volume { get; set; }
     
         public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

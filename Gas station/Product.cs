@@ -18,28 +18,37 @@ namespace Gas_station
         public Product()
         {
             this.Cisterns = new HashSet<Cistern>();
+            this.ProdPromotions = new HashSet<ProdPromotion>();
             this.ProductReceipts = new HashSet<ProductReceipt>();
         }
     
         public int ProductID { get; set; }
-        public string Pro_Name { get; set; }
-        public string Pro_Description { get; set; }
-        public Nullable<int> ID_Discount { get; set; }
+        public string Name { get; set; }
+        public string Short_name { get; set; }
+        public string Description { get; set; }
+        public string Description1 { get; set; }
         public int ID_Developer { get; set; }
         public int ID_Distributor { get; set; }
         public int ID_Category { get; set; }
         public int ID_Type_Product { get; set; }
-        public decimal Pro_Price { get; set; }
-        public Nullable<System.DateTime> Pro_LastUpdate { get; set; }
+        public decimal List_price { get; set; }
+        public decimal Stock_price { get; set; }
+        public decimal StandartPrice { get; set; }
+        public Nullable<System.DateTime> SellStartDate { get; set; }
+        public Nullable<System.DateTime> SellEndDate { get; set; }
+        public Nullable<System.DateTime> LastUpdate { get; set; }
+        public Nullable<double> Quantity { get; set; }
+        public string Restriction_age { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cistern> Cisterns { get; set; }
         public virtual Developer Developer { get; set; }
         public virtual Distributor Distributor { get; set; }
-        public virtual Promotion Promotion { get; set; }
-        public virtual Type_Product Type_Product { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProdPromotion> ProdPromotions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductReceipt> ProductReceipts { get; set; }
+        public virtual Type_Product Type_Product { get; set; }
     }
 }

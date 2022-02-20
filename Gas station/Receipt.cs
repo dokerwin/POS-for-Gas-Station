@@ -21,12 +21,16 @@ namespace Gas_station
         }
     
         public int ReceiptID { get; set; }
-        public System.DateTime DealTime { get; set; }
-        public decimal Receipt_Price { get; set; }
+        public System.DateTime Deal_time { get; set; }
+        public decimal Sel_price { get; set; }
+        public decimal Discount_price { get; set; }
+        public string NIP { get; set; }
+        public string VRN { get; set; }
         public int ID_Shift { get; set; }
-        public int Number_Product { get; set; }
+        public double Qt_product { get; set; }
         public Nullable<int> ID_Customer { get; set; }
     
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductReceipt> ProductReceipts { get; set; }
         public virtual Shift Shift { get; set; }

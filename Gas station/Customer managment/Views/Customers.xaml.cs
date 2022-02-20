@@ -41,11 +41,11 @@ namespace Gas_station.Customer_managment.Views
                     if (a1 != null) 
                     {
                         customer_info_lbl.Content =
-                         "Name: " + a1.Person.Person_Name + "\n" +
-                         "Surname: " + a1.Person.Person_Surname + "\n" +
+                         "Name: " + a1.Person.Name + "\n" +
+                         "Surname: " + a1.Person.Surname + "\n" +
                          "Customer Id: " + a1.CustomerID + "\n" +
-                         "Phone: " + a1.Person.Person_Phone + "\n" +
-                         "Country: " + a1.Person.Location.Country; 
+                         "Phone: " + a1.Person.Phone1 + "\n" +
+                         "Country: " + a1.Person.Adres_country; 
                     }
                     else 
                     {

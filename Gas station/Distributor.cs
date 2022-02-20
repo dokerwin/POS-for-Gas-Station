@@ -21,7 +21,7 @@ namespace Gas_station
         }
     
         public int DistributorID { get; set; }
-        public string Dis_Name { get; set; }
+        public string Name { get; set; }
         public int ID_Company { get; set; }
     
         public virtual Company Company { get; set; }

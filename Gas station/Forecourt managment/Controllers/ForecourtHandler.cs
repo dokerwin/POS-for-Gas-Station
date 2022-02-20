@@ -18,6 +18,7 @@ namespace Gas_station.Forecourt_managment.Controllers
         private static List<Cistern> _cistern;
         public ForecourtHandler(Pos.Pos mainWindow)
         {
+          
             mainPos = mainWindow;
             _fuelDelivery = new List<FuelDelivery>();
             _cistern = new List<Cistern>();
@@ -111,9 +112,9 @@ namespace Gas_station.Forecourt_managment.Controllers
             {
                 db.Configuration.ProxyCreationEnabled = true;
                 db.Configuration.LazyLoadingEnabled = true;
-                foreach (var list1 in db.Products.Where(r => r.Category.Cat_Name == "Fuel").ToList())
+                foreach (var list1 in db.Products.Where(r => r.Category.Name == "Fuel").ToList())
                 {
-                    if (list1.Category != null || list1.Promotion != null)
+                    if (list1.Category != null)
                     {
                         fuelList.Add(list1);
                     }
@@ -124,10 +125,8 @@ namespace Gas_station.Forecourt_managment.Controllers
 
         public static bool Prepay(int forecourt, decimal amount, Product product)
         {
-            using (Gas_stationDb db = new Gas_stationDb())
-            {
-               // return db.Products.Where(r => r.Category.Cat_Name == "Fuel").ToList();
-            }
+         
+            ForeccourtServer.StartClient(forecourt,amount,product);
 
             return true;
         }

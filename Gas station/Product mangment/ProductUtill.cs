@@ -14,11 +14,11 @@ namespace Gas_station.Product_mangment
             using (Gas_stationDb db = new Gas_stationDb())
             {
                 ObservableCollection<Product> observable = new ObservableCollection<Product>();
-                foreach (var a in db.Products.Where(t => !String.IsNullOrEmpty(t.Category.Cat_Name)).ToList())
+                foreach (var a in db.Products.Where(t => !String.IsNullOrEmpty(t.Category.Name)).ToList())
                 {
-                    if (!string.IsNullOrEmpty(a.Category.Cat_Name)
-                        && !string.IsNullOrEmpty(a.Developer.Dev_Name)
-                        && !string.IsNullOrEmpty(a.Distributor.Dis_Name))
+                    if (!string.IsNullOrEmpty(a.Category.Name)
+                        && !string.IsNullOrEmpty(a.Developer.Name)
+                        && !string.IsNullOrEmpty(a.Distributor.Name))
                         observable.Add(a);
                 }
                 return observable;
@@ -34,9 +34,9 @@ namespace Gas_station.Product_mangment
                 var a = db.Products.FirstOrDefault(t =>t.ProductID == productID);
                 if (a != null)
                 {
-                    if (!string.IsNullOrEmpty(a.Category.Cat_Name)
-                        && !string.IsNullOrEmpty(a.Developer.Dev_Name)
-                        && !string.IsNullOrEmpty(a.Distributor.Dis_Name))
+                    if (!string.IsNullOrEmpty(a.Category.Name)
+                        && !string.IsNullOrEmpty(a.Developer.Name)
+                        && !string.IsNullOrEmpty(a.Distributor.Name))
                     {
                         return a;
                     }

@@ -22,6 +22,8 @@ namespace Gas_station
     
         public int Type_ProductID { get; set; }
         public string Units { get; set; }
+        public string Type1 { get; set; }
+        public string Type2 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }

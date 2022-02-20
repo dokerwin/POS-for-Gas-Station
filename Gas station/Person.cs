@@ -22,17 +22,26 @@ namespace Gas_station
         }
     
         public int PersonID { get; set; }
-        public string Person_Name { get; set; }
-        public string Person_Surname { get; set; }
-        public string Person_Sex { get; set; }
-        public int Person_Age { get; set; }
-        public int ID_Location { get; set; }
-        public string Person_Phone { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string IDCard { get; set; }
+        public string Sex { get; set; }
+        public int Age { get; set; }
+        public string Phone1 { get; set; }
+        public string Phone2 { get; set; }
+        public string Email1 { get; set; }
+        public string Email2 { get; set; }
+        public string Adres_country { get; set; }
+        public string Adress_city { get; set; }
+        public string Adress_street { get; set; }
+        public string Adress_level { get; set; }
+        public string Adress_build { get; set; }
+        public string Adress_zip { get; set; }
+        public string Tax { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cashier> Cashiers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer> Customers { get; set; }
-        public virtual Location Location { get; set; }
     }
 }

@@ -191,12 +191,12 @@ namespace Gas_station.Util.Pdf
                 var row = table.Rows.Add();
                 cell = row.Cells.Add(productItem.ProductID.ToString("C2"));
                 cell.Alignment = HorizontalAlignment.Center;
-                row.Cells.Add(productItem.Pro_Name);
-                cell = row.Cells.Add(productItem.Pro_Price.ToString("C2"));
+                row.Cells.Add(productItem.Name);
+                cell = row.Cells.Add(productItem.List_price.ToString("C2"));
                 cell.Alignment = HorizontalAlignment.Right;
-                cell = row.Cells.Add(productItem.Pro_Description.ToString());
+                cell = row.Cells.Add(productItem.Description.ToString());
                 cell.Alignment = HorizontalAlignment.Right;
-                cell = row.Cells.Add(productItem.Category.Cat_Name);
+                cell = row.Cells.Add(productItem.Category.Name);
                 cell.Alignment = HorizontalAlignment.Right;
             }
 

@@ -12,12 +12,12 @@
     <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid Height="474" Width="835">
 
-            <ListView x:Name="receiptListView" MouseDoubleClick="receiptList_MouseDoubleClick" ItemsSource="{Binding _receipts}" Margin="419,48,22,6" Background="#4DFFFFFF" SelectionChanged="receiptListView_SelectionChanged">
+            <ListView x:Name="receiptListView" MouseDoubleClick="receiptList_MouseDoubleClick" ItemsSource="{Binding _receipts}" Margin="287,47,24,7" Background="#4DFFFFFF" SelectionChanged="receiptListView_SelectionChanged">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Receipt ID" Width="100" DisplayMemberBinding="{Binding ReceiptID}" />
-                        <GridViewColumn Header="Deal time" Width="200" DisplayMemberBinding="{Binding DealTime}" />
-                        <GridViewColumn Header="Total price" Width="100" DisplayMemberBinding="{Binding Receipt_Price}" />
+                        <GridViewColumn Header="Receipt ID" Width="120" DisplayMemberBinding="{Binding ReceiptID}" />
+                        <GridViewColumn Header="Deal time" Width="200" DisplayMemberBinding="{Binding Deal_time}" />
+                        <GridViewColumn Header="Total price" Width="200" DisplayMemberBinding="{Binding Sel_price}" />
                     </GridView>
                 </ListView.View>
 
@@ -25,9 +25,9 @@
             </ListView>
 
             <Label Content="Orders " HorizontalAlignment="Left" Margin="335,-10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="White"/>
-            <Button  x:Name ="topOrders" Content="Last 100&#xD;&#xA;orders" HorizontalAlignment="Left" VerticalAlignment="Top" Width="192" Style="{StaticResource btnBlue}" Margin="211,113,0,0" Click="topOrders_Click"/>
-            <TextBox Text="{Binding _receiptId, Mode=TwoWay}" x:Name="Id_receipt_txt" HorizontalAlignment="Left" Height="26" Margin="270,48,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="133" TextChanged="Id_receipt_txt_TextChanged"/>
-            <Label Content="Id receipt" HorizontalAlignment="Left" Margin="211,48,0,0" VerticalAlignment="Top" Background="#FF1E8AC2" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551"/>
+            <Button  x:Name ="topOrders" Content="Last 100&#xD;&#xA;orders" HorizontalAlignment="Left" VerticalAlignment="Top" Width="192" Style="{StaticResource btnBlue}" Margin="79,114,0,0" Click="topOrders_Click"/>
+            <TextBox Text="{Binding _receiptId, Mode=TwoWay}" x:Name="Id_receipt_txt" HorizontalAlignment="Left" Height="26" Margin="138,47,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="133" TextChanged="Id_receipt_txt_TextChanged"/>
+            <Label Content="Id receipt" HorizontalAlignment="Left" Margin="79,47,0,0" VerticalAlignment="Top" Background="#FF1E8AC2" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551"/>
 
 
         </Grid>

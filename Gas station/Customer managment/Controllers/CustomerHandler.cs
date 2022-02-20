@@ -31,10 +31,10 @@ namespace Gas_station.Customer_managment
             {
                 ObservableCollection<Customer> observable =
                 new ObservableCollection<Customer>();
-                foreach (var a in db.Customers.Where(t => !String.IsNullOrEmpty(t.Person.Person_Name)).ToList())
+                foreach (var a in db.Customers.Where(t => !String.IsNullOrEmpty(t.Person.Name)).ToList())
                 {
-                    if(!string.IsNullOrEmpty(a.Person.Person_Name)
-                        && !string.IsNullOrEmpty(a.Person.Location.Country))
+                    if(!string.IsNullOrEmpty(a.Person.Name)
+                        && !string.IsNullOrEmpty(a.Person.Adres_country))
                     observable.Add(a);
                 }
                 return observable;

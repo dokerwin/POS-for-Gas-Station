@@ -12,21 +12,18 @@ namespace Gas_station
     using System;
     using System.Collections.Generic;
     
-    public partial class Promotion
+    public partial class TypeOfEmployment
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Promotion()
+        public TypeOfEmployment()
         {
-            this.Products = new HashSet<Product>();
+            this.Cashiers = new HashSet<Cashier>();
         }
     
-        public int PromotionID { get; set; }
-        public System.DateTime Prom_Start { get; set; }
-        public System.DateTime Prom_End { get; set; }
-        public string Prom_Type { get; set; }
-        public int Prom_Discount { get; set; }
+        public int TypeOfEmploymentID { get; set; }
+        public string Type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Cashier> Cashiers { get; set; }
     }
 }

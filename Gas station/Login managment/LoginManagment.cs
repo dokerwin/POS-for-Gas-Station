@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gas_station.Login
+namespace Gas_station.Login_managment
 {
     class LoginManagment
     {
@@ -27,12 +27,19 @@ namespace Gas_station.Login
             using (Gas_stationDb db = new Gas_stationDb())
             {
                 Cashier cashier;
-                cashier = db.Cashiers.FirstOrDefault(m => m.Cashier_login == login && m.Cashier_password == password);
-                if(cashier != null)
+
+                Lgn loginDb = db.Lgns.FirstOrDefault(m => m.Login == login && m.Password == password);
+                if (loginDb != null)
                 {
-                    CashierHandler.setActualCashier(cashier); 
-                    return true; 
+                    cashier = db.Cashiers.FirstOrDefault(m => m.CashierID == loginDb.ID_Cashier);
+                    if (cashier != null)
+                    {
+                        CashierHandler.setActualCashier(cashier);
+                        return true;
+                    }
                 }
+
+                
             }
             return false;
         }

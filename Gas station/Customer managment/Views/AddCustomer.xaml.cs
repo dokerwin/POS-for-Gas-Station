@@ -25,7 +25,7 @@ namespace Gas_station.Customer_managment.Views
 
         public AddCustomer()
         {
-            person = new Person() {Location = new Location()};
+            person = new Person() {};
             InitializeComponent();
             SexBox.Items.Add("Male");
             SexBox.Items.Add("Female");
@@ -35,12 +35,12 @@ namespace Gas_station.Customer_managment.Views
         {
 
             using(Gas_stationDb db = new Gas_stationDb())
-            { LoyaltyCard loyaltyCard = new LoyaltyCard() { ID_MOP = 2, Amount = 0 };
+            { LoyaltyCard loyaltyCard = new LoyaltyCard() { ID_MOP = 2, Balance = 0 };
                 
 
-                db.Locations.Add(person.Location);
+               // db.Locations.Add(person.Location);
                 db.SaveChanges();
-                person.ID_Location = person.Location.LocationID;
+                //person.ID_Location = person.Location.LocationID;
                 db.People.Add(person);
                 db.SaveChanges();
                 db.LoyaltyCards.Add(loyaltyCard);
@@ -54,7 +54,7 @@ namespace Gas_station.Customer_managment.Views
 
         private void SexBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            person.Person_Sex = SexBox.SelectedItem.ToString();
+            person.Sex = SexBox.SelectedItem.ToString();
         }
     }
 }

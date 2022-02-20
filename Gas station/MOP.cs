@@ -22,6 +22,7 @@ namespace Gas_station
     
         public int MopID { get; set; }
         public string Mop_Type { get; set; }
+        public string Currency { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LoyaltyCard> LoyaltyCards { get; set; }

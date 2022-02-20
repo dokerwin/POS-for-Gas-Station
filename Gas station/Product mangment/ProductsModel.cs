@@ -1,4 +1,4 @@
-﻿using Gas_station.Product_management;
+﻿
 using Prism.Commands;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace Gas_station.Product_mangment
         private void AddProduct()
         {
             MainWindow main = Util.Util.MainPagePointer();
-            main.Main.Content = new AddProduct(main, new Product());
+    //        main.Main.Content = new AddProduct(main, new Product());
         }
 
         public ICommand MyCommand { get; set; }
@@ -76,7 +76,7 @@ namespace Gas_station.Product_mangment
             {
                 SelectedProductChanged(this, EventArgs.Empty);
                 MainWindow main = Util.Util.MainPagePointer();
-                main.Main.Content =new AddProduct(main, SelectedProduct);
+               // main.Main.Content =new AddProduct(main, SelectedProduct);
             }
 
         }

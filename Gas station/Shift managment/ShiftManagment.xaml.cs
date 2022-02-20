@@ -24,9 +24,6 @@ namespace Gas_station.Shift_managment
         public List<Shifts> shiftList { set; get; }
  
         private MainWindow MainWindow;
-
-
-       
         private void initShiftList() {
 
             shiftList = new List<Shifts>();
@@ -38,11 +35,11 @@ namespace Gas_station.Shift_managment
                     shiftList.Add(new Shifts()
                     {
                         ShiftNumber = data.ShiftID,
-                        Station = data.Station.Station_Name,
-                        Cashier = data.Cashier.Person.Person_Name,
-                        ShiftStart = data.ShiftStart,
-                        ShiftEnd = data.ShiftEnd
-                    }); ; 
+                        Station = data.Station1.Station_Name,
+                         ////////////////////////////////////////
+                        ShiftStart = data.Shift_start,
+                        ShiftEnd = data.Shift_end
+                    });
                 }
             }
         }
@@ -59,17 +56,15 @@ namespace Gas_station.Shift_managment
                     {
                         ShiftNumber = data.ShiftID,
  
-                        Station = data.Station.Station_Name,
-                        ShiftStart = data.ShiftStart,
-                        ShiftEnd = data.ShiftEnd
+                        Station = data.Station1.Station_Name,
+                        ShiftStart = data.Shift_start,
+                        ShiftEnd = data.Shift_end
                     });
                 }
             }
-
-
         }
 
-          public ShiftManagment(MainWindow mainWindow)
+        public ShiftManagment(MainWindow mainWindow)
         {
             MainWindow = mainWindow;
             initShiftList();
@@ -80,21 +75,15 @@ namespace Gas_station.Shift_managment
         {
 
         }
-
         private void shift_off_btn_Click(object sender, RoutedEventArgs e)
         {
-
             ShiftHandler.EndShift();
-
             MainWindow.Main.Content = new Login.LoginPage(MainWindow);
             UpdateShiftList();
             shiftListView.Items.Refresh();
-
         }
         private void shift_pause_btn_Click(object sender, RoutedEventArgs e)
         {
-
-         
          //   MainWindow.SetCashierStatus(ShiftStatus.Pause);
         }
     }

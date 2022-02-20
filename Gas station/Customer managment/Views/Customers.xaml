@@ -15,10 +15,10 @@
                     <GridView>
                         <GridViewColumn Header="ID Customer" Width="auto" DisplayMemberBinding="{Binding CustomerID}" />
                         <GridViewColumn Header="Card ID" Width="auto" DisplayMemberBinding="{Binding ID_LoyaltyCard}"/>
-                        <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Person.Person_Name}" />
-                        <GridViewColumn Header="Surname" Width="auto" DisplayMemberBinding="{Binding Person.Person_Surname}"/>
-                        <GridViewColumn Header="Phone" Width="auto" DisplayMemberBinding="{Binding Person.Person_Phone}"/>
-                        <GridViewColumn Header="Country" Width="auto" DisplayMemberBinding="{Binding Person.Location.Country}"/>
+                        <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Person.Name}" />
+                        <GridViewColumn Header="Surname" Width="auto" DisplayMemberBinding="{Binding Person.Surname}"/>
+                        <GridViewColumn Header="Phone" Width="auto" DisplayMemberBinding="{Binding Person.Phone1}"/>
+                        <GridViewColumn Header="Country" Width="auto" DisplayMemberBinding="{Binding Person.Adres_country}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
