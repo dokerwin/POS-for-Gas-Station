@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="MWS.MainMenu.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MWS.MainMenu"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Height="450" Width="800" AutomationProperties.AcceleratorKey="">
+            <DataGrid HorizontalAlignment="Left" Height="189" Margin="33,36,0,0" VerticalAlignment="Top" Width="223"  Background="#FF15AC53"/>
+            <DataGrid HorizontalAlignment="Center" Height="189" Margin="0,36,0,0" VerticalAlignment="Top" Width="223"  Background="#FF2F9BA0"/>
+            <DataGrid HorizontalAlignment="Left" Height="189" Margin="545,36,0,0" VerticalAlignment="Top" Width="223" Background="#FF0045A5"/>
+            <Label Content="Total Customers" HorizontalAlignment="Left" Margin="86,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
+            <Label Content="New Customers" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
+            <Label Content="Total product" HorizontalAlignment="Left" Margin="606,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
+            <Grid HorizontalAlignment="Center" Height="170" Margin="0,250,0,0" VerticalAlignment="Top" Width="734" Background="#FFE4DEDE"/>
+            <Label Content="{Binding total_customers }" HorizontalAlignment="Left" Margin="135,130,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="16" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
+            <Label Content="{Binding new_customers }" HorizontalAlignment="Left" Margin="390,135,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="16" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
+            <Label Content="{Binding total_products}" HorizontalAlignment="Left" Margin="656,135,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="16" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
+        </Grid>
+
+    </Viewbox>
+</UserControl>

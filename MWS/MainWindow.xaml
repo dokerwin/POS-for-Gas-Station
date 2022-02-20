@@ -1,0 +1,56 @@
+﻿<Window x:Class="MWS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+        mc:Ignorable="d"
+        xmlns:local1="clr-namespace:MWS.Users_managment" 
+        xmlns:local="clr-namespace:MWS.Product_managment"
+         xmlns:lmain="clr-namespace:MWS.MainMenu"
+        xmlns:mws="clr-namespace:MWS"
+        Title="MainWindow"  MinHeight="550" MinWidth="800">
+    <Window.Resources>
+
+        <DataTemplate DataType="{x:Type lmain:MainViewModel}">
+            <lmain:MainView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local1:UsersModelView}">
+            <local1:UsersView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local1:AddEmployeeModelView}">
+            <local1:AddEmployeeView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local:AddProductModelView}">
+            <local:AddProductView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local:ProductManagmentViewModel}">
+            <local:ProductManagmentView/>
+        </DataTemplate>
+
+    </Window.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Left"  BorderThickness="0,0,1,0" Background="#FF0045A5"  BorderBrush="{x:Null}" >
+            <ItemsControl ItemsSource="{Binding PageViewModels}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Height="40" Width="auto" Content="{Binding Name}"
+                                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                CommandParameter="{Binding }"
+                               Background="{x:Null}" FontFamily="Century Gothic" FontSize="15" Foreground="#FFFBFBFB" BorderBrush="{x:Null}">
+
+
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+        <ContentControl Content="{Binding CurrentPageViewModel}" Background ="#FF0045A5"/>
+    </DockPanel>
+    <!--</Grid>-->
+
+</Window>
