@@ -84,7 +84,7 @@
                 <Label Content="Developer&#xA;" HorizontalAlignment="Left" Margin="472,66,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" Width="71"/>
                 <Label Content="Messure&#xA;" HorizontalAlignment="Left" Margin="55,146,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" Width="85"/>
                 <Button Content="Add" HorizontalAlignment="Left" Margin="788,26,0,0" VerticalAlignment="Top" Height="26" Width="41" Background="#FFD8980C" RenderTransformOrigin="1.888,0.465"/>
-                <Button Content="Add" HorizontalAlignment="Left" Margin="788,66,0,0" VerticalAlignment="Top" Height="26" Width="41" Background="#FFD8980C"/>
+                <Button Content="Add" HorizontalAlignment="Left" Margin="788,66,0,0" VerticalAlignment="Top" Height="26" Width="41" Background="#FF1A00D9"/>
                 <ComboBox ItemsSource="{Binding Path = developers}"
               DisplayMemberPath="Name"
               SelectedItem="{Binding product.Developer, Mode=TwoWay}" HorizontalAlignment="Left" Margin="543,66,0,0" VerticalAlignment="Top" Width="245" Height="26"/>
@@ -94,13 +94,13 @@
                 <ComboBox ItemsSource="{Binding Path = categories}"
               DisplayMemberPath="Name"
               SelectedItem="{Binding product.Category, Mode=TwoWay}" HorizontalAlignment="Left" Margin="139,107,0,0" VerticalAlignment="Top" Width="261" Height="26"/>
-                <Button Content="Add" HorizontalAlignment="Left" Margin="400,107,0,0" VerticalAlignment="Top" Height="26" Width="44" Background="#FFD8980C"/>
+                <Button Content="Add" HorizontalAlignment="Left" Margin="400,107,0,0" VerticalAlignment="Top" Height="26" Width="44" Background="#FF1A00D9"/>
                 <ComboBox ItemsSource="{Binding Path = messures}"
               DisplayMemberPath="Units"
               SelectedItem="{Binding product.Type_Product, Mode=TwoWay}" HorizontalAlignment="Left" Margin="139,146,0,0" VerticalAlignment="Top" Width="261" Height="26"/>
-                <Button Content="Add" HorizontalAlignment="Left" Margin="400,146,0,0" VerticalAlignment="Top" Height="26" Width="44" Background="#FFD8980C"/>
+                <Button Content="Add" HorizontalAlignment="Left" Margin="400,146,0,0" VerticalAlignment="Top" Height="26" Width="44" Background="#FF1A00D9"/>
                 <Button   Command="{Binding Path = AddProductButton}" 
-                CommandParameter="ParameterValue" Content="Add" HorizontalAlignment="Left" Margin="57,408,0,0" VerticalAlignment="Top" Height="26" Width="162" Background="#FFD8980C"/>
+                CommandParameter="ParameterValue" Content="Add" HorizontalAlignment="Left" Margin="57,408,0,0" VerticalAlignment="Top" Height="26" Width="162" Background="#FF1A00D9" Foreground="White" FontSize="18"/>
                 <DatePicker SelectedDate ="{Binding product.SellStartDate, Mode=TwoWay }" HorizontalAlignment="Left" Margin="139,313,0,0" VerticalAlignment="Top" Width="307" Height="26" RenderTransformOrigin="0.508,1.654">
                     <DatePicker.BlackoutDates>
                         <CalendarDateRange Start="1/1/2000" End="12/31/2021"/>

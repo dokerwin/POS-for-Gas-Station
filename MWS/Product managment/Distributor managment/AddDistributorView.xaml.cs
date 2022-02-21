@@ -13,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MWS
+namespace MWS.Product_managment.Distributor_managment
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddDistributorView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddDistributorView : UserControl
     {
-        public MainWindow()
+        public AddDistributorView()
         {
             InitializeComponent();
-            ApplicationViewModel context = new ApplicationViewModel();
-            this.DataContext = context;
         }
-
     }
 }

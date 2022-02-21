@@ -13,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MWS
+namespace MWS.Product_managment.Developer_managment
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddDeveloperView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddDeveloperView : UserControl
     {
-        public MainWindow()
+        public AddDeveloperView()
         {
             InitializeComponent();
-            ApplicationViewModel context = new ApplicationViewModel();
-            this.DataContext = context;
         }
-
     }
 }

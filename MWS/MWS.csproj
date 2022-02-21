@@ -136,10 +136,19 @@
     <Compile Include="Product managment\AddProductView.xaml.cs">
       <DependentUpon>AddProductView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Product managment\Category managment\AddCategory.xaml.cs" />
+    <Compile Include="Product managment\Category managment\AddCateforyModelView.cs" />
+    <Compile Include="Product managment\Category managment\AddCategoryView.xaml.cs">
+      <DependentUpon>AddCategoryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Product managment\Category managment\CategoryHandler.cs" />
-    <Compile Include="Product managment\Developer managment\AddDeveloper.xaml.cs" />
-    <Compile Include="Product managment\Distributor managment\AddDistributor.xaml.cs" />
+    <Compile Include="Product managment\Developer managment\AddDeveloperView.xaml.cs">
+      <DependentUpon>AddDeveloperView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Product managment\Developer managment\AddDeveloperViewModel.cs" />
+    <Compile Include="Product managment\Distributor managment\AddDistributorView.xaml.cs">
+      <DependentUpon>AddDistributorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Product managment\Distributor managment\AddDistributorViewModel.cs" />
     <Compile Include="Product managment\Messure managment\AddMessure.xaml.cs" />
     <Compile Include="Product managment\ProductManagmentView.xaml.cs">
       <DependentUpon>ProductManagmentView.xaml</DependentUpon>
@@ -173,6 +182,10 @@
     <Compile Include="Users managment\AddEmployeeView.xaml.cs">
       <DependentUpon>AddEmployeeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Users managment\EmployeeManagmentView.xaml.cs">
+      <DependentUpon>EmployeeManagmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users managment\EmployeeManagmentViewModel.cs" />
     <Compile Include="Users managment\UsersModelView.cs" />
     <Compile Include="Users managment\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
@@ -215,17 +228,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Product managment\Category managment\AddCategory.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Product managment\Category managment\AddCategoryView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Product managment\Developer managment\AddDeveloper.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Product managment\Developer managment\AddDeveloperView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Product managment\Distributor managment\AddDistributor.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Product managment\Distributor managment\AddDistributorView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Product managment\Messure managment\AddMessure.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -236,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Users managment\AddEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users managment\EmployeeManagmentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -28,8 +28,19 @@ namespace MWS.Product_managment
         #endregion
 
         private ICommand addProductButton { get; set; }
+        private ICommand addCategoryButton { get; set; }
 
 
+        public ICommand AddcategoryButton
+        {
+            get
+            {
+                return addCategoryButton ?? (addCategoryButton = new RelayCommand(x =>
+                {
+                    Mediator.Notify("AddCategoryView", "");
+                }));
+            }
+        }
 
         public ICommand AddProductButton
         {
@@ -42,6 +53,7 @@ namespace MWS.Product_managment
                 addProductButton = value;
             }
         }
+
 
         public AddProductModelView() 
         {

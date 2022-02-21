@@ -1,6 +1,7 @@
 ﻿using MWS.Helper_Classes;
 using MWS.MainMenu;
 using MWS.Product_managment;
+using MWS.Product_managment.Category_managment;
 using MWS.Users_managment;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,9 @@ namespace MWS
 
         private ICommand _changePageCommand;
 
+
         private IPageViewModel _currentPageViewModel;
+        private List<IPageViewModel> _pagebuttonsViewModels;
         private List<IPageViewModel> _pageViewModels;
 
         #endregion
@@ -30,12 +33,26 @@ namespace MWS
             PageViewModels.Add(new AddProductModelView());
             PageViewModels.Add(new ProductManagmentViewModel());
             PageViewModels.Add(new UsersModelView());
-            
+            PageViewModels.Add(new AddEmployeeModelView());
+            PageViewModels.Add(new EmployeeManagmentViewModel());
+            PageViewModels.Add(new AddCateforyModelView());
+
+
+            //Add pae to button 
+            PageButtonsViewModels.Add(new EmployeeManagmentViewModel());
+            PageButtonsViewModels.Add(new ProductManagmentViewModel ());
+
+
             // Set starting page
             CurrentPageViewModel = PageViewModels[0];
 
-           //Mediator.Subscribe("GoTo1Screen", OnGo1Screen);
-           // Mediator.Subscribe("GoTo2Screen", OnGo2Screen);
+       
+            Mediator.Subscribe("AddEmpoyeeView", AddEmployeeView);
+            Mediator.Subscribe("AddCustomerView", AddCustomerView);
+            Mediator.Subscribe("AllCustomersView", AllCustomersView);
+
+            //Mediator.Subscribe("AddCategoryView", (x) => ChangeViewModel(PageViewModels[6]));
+
 
 
 
@@ -69,6 +86,21 @@ namespace MWS
             }
         }
 
+
+
+        public List<IPageViewModel> PageButtonsViewModels
+        {
+            get
+            {
+                if (_pagebuttonsViewModels == null)
+                    _pagebuttonsViewModels = new List<IPageViewModel>();
+
+                return _pagebuttonsViewModels;
+            }
+        }
+
+
+
         public IPageViewModel CurrentPageViewModel
         {
             get
@@ -91,13 +123,45 @@ namespace MWS
 
         private void ChangeViewModel(IPageViewModel viewModel)
         {
-            if (!PageViewModels.Contains(viewModel))
-                PageViewModels.Add(viewModel);
+            if (!PageButtonsViewModels.Contains(viewModel))
+                 PageButtonsViewModels.Add(viewModel);
 
-            CurrentPageViewModel = PageViewModels
+            CurrentPageViewModel = PageButtonsViewModels
                 .FirstOrDefault(vm => vm == viewModel);
         }
 
         #endregion
+
+        #region Methods
+        private void AddCustomerView(object obj)
+        {
+            ChangeViewModel(PageViewModels[4]);
+        }
+
+        private void AddEmployeeView(object obj)
+        {
+            ChangeViewModel(PageViewModels[5]);
+        }
+
+        private void AllCustomersView(object obj)
+        {
+           // ChangeViewModel(PageViewModels[5]);
+        }
+
+
+        
+
+
+
+        #endregion
+
+
+
+
+
+
+
+
+
     }
 }
