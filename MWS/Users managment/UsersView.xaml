@@ -3,53 +3,173 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MWS.Users_managment" xmlns:validator="clr-namespace:Gas_station.Validation"
+             xmlns:local="clr-namespace:MWS.Users_managment" xmlns:validator="clr-namespace:Gas_station.Validation" xmlns:validator1="clr-namespace:MWS.MWSValidation"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid Height="450" Width="800" AutomationProperties.AcceleratorKey="">
 
-            <Label Content="Name&#xA;" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" Width="57" RenderTransformOrigin="1.135,0.65"/>
-            <Label Content="Surname&#xA;" HorizontalAlignment="Left" Margin="15,94,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF"/>
-            <Label Content="Age&#xA;" HorizontalAlignment="Left" Margin="16,170,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" Width="56"/>
-            <Label Content="Phone1&#xA;" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Center" Height="26" Background="#FF33B0FF" Width="56"/>
-            <Label Content="Phone2&#xA;" HorizontalAlignment="Left" Margin="16,251,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" Width="57" RenderTransformOrigin="0.395,2"/>
-            <Label Content="Email1&#xA;" HorizontalAlignment="Left" Margin="17,290,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-            <TextBox HorizontalAlignment="Left" Margin="72,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="26"/>
-            <TextBox HorizontalAlignment="Left" Margin="72,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="26"/>
-            <TextBox HorizontalAlignment="Left" Margin="72,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="26" SelectionOpacity="0"/>
-            <TextBox HorizontalAlignment="Left" Margin="72,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" Height="26"/>
-            <TextBox HorizontalAlignment="Left" Margin="73,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" Height="26"/>
-            <Label Content="Sex&#xA;" HorizontalAlignment="Left" Margin="15,132,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" Width="57"/>
-            <ComboBox HorizontalAlignment="Left" Margin="72,132,0,0" VerticalAlignment="Top" Width="300" Height="26"/>
-            <Button Style="{StaticResource btnBlue}"   Command="{Binding Path = AddProductButton}" 
+            <Label Content="Name&#xA;" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="57" RenderTransformOrigin="1.135,0.65" FontSize="8"/>
+            <Label Content="Surname&#xA;" HorizontalAlignment="Left" Margin="15,83,0,0" VerticalAlignment="Top" Height="21" Background="#FF33B0FF" FontSize="8" Width="57"/>
+            <Label Content="Age&#xA;" HorizontalAlignment="Left" Margin="16,151,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="57" FontSize="8"/>
+            <Label Content="Phone1&#xA;" HorizontalAlignment="Left" Margin="15,187,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="58" FontSize="8"/>
+            <Label Content="Email1&#xA;" HorizontalAlignment="Left" Margin="13,224,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="58" FontSize="8"/>
+            <TextBox HorizontalAlignment="Left" Margin="72,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="21">
+                <TextBox.Text>
+                    <Binding Path="_customer.Person.Surname" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+
+            </TextBox>
+            <TextBox HorizontalAlignment="Left" Margin="72,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="20">
+                <TextBox.Text>
+                    <Binding Path="_customer.Person.Name" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+
+            </TextBox>
+            <TextBox HorizontalAlignment="Left" Margin="72,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="20" SelectionOpacity="0">
+                <TextBox.Text>
+                    <Binding Path="_customer.Person.Age" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator1:RangeValidator MinValue="18" MaxValue="99" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+
+            </TextBox>
+            <TextBox HorizontalAlignment="Left" Margin="72,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="20">
+                <TextBox.Text>
+                    <Binding Path="_customer.Person.Phone1" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox HorizontalAlignment="Left" Margin="71,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="20">
+                <TextBox.Text>
+                    <Binding Path="_customer.Person.Email1" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Content="Sex&#xA;" HorizontalAlignment="Left" Margin="15,116,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" Width="57" FontSize="8"/>
+            <ComboBox ItemsSource="{Binding Path = SexList}"
+             SelectedItem="{Binding _customer.Person.Sex, Mode=TwoWay}" HorizontalAlignment="Left" Margin="72,116,0,0" VerticalAlignment="Top" Width="301" Height="19"/>
+            <Button Style="{StaticResource btnBlue}"   Command="{Binding Path = AddCustomerButton}" 
                 CommandParameter="ParameterValue"  Content="Add customer" HorizontalAlignment="Center" Margin="0,409,0,0" VerticalAlignment="Top" Height="27" Width="128" FontSize="12"/>
-            <TextBox HorizontalAlignment="Left" Margin="73,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" Height="26"/>
 
             <Label Content="Label" HorizontalAlignment="Left" Margin="552,59,0,0" VerticalAlignment="Top" FontSize="2"/>
             <Label Content="Add customer" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Height="37" Background="#FF33B0FF" Width="128" FontFamily="Agency FB" FontSize="20" Foreground="White"/>
-            <Label Content="Email2&#xA;" HorizontalAlignment="Left" Margin="17,331,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-            <TextBox HorizontalAlignment="Left" Margin="72,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="26"/>
-            <Grid Margin="413,52,10,68" Background="#FF7663E0">
-                <Label Content="Country&#xA;" HorizontalAlignment="Left" Margin="6,39,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="26"/>
-                <Label Content="City&#xA;" HorizontalAlignment="Left" Margin="6,80,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="26"/>
-                <Label Content="Street&#xA;" HorizontalAlignment="Left" Margin="6,122,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="26"/>
-                <Label Content="Build&#xA;" HorizontalAlignment="Left" Margin="6,161,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="26"/>
-                <Label Content="Level&#xA;" HorizontalAlignment="Left" Margin="6,199,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="26"/>
-                <Label Content="ZIP&#xA;" HorizontalAlignment="Left" Margin="6,240,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="26"/>
-                <Label Content="TAX&#xA;" HorizontalAlignment="Left" Margin="6,280,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="26"/>
+            <Grid Margin="400,52,24,55" Background="#FF7663E0">
+                <Label Content="Country&#xA;" HorizontalAlignment="Left" Margin="6,39,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
+                <TextBox HorizontalAlignment="Left" Margin="62,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20">
+                    <TextBox.Text>
+                        <Binding Path="_customer.Person.Adres_country" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Content="City&#xA;" HorizontalAlignment="Left" Margin="6,70,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
+                <TextBox HorizontalAlignment="Left" Margin="62,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="21">
+                    <TextBox.Text>
+                        <Binding Path="_customer.Person.Adress_city" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Content="Street&#xA;" HorizontalAlignment="Left" Margin="6,103,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
+                <TextBox HorizontalAlignment="Left" Margin="62,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
+                    <TextBox.Text>
+                        <Binding Path="_customer.Person.Adress_street" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Content="Build&#xA;" HorizontalAlignment="Left" Margin="6,136,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
+                <TextBox HorizontalAlignment="Left" Margin="62,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20">
+                    <TextBox.Text>
+                        <Binding Path="_customer.Person.Adress_build" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Content="Level&#xA;" HorizontalAlignment="Left" Margin="6,168,0,0" VerticalAlignment="Top" Height="18" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
+                <TextBox HorizontalAlignment="Left" Margin="62,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
+                    <TextBox.Text>
+                        <Binding Path="_customer.Person.Adress_level" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Content="ZIP&#xA;" HorizontalAlignment="Left" Margin="6,200,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
+                <TextBox HorizontalAlignment="Left" Margin="62,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
+                    <TextBox.Text>
+                        <Binding Path="_customer.Person.Adress_zip" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Content="TAX&#xA;" HorizontalAlignment="Left" Margin="6,230,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
+                <TextBox HorizontalAlignment="Left" Margin="62,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
+                    <TextBox.Text>
+                        <Binding Path="_customer.Person.Tax"  UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <Label Content="Address&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="68" FontSize="16" Foreground="White"/>
+                <Label Content="Phone2&#xA;" HorizontalAlignment="Left" Margin="6,265,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="56" RenderTransformOrigin="0.395,2" FontSize="8"/>
+                <TextBox HorizontalAlignment="Left" Margin="62,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20">
+                    <Binding Path="_customer.Person.Phone2" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label Content="Email2&#xA;" HorizontalAlignment="Left" Margin="6,299,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
+                <TextBox HorizontalAlignment="Left" Margin="61,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" Height="19">
+                    <Binding Path="_customer.Person.Email2" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
             </Grid>
-            <Label Content="CardID&#xA;" HorizontalAlignment="Left" Margin="17,369,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56"/>
-            <TextBox HorizontalAlignment="Left" Margin="72,369,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="26"/>
+            <Label Content="CardID&#xA;" HorizontalAlignment="Left" Margin="13,258,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
+            <TextBox HorizontalAlignment="Left" Margin="69,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" Height="20">
+                <TextBox.Text>
+                    <Binding Path="_customer.Person.IDCard" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
         </Grid>
     </Viewbox>

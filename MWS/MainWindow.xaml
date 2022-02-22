@@ -16,9 +16,9 @@
             <lmain:MainView />
         </DataTemplate>
 
-        <!--<DataTemplate DataType="{x:Type local1:UsersModelView}">
+        <DataTemplate DataType="{x:Type local1:UsersModelView}">
             <local1:UsersView />
-        </DataTemplate>-->
+        </DataTemplate>
 
         <DataTemplate DataType="{x:Type local1:EmployeeManagmentViewModel}">
             <local1:EmployeeManagmentView />

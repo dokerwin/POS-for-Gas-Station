@@ -4,86 +4,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MWS.Users_managment
 {
    public class UsersModelView : ObservableObject, IPageViewModel
     {
-        private int _userId;
-        private Customer _currentCustomer;
-        private ICommand _getCustomerCommand;
-        private ICommand _saveCustomerCommand;
+       
+        public Customer _customer { get; set; }  = new Customer() { Person = new Person() };
+     
+        private ICommand _addCustomerButton;
+
+        public List<String> SexList { get; set; } = new List<string> { "Male", "Feamle" };
 
 
-
-        public int CustomerId
-        {
-            get { return _userId; }
-            set
-            {
-                if (value != _userId)
-                {
-                    _userId = value;
-                    OnPropertyChanged("CustomerId");
-                }
-            }
-        }
-
-
-        public Customer CurrentCustomer
-        {
-            get { return _currentCustomer; }
-            set
-            {
-                if (value != _currentCustomer)
-                {
-                    _currentCustomer = value;
-                    OnPropertyChanged("CurrentCustomer");
-                }
-            }
-        }
-
-
-        public ICommand GetProductCommand
+        public ICommand AddCustomerButton
         {
             get
             {
-                if (_getCustomerCommand == null)
+                if (_addCustomerButton == null)
                 {
-                    _getCustomerCommand = new RelayCommand(
-                        param => GetCustomer(),
-                        param => CustomerId > 0
+                    _addCustomerButton = new RelayCommand(
+                        param => SaveCustomer()
                     );
                 }
-                return _getCustomerCommand;
-            }
-        }
-
-        public ICommand SaveProductCommand
-        {
-            get
-            {
-                if (_saveCustomerCommand == null)
-                {
-                    _saveCustomerCommand = new RelayCommand(
-                        param => SaveCustomer(),
-                        param => (CurrentCustomer != null)
-                    );
-                }
-                return _saveCustomerCommand;
+                return _addCustomerButton;
             }
         }
 
 
-        private void GetCustomer()
-        {
-          
-        }
+
 
         private void SaveCustomer()
         {
-            // You would implement your Product save here
+
+            //Person person = new Person()
+            //{
+            //    Name = _customer.Person.Name,
+            //    Surname = _customer.Person.Surname,
+            //    IDCard = _customer.Person.IDCard,
+            //    Sex = _customer.Person.Sex,
+            //    Age = _customer.Person.Age,
+            //    Phone1 = _customer.Person.Phone1,
+            //    Phone2 = _customer.Person.Phone2,
+            //    Email1 = _customer.Person.Email1,
+            //    Email2 = _customer.Person.Email2,
+            //    Adres_country = _customer.Person.Adres_country,
+            //    Adress_city = _customer.Person.Adress_city,
+            //    Adress_level = _customer.Person.Adress_level,
+            //    Adress_build = _customer.Person.Adress_build,
+            //    Adress_zip = _customer.Person.Adress_zip,
+            //    Adress_street = _customer.Person.Adress_street,
+            //    Tax = _customer.Person.Tax
+            //};
+
+            //_customer.LoyaltyCard = new LoyaltyCard() { }
+
+            using (Gas_stationDb db = new Gas_stationDb())
+            {
+                db.Customers.Add(_customer);
+                db.SaveChanges();
+                MessageBox.Show("Product added");
+                _customer = new Customer();
+            }
         }
 
 
