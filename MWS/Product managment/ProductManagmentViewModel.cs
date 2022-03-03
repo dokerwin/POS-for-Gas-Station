@@ -56,11 +56,10 @@ namespace MWS.Product_managment
         {
             get
             {
-                return addProductButton;
-            }
-            set
-            {
-                addProductButton = value;
+                return addProductButton ?? (addProductButton = new RelayCommand(x =>
+                {
+                    Mediator.Notify("AddProductView", "");
+                }));
             }
         }
         public ICommand FindProductButton

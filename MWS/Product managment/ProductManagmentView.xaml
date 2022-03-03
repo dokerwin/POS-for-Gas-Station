@@ -74,7 +74,7 @@
             <Button Style="{StaticResource btnBlue}"   Command="{Binding Path = FindProductButton}" 
                     CommandParameter="ParameterValue"  Content="Find product" Margin="10,106,612,335"/>
             <Button Style="{StaticResource btnBlue}"   Command="{Binding Path = AddProductButton}" 
-                CommandParameter="ParameterValue"  Content="Add new product" Margin="10,153,612,290"/>
+                CommandParameter="ParameterValue" Content="Add new product" Margin="10,153,612,290"/>
 
             </Grid>
         </Viewbox>

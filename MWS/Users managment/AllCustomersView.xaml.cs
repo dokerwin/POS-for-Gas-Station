@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace MWS.Users_managment
 {
     /// <summary>
-    /// Interaction logic for EmployeeManagmentView.xaml
+    /// Interaction logic for AllCustomersView.xaml
     /// </summary>
-    public partial class EmployeeManagmentView : UserControl
+    public partial class AllCustomersView : UserControl
     {
-        public EmployeeManagmentView()
+        public AllCustomersView()
         {
             InitializeComponent();
         }
-
-
     }
 }

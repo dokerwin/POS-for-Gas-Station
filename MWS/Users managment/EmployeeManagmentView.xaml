@@ -11,16 +11,30 @@
         <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid Height="450" Width="800" AutomationProperties.AcceleratorKey="">
                 <Button Command="{Binding Path = AllEmployeesButton}" 
-                 CommandParameter="ParameterValue" Content="All employees" HorizontalAlignment="Left" Margin="216,81,0,0" VerticalAlignment="Top" Height="144" Width="168" Background="#FF27E915" FontSize="24" Foreground="White"/>
+                 CommandParameter="ParameterValue" Content="       All &#xD;&#xA;employees" HorizontalAlignment="Left" Margin="216,67,0,0" VerticalAlignment="Top" Height="102" Width="155" Background="#FF27E915" FontSize="24" Foreground="White" FontFamily="Arial Rounded MT Bold"/>
                 <Button Command="{Binding Path = AddEmployeeButton}" 
-                CommandParameter="ParameterValue" Content="  Add an &#xD;&#xA;employee" HorizontalAlignment="Left" Margin="29,81,0,0" VerticalAlignment="Top" Height="144" Width="168" Background="#FF27E915" FontSize="24" Foreground="White"/>
+                CommandParameter="ParameterValue" Content="  Add an &#xD;&#xA;employee" HorizontalAlignment="Left" Margin="30,67,0,0" VerticalAlignment="Top" Height="102" Width="155" Background="#FF27E915" FontSize="24" Foreground="White" FontFamily="Arial Rounded MT Bold"/>
                 <Button Command="{Binding Path = hireEmployeeButton}" 
-                CommandParameter="ParameterValue" Content="  Hire an &#xA;employee" HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Top" Height="144" Width="168" Background="#FFB1E915" FontSize="24" Foreground="White"/>
+                CommandParameter="ParameterValue" Content="    Hire &#xD;&#xA;employee" HorizontalAlignment="Left" Margin="30,196,0,0" VerticalAlignment="Top" Height="98" Width="155" Background="#FFB1E915" FontSize="24" Foreground="White"/>
                 <Button Command="{Binding Path = AddCustomerButton}" 
-                CommandParameter="ParameterValue" Content="Add customer" HorizontalAlignment="Left" Margin="400,81,0,0" VerticalAlignment="Top" Height="144" Width="168" Background="#FF1522E9" FontSize="24" Foreground="White"/>
+                CommandParameter="ParameterValue" Content="     Add&#xD;&#xA;customer" HorizontalAlignment="Left" Margin="400,67,0,0" VerticalAlignment="Top" Height="102" Width="168" Background="#FF1522E9" FontSize="24" Foreground="White"  FontFamily="Arial Rounded MT Bold"/>
                 <Button Command="{Binding Path = AllCustomersButton}" 
-                CommandParameter="ParameterValue" Content="All customers" HorizontalAlignment="Left" Margin="586,81,0,0" VerticalAlignment="Top" Height="144" Width="168" Background="#FF1522E9" FontSize="24" Foreground="White"/>
+                CommandParameter="ParameterValue" Content="        All&#xD;&#xA; customers" HorizontalAlignment="Left" Margin="597,66,0,0" VerticalAlignment="Top" Height="102" Width="168" Background="#FF1522E9" FontSize="24" Foreground="White" FontFamily="Arial Rounded MT Bold"/>
                 <Label Content="User management" HorizontalAlignment="Center" VerticalAlignment="Top" Height="37" Background="#FF33B0FF" Width="151" FontFamily="Agency FB" FontSize="24" Foreground="White"/>
+                <Button Command="{Binding hireEmployeeButton}" 
+                    CommandParameter="ParameterValue" Content="+" HorizontalAlignment="Left" Margin="216,196,0,0" VerticalAlignment="Top" Height="98" Width="155" Background="#FFB1E915" FontSize="48" Foreground="White"/>
+                <Button Command="{Binding hireEmployeeButton}" 
+                    CommandParameter="ParameterValue" Content="+" HorizontalAlignment="Left" Margin="400,196,0,0" VerticalAlignment="Top" Height="98" Width="168" Background="#FFB1E915" FontSize="48" Foreground="White"/>
+                <Button Command="{Binding hireEmployeeButton}" 
+                    CommandParameter="ParameterValue" Content="+" HorizontalAlignment="Left" Margin="597,196,0,0" VerticalAlignment="Top" Height="98" Width="168" Background="#FFB1E915" FontSize="48" Foreground="White"/>
+                <Button Command="{Binding hireEmployeeButton}" 
+                    CommandParameter="ParameterValue" Content="+" HorizontalAlignment="Left" Margin="30,324,0,0" VerticalAlignment="Top" Height="98" Width="155" Background="#FFB1E915" FontSize="48" Foreground="White"/>
+                <Button Command="{Binding hireEmployeeButton}" 
+                    CommandParameter="ParameterValue" Content="+" HorizontalAlignment="Left" Margin="216,324,0,0" VerticalAlignment="Top" Height="98" Width="155" Background="#FFB1E915" FontSize="48" Foreground="White"/>
+                <Button Command="{Binding hireEmployeeButton}" 
+                    CommandParameter="ParameterValue" Content="+" HorizontalAlignment="Left" Margin="400,324,0,0" VerticalAlignment="Top" Height="98" Width="168" Background="#FFB1E915" FontSize="48" Foreground="White"/>
+                <Button Command="{Binding hireEmployeeButton}" 
+                    CommandParameter="ParameterValue" Content="+" HorizontalAlignment="Left" Margin="597,324,0,0" VerticalAlignment="Top" Height="98" Width="168" Background="#FFB1E915" FontSize="48" Foreground="White"/>
             </Grid>
 
         </Viewbox>

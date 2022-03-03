@@ -76,7 +76,6 @@ namespace MWS.Product_managment.Distributor_managment
                     ID_Company = company.CompanyID
                 };
                 db.Distributors.Add(distributor);
-                
             }
 
         }

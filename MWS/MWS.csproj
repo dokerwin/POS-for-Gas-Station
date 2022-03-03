@@ -150,6 +150,8 @@
     </Compile>
     <Compile Include="Product managment\Distributor managment\AddDistributorViewModel.cs" />
     <Compile Include="Product managment\Messure managment\AddMessure.xaml.cs" />
+    <Compile Include="Product managment\MOP managment\MopHandler.cs" />
+    <Compile Include="Product managment\ProductHandler.cs" />
     <Compile Include="Product managment\ProductManagmentView.xaml.cs">
       <DependentUpon>ProductManagmentView.xaml</DependentUpon>
     </Compile>
@@ -182,10 +184,16 @@
     <Compile Include="Users managment\AddEmployeeView.xaml.cs">
       <DependentUpon>AddEmployeeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Users managment\AllCustomersView.xaml.cs">
+      <DependentUpon>AllCustomersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users managment\AllCustomersViewModel.cs" />
     <Compile Include="Users managment\EmployeeManagmentView.xaml.cs">
       <DependentUpon>EmployeeManagmentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users managment\EmployeeManagmentViewModel.cs" />
+    <Compile Include="Users managment\Loyalty managment\LoyaltyHandler.cs" />
+    <Compile Include="Users managment\UserHandler.cs" />
     <Compile Include="Users managment\UsersModelView.cs" />
     <Compile Include="Users managment\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
@@ -249,6 +257,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Users managment\AddEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users managment\AllCustomersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -328,6 +340,10 @@
     <Resource Include="Assets\total.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="MainMenu\GasStationJPG.jpg" />
+    <Resource Include="MainMenu\FMS.png" />
+    <Resource Include="Assets\FMS.png" />
+    <Resource Include="Assets\GasStationJPG.jpg" />
     <Content Include="DbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbModel.Context.cs</LastGenOutput>

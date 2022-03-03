@@ -1,6 +1,9 @@
 ﻿using MWS.Helper_Classes;
+using MWS.Product_managment.MOP_managment;
+using MWS.Users_managment.Loyalty_managment;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +12,30 @@ using System.Windows.Input;
 
 namespace MWS.Users_managment
 {
-   public class UsersModelView : ObservableObject, IPageViewModel
+   public class UsersModelView : ObservableObject, IPageViewModel, INotifyPropertyChanged
     {
-       
-        public Customer _customer { get; set; }  = new Customer() { Person = new Person() };
-     
+
+
+        public List<MOP> MopList { get; set; } = MopHandler.GetListMOPs();
+
+
+        public Customer _customer = new Customer()
+        {
+            LoyaltyCard = new LoyaltyCard()
+            {
+                MOP = new MOP()
+            },
+            Person = new Person()
+        };
+
+        public UsersModelView()
+        {
+           
+
+
+
+        }
+
         private ICommand _addCustomerButton;
 
         public List<String> SexList { get; set; } = new List<string> { "Male", "Feamle" };
@@ -63,18 +85,14 @@ namespace MWS.Users_managment
 
             using (Gas_stationDb db = new Gas_stationDb())
             {
+                _customer.Register_date = DateTime.Now;
                 db.Customers.Add(_customer);
+                OnNotifyPropertyChanged("MyProperty");
                 db.SaveChanges();
-                MessageBox.Show("Product added");
+                MessageBox.Show("Сustomer added");
                 _customer = new Customer();
             }
         }
-
-
-
-
-
-
 
         public string Name
         {
@@ -85,5 +103,20 @@ namespace MWS.Users_managment
         {
             get { return "Assets/person.png"; }
         }
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnNotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion INotifyPropertyChanged Members
+
+
+
     }
 }

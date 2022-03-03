@@ -1,4 +1,6 @@
 ﻿using MWS.Helper_Classes;
+using MWS.Product_managment;
+using MWS.Users_managment;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +12,19 @@ namespace MWS.MainMenu
 {
     public class MainViewModel : ObservableObject, IPageViewModel, INotifyPropertyChanged
     {
+
+
+        public int _totalProducts { get; set; } = 0;
+        public int _totalCustomers { get; set; } = 0;
+
+
+
+        public MainViewModel()
+        {
+            _totalProducts = ProductHandler.GetNumberOfProducts();
+            _totalCustomers = UserHandler.GetNumberOfCustomers();
+        }
+
         public string Name
         {
             get
