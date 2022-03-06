@@ -12,7 +12,7 @@
         <Grid Margin="540,60,16,33" Background="#FF7663E0">
             <TextBox HorizontalAlignment="Center" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="82">
                 <TextBox.Text>
-                    <Binding Path="Company.Additional1" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Additional1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -23,7 +23,7 @@
             <Label Content="Additional1&#xA;" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="52" FontSize="8"/>
             <TextBox HorizontalAlignment="Center" Margin="0,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="82">
                 <TextBox.Text>
-                    <Binding Path="Company.Additional2" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Additional2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -36,7 +36,7 @@
             <Label Content="Country&#xA;" HorizontalAlignment="Left" Margin="6,39,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="47,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.Adres_country" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Adres_country" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -46,7 +46,7 @@
             <Label Content="City&#xA;" HorizontalAlignment="Left" Margin="6,70,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="47,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.Adress_city" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Adress_city" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -56,7 +56,7 @@
             <Label Content="Street&#xA;" HorizontalAlignment="Left" Margin="6,102,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="47,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.Adress_street" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Adress_street" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -67,7 +67,7 @@
             <Label Content="Level&#xA;" HorizontalAlignment="Left" Margin="6,171,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="47,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="19">
                 <TextBox.Text>
-                    <Binding Path="Company.Adress_level" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Adress_level" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -77,7 +77,7 @@
             <Label Content="ZIP&#xA;" HorizontalAlignment="Left" Margin="6,202,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="47,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="19">
                 <TextBox.Text>
-                    <Binding Path="Company.Adress_zip" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Adress_zip" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -87,7 +87,7 @@
             <Label Content="TAX&#xA;" HorizontalAlignment="Left" Margin="6,235,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="47,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="19">
                 <TextBox.Text>
-                    <Binding Path="Company.Tax" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Tax" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -97,7 +97,7 @@
             <Label Content="Address&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="68" FontSize="16" Foreground="White"/>
             <TextBox HorizontalAlignment="Left" Margin="47,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.Adress_build" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Adress_build" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -109,7 +109,7 @@
             <Label Content="Name&#xA;" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" Width="41" RenderTransformOrigin="1.135,0.65" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="51,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.Name" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -119,7 +119,7 @@
             <Label Content="KRS&#xA;" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" FontSize="8" Width="41"/>
             <TextBox HorizontalAlignment="Left" Margin="51,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.KRS" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.KRS" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -130,7 +130,7 @@
             <Label Content="NIP" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Height="18" Background="#FF33B0FF" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="51,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="18" SelectionOpacity="0">
                 <TextBox.Text>
-                    <Binding Path="Company.NIP" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.NIP" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -140,7 +140,7 @@
             <Label Content="Phone1&#xA;" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="51,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.Phone1" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Phone1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -150,7 +150,7 @@
             <Label Content="Phone2&#xA;" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="41" RenderTransformOrigin="0.395,2" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="51,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.Phone2" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Phone2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -160,7 +160,7 @@
             <Label Content="Email1&#xA;" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="51,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.Email1" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Email1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -170,7 +170,7 @@
             <Label Content="Email2&#xA;" HorizontalAlignment="Left" Margin="10,267,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="51,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.Email2" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.Email2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -180,7 +180,7 @@
             <Label Content="WWW&#xA;" HorizontalAlignment="Left" Margin="10,298,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
             <TextBox HorizontalAlignment="Left" Margin="51,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.WWW" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.WWW" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>
@@ -190,7 +190,7 @@
             <Label Content="Data" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="42" FontSize="16" Foreground="White"/>
             <TextBox HorizontalAlignment="Left" Margin="51,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                 <TextBox.Text>
-                    <Binding Path="Company.REGON" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="Company.REGON" UpdateSourceTrigger="PropertyChanged"   Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator:LengthValidator MinValue="2" MaxValue="100" />
                         </Binding.ValidationRules>

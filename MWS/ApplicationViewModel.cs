@@ -2,6 +2,8 @@
 using MWS.MainMenu;
 using MWS.Product_managment;
 using MWS.Product_managment.Category_managment;
+using MWS.Product_managment.Developer_managment;
+using MWS.Product_managment.Distributor_managment;
 using MWS.Users_managment;
 using System;
 using System.Collections.Generic;
@@ -38,12 +40,24 @@ namespace MWS
             PageViewModels.Add(new AddCateforyModelView());
             PageViewModels.Add(new AllCustomersViewModel());
 
+            PageViewModels.Add(new AddDeveloperViewModel());
+
+            PageViewModels.Add(new AddDistributorViewModel());
+
+
+
             //Add page to button 
             PageButtonsViewModels.Add(new MainViewModel());
             PageButtonsViewModels.Add(new EmployeeManagmentViewModel());
             PageButtonsViewModels.Add(new ProductManagmentViewModel ());
 
+
+
             PageButtonsViewModels.Add(new AddCateforyModelView());
+
+            PageButtonsViewModels.Add(new DistributorsManagementViewModel());
+
+            PageButtonsViewModels.Add(new DevelopersManagmentViewModel());
 
 
             // Set starting page
@@ -52,8 +66,17 @@ namespace MWS
             Mediator.Subscribe("AddEmpoyeeView", AddEmployeeView);
             Mediator.Subscribe("AddCustomerView", AddCustomerView);
             Mediator.Subscribe("AllCustomersView", AllCustomersView);
-            Mediator.Subscribe("AddProductView", GoToAddProductView);
+            Mediator.Subscribe("AddProductView",  GoToAddProductView);
             Mediator.Subscribe("AddCategoryView", GoToAddCategoryView);
+
+
+            Mediator.Subscribe("DevelopersManagementView", GoToDevelopersManagementView);
+            Mediator.Subscribe("DistributorsManagementView", GoToDistributorsManagementView);
+
+            Mediator.Subscribe("AddDeveloperView",   GoToAddDeveloperView);
+            Mediator.Subscribe("AddDistributorView", GoToAddDistributorView);
+
+
         }
         #region Properties / Commands
 
@@ -125,31 +148,49 @@ namespace MWS
         #region Methods
         private void AddCustomerView(object obj)
         {
-            ChangeViewModel(PageViewModels[4]);
+            ChangeViewModel(new UsersModelView());
         }
 
         private void AddEmployeeView(object obj)
         {
-            ChangeViewModel(PageViewModels[5]);
+            ChangeViewModel(new AddEmployeeModelView());
         }
 
         private void AllCustomersView(object obj)
         {
-            ChangeViewModel(PageViewModels[8]);
+            ChangeViewModel(new AllCustomersViewModel());
         }
         private void GoToAddProductView(object obj)
         {
-            PageViewModels[2] = new AddProductModelView(obj, true);
-            ChangeViewModel(PageViewModels[2]);
+            ChangeViewModel(new AddProductModelView(obj, true));
         }
         private void GoToAddCategoryView(object obj)
         {
-            PageViewModels[7] = new AddCateforyModelView(obj);
-            ChangeViewModel(PageViewModels[7]);
+            ChangeViewModel(new AddCateforyModelView(obj));
         }
 
 
-        
+        private void GoToAddDeveloperView(object obj)
+        {
+         ChangeViewModel(new AddDeveloperViewModel(obj));
+        }
+
+
+        private void GoToAddDistributorView(object obj)
+        {
+            ChangeViewModel(new AddDistributorViewModel(obj));
+        }
+
+        private void GoToDevelopersManagementView(object obj)
+        {
+            ChangeViewModel(new DevelopersManagmentViewModel(obj));
+        }
+
+        private void GoToDistributorsManagementView(object obj)
+        {
+            ChangeViewModel(new DistributorsManagementViewModel(obj));
+        }
+
         #endregion
 
 

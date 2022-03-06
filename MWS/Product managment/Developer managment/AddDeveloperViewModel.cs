@@ -12,7 +12,6 @@ namespace MWS.Product_managment.Developer_managment
     public class AddDeveloperViewModel:ObservableObject, IPageViewModel
     {
         public Developer developer { get; set; } = new Developer();
-        public Company   company { get; set; } =   new  Company();
 
         private ICommand _addDeveloperButton { get; set; }
 
@@ -28,8 +27,9 @@ namespace MWS.Product_managment.Developer_managment
             }
         }
 
-        public AddDeveloperViewModel()
+        public AddDeveloperViewModel(object obj =null)
         {
+            developer = obj as Developer;
             _addDeveloperButton = new RelayCommand(AddDeveloper);
         }
 
@@ -38,43 +38,41 @@ namespace MWS.Product_managment.Developer_managment
         void AddDeveloper(object obj)
         {
 
-            Company comp = new Company()
-            {
-                Name = company.Name,
-                KRS = company.KRS,
-                REGON = company.REGON,
-                NIP = company.NIP,
-                Email1 = company.Email1,
-                Email2 = company.Email2,
-                Adres_country = company.Adres_country,
-                Adress_street = company.Adress_street,
-                Adress_city = company.Adress_city,
-                Adress_zip = company.Adress_zip,
-                Adress_level = company.Adress_level,
-                Adress_build = company.Adress_build,
-                Phone1 = company.Phone1,
-                Phone2 = company.Phone2,
-                Tax = company.Tax,
-                WWW = company.WWW,
-                RegisterDate = DateTime.Now,
-                Additional1 = company.Additional1,
-                Additional2 = company.Additional2,
+            //Company comp = new Company()
+            //{
+            //    Name = company.Name,
+            //    KRS = company.KRS,
+            //    REGON = company.REGON,
+            //    NIP = company.NIP,
+            //    Email1 = company.Email1,
+            //    Email2 = company.Email2,
+            //    Adres_country = company.Adres_country,
+            //    Adress_street = company.Adress_street,
+            //    Adress_city = company.Adress_city,
+            //    Adress_zip = company.Adress_zip,
+            //    Adress_level = company.Adress_level,
+            //    Adress_build = company.Adress_build,
+            //    Phone1 = company.Phone1,
+            //    Phone2 = company.Phone2,
+            //    Tax = company.Tax,
+            //    WWW = company.WWW,
+            //    RegisterDate = DateTime.Now,
+            //    Additional1 = company.Additional1,
+            //    Additional2 = company.Additional2,
 
-            };
+            //};
 
             using (Gas_stationDb db = new Gas_stationDb())
             {
-                db.Companies.Add(comp);
+                db.Companies.Add(developer.Company);
                 db.SaveChanges();
-                MessageBox.Show("Developer added");
-                company = new Company();
-                Developer developer = new Developer()
+                Developer _developer = new Developer()
                 {
-                    Name = company.Name,
-                    ID_Company = company.CompanyID
+                    Name = developer.Company.Name,
+                    ID_Company = developer.Company.CompanyID
                 };
-                db.Developers.Add(developer);
-
+                db.Developers.Add(_developer);
+                MessageBox.Show("Developer added");
             }
 
         }

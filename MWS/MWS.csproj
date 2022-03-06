@@ -143,10 +143,16 @@
       <DependentUpon>AddDeveloperView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product managment\Developer managment\AddDeveloperViewModel.cs" />
+    <Compile Include="Product managment\Developer managment\DeveloperHandler.cs" />
+    <Compile Include="Product managment\Developer managment\DevelopersManagementView.xaml.cs">
+      <DependentUpon>DevelopersManagementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Product managment\Developer managment\DevelopersManagmentViewModel.cs" />
     <Compile Include="Product managment\Distributor managment\AddDistributorView.xaml.cs">
       <DependentUpon>AddDistributorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product managment\Distributor managment\AddDistributorViewModel.cs" />
+    <Compile Include="Product managment\Distributor managment\DistributorHandler.cs" />
     <Compile Include="Product managment\Distributor managment\DistributorsManagementView.xaml.cs">
       <DependentUpon>DistributorsManagementView.xaml</DependentUpon>
     </Compile>
@@ -243,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Product managment\Developer managment\AddDeveloperView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Product managment\Developer managment\DevelopersManagementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

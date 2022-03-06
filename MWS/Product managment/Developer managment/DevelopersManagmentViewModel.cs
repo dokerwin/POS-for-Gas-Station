@@ -7,14 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MWS.Product_managment.Distributor_managment
+namespace MWS.Product_managment.Developer_managment
 {
-    internal class DistributorsManagementViewModel : ObservableObject, IPageViewModel
+    public class DevelopersManagmentViewModel : ObservableObject, IPageViewModel
     {
-        public ObservableCollection<Distributor> distributors { get; set; } = DistributorHandler.GetAllDsitributorList();
+
+        public ObservableCollection<Developer> developers { get; set; } = DeveloperHandler.GetAllDeveloperList();
+
+
         #region IComand buttons
-        private ICommand addDistributorButton { get; set; }
-        private ICommand findDistributorButton { get; set; }
+        private ICommand addDeveloperButton { get; set; }
+        private ICommand findDeveloperButton { get; set; }
         private ICommand buttonDelete { get; set; }
         private ICommand buttonEdit { get; set; }
         #endregion
@@ -45,13 +48,13 @@ namespace MWS.Product_managment.Distributor_managment
             }
         }
 
-        public ICommand AddDistributorButton
+        public ICommand AddDeveloperButton
         {
             get
             {
-                return addDistributorButton ?? (addDistributorButton = new RelayCommand(x =>
+                return addDeveloperButton ?? (addDeveloperButton = new RelayCommand(x =>
                 {
-                    Mediator.Notify("AddDistributorView", "");
+                    Mediator.Notify("AddDeveloperView", "");
                 }));
             }
         }
@@ -59,11 +62,11 @@ namespace MWS.Product_managment.Distributor_managment
         {
             get
             {
-                return findDistributorButton;
+                return findDeveloperButton;
             }
             set
             {
-                findDistributorButton = value;
+                findDeveloperButton = value;
             }
         }
         #endregion
@@ -72,43 +75,43 @@ namespace MWS.Product_managment.Distributor_managment
         {
             get
             {
-                return "DistributorManagement";
+                return "DeveloperManagement";
             }
         }
 
-        public DistributorsManagementViewModel(object obj = null)
+        public DevelopersManagmentViewModel(object obj = null)
         {
-            buttonDelete           = new RelayCommand(DeleteDistributor);
-            buttonEdit             = new RelayCommand(EditDistributor  );
-            findDistributorButton  = new RelayCommand(FindDistributor  );
+            buttonDelete = new RelayCommand(DeleteDeveloper);
+            buttonEdit = new RelayCommand(EditDeveloper);
+            findDeveloperButton = new RelayCommand(FindDeveloper);
         }
 
 
-        public void FindDistributor(object obj)
+        public void FindDeveloper(object obj)
         {
 
 
         }
 
-        public void EditDistributor(object obj)
+        public void EditDeveloper(object obj)
         {
-            Mediator.Notify("AddDistributorView", obj);
+            Mediator.Notify("AddDeveloperView", obj);
         }
 
-        public void DeleteDistributor(object obj)
+        public void DeleteDeveloper(object obj)
         {
-            var item = obj as Distributor;
+            var item = obj as Developer;
             if (item != null)
             {
                 using (Gas_stationDb db = new Gas_stationDb())
                 {
-                    var distrib = db.Distributors.FirstOrDefault(i => i.DistributorID == item.DistributorID);
-                    db.Distributors.Remove(distrib);
+                    var devel = db.Developers.FirstOrDefault(i => i.DeveloperID == item.DeveloperID);
+                    db.Developers.Remove(devel);
                     db.SaveChanges();
                 }
             }
         }
-        public void AddDistributor(object obj)
+        public void AddDeveloper(object obj)
         {
 
         }
@@ -118,4 +121,3 @@ namespace MWS.Product_managment.Distributor_managment
         }
     }
 }
-

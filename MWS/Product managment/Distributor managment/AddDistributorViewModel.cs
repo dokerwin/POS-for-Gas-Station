@@ -30,8 +30,9 @@ namespace MWS.Product_managment.Distributor_managment
             }
         }
 
-        public AddDistributorViewModel()
+        public AddDistributorViewModel(object obj = null)
         {
+            distributor = (Distributor)obj;
             _addDistributorButton = new RelayCommand(AddDistibutor);
         }
 
@@ -68,7 +69,7 @@ namespace MWS.Product_managment.Distributor_managment
             {
                 db.Companies.Add(comp);
                 db.SaveChanges();
-                MessageBox.Show("Product added");
+                MessageBox.Show("Distributor added");
                 company = new Company();
                 Distributor distributor = new Distributor()
                 {

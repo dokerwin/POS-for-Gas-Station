@@ -7,6 +7,8 @@
         xmlns:local1="clr-namespace:MWS.Users_managment" 
          xmlns:local2="clr-namespace:MWS.Product_managment.Category_managment" 
         xmlns:local="clr-namespace:MWS.Product_managment"
+        xmlns:localDistributor="clr-namespace:MWS.Product_managment.Distributor_managment"
+        xmlns:localDeveloper="clr-namespace:MWS.Product_managment.Developer_managment"
          xmlns:lmain="clr-namespace:MWS.MainMenu"
         xmlns:mws="clr-namespace:MWS"
         Title="MainWindow"  MinHeight="550" MinWidth="800">
@@ -45,10 +47,33 @@
         <DataTemplate DataType="{x:Type local1:AllCustomersViewModel}">
             <local1:AllCustomersView/>
         </DataTemplate>
+
+
+
+
+        <DataTemplate DataType="{x:Type localDistributor:AddDistributorViewModel}">
+            <localDistributor:AddDistributorView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type localDistributor:DistributorsManagementViewModel}">
+            <localDistributor:DistributorsManagementView/>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type localDeveloper:AddDeveloperViewModel}">
+            <localDeveloper:AddDeveloperView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type localDeveloper:DevelopersManagmentViewModel}">
+            <localDeveloper:DevelopersManagementView/>
+        </DataTemplate>
+
+
+
         
-        
-        
-        
+
+
+
 
     </Window.Resources>
     <DockPanel>
