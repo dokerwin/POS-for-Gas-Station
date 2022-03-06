@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Height="450" Width="800" >
         <Button   Command="{Binding Path = AddDeveloperButton}" 
-                CommandParameter="ParameterValue" Content="Add" HorizontalAlignment="Center" Margin="0,391,0,0" VerticalAlignment="Top" Height="26" Width="244" Background="#FF091692" Foreground="White" FontSize="18"/>
+                CommandParameter="ParameterValue" Content="Save" HorizontalAlignment="Center" Margin="0,391,0,0" VerticalAlignment="Top" Height="26" Width="244" Background="#FF091692" Foreground="White" FontSize="18"/>
         <Grid Margin="540,60,16,33" Background="#FF7663E0">
             <TextBox HorizontalAlignment="Center" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="82">
                 <TextBox.Text>

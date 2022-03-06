@@ -38,8 +38,6 @@ namespace MWS
             PageViewModels.Add(new AddCateforyModelView());
             PageViewModels.Add(new AllCustomersViewModel());
 
-
-
             //Add page to button 
             PageButtonsViewModels.Add(new MainViewModel());
             PageButtonsViewModels.Add(new EmployeeManagmentViewModel());
@@ -51,18 +49,12 @@ namespace MWS
             // Set starting page
             CurrentPageViewModel = PageViewModels[0];
 
-       
             Mediator.Subscribe("AddEmpoyeeView", AddEmployeeView);
             Mediator.Subscribe("AddCustomerView", AddCustomerView);
             Mediator.Subscribe("AllCustomersView", AllCustomersView);
             Mediator.Subscribe("AddProductView", GoToAddProductView);
             Mediator.Subscribe("AddCategoryView", GoToAddCategoryView);
-
-
-
-
         }
-
         #region Properties / Commands
 
         public ICommand ChangePageCommand
@@ -79,7 +71,6 @@ namespace MWS
                 return _changePageCommand;
             }
         }
-
         public List<IPageViewModel> PageViewModels
         {
             get
@@ -90,9 +81,6 @@ namespace MWS
                 return _pageViewModels;
             }
         }
-
-
-
         public List<IPageViewModel> PageButtonsViewModels
         {
             get
@@ -103,9 +91,6 @@ namespace MWS
                 return _pagebuttonsViewModels;
             }
         }
-
-
-
         public IPageViewModel CurrentPageViewModel
         {
             get

@@ -147,6 +147,10 @@
       <DependentUpon>AddDistributorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product managment\Distributor managment\AddDistributorViewModel.cs" />
+    <Compile Include="Product managment\Distributor managment\DistributorsManagementView.xaml.cs">
+      <DependentUpon>DistributorsManagementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Product managment\Distributor managment\DistributorsManagementViewModel.cs" />
     <Compile Include="Product managment\Messure managment\AddMessure.xaml.cs" />
     <Compile Include="Product managment\MOP managment\MopHandler.cs" />
     <Compile Include="Product managment\ProductHandler.cs" />
@@ -243,6 +247,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Product managment\Distributor managment\AddDistributorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Product managment\Distributor managment\DistributorsManagementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
