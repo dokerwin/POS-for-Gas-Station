@@ -3,34 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MWS.Product_managment.Category_managment"
+             xmlns:local="clr-namespace:MWS.Product_managment.Category_managment" xmlns:validator="clr-namespace:MWS.MWSValidation"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Viewbox>
-            <Grid Margin="250,150" Width="487" Height="207">
-                <Grid.Background>
-                    <ImageBrush Opacity="0.9" ImageSource="messagebox.jpg"/>
-                </Grid.Background>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="168.8" />
+    <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Height="450" Width="800" >
+            <Grid Margin="23,45,533,33" Background="#FF648FFF">
+                <Label Content="Name&#xA;" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" Width="32" RenderTransformOrigin="1.135,0.65" FontSize="8"/>
+                <TextBox HorizontalAlignment="Center" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="47">
+                    <TextBox.Text>
+                        <Binding Path="category.Name" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validator:LengthValidator MinValue="2" MaxValue="100" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Content="Description" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" FontSize="8" Width="52"/>
+                <TextBox HorizontalAlignment="Center" Margin="0,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Height="47">
+                    <TextBox.Text>
+                        <Binding Path="category.Description" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validator:LengthValidator MinValue="2" MaxValue="100" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Content="Data" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="42" FontSize="16" Foreground="White"/>
+                <Button   Command="{Binding SaveCategoryButton}" 
+                CommandParameter="ParameterValue" Content="Save" HorizontalAlignment="Center" Margin="0,195,0,0" VerticalAlignment="Top" Height="24" Width="224" Background="#FF091692" Foreground="White" FontSize="14"/>
 
-                    <ColumnDefinition  Width="Auto" MinWidth="318.4"/>
-
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="68*" />
-                    <RowDefinition Height="70*" />
-                    <RowDefinition Height="69*" />
-                </Grid.RowDefinitions>
-                <Button x:Name ="addCategory_btn" Content="Add Category" HorizontalAlignment="Left" Margin="20,19.6,0,10.2" Width="119" FontWeight="Bold" RenderTransformOrigin="1.503,0.487" Style="{StaticResource btnGreen}" Grid.Row="2"/>
-                <Button x:Name ="Close" Content="Back" HorizontalAlignment="Left" Margin="192.2,19.6,0,10.2" Width="116" FontWeight="Bold" RenderTransformOrigin="1.503,0.487" Style="{StaticResource btnGreen}" Grid.Row="2" Grid.Column="1"/>
-                <TextBox Text="{Binding category.Name, Mode=TwoWay, TargetNullValue=Null}" Margin="8,25,10,10" Grid.Row="1" Grid.Column="1"  />
-                <TextBox Text="{Binding category.Description, Mode=TwoWay, TargetNullValue=Null}" Margin="8,23,10,10" Grid.Column="1"  />
-                <Label Content="Category name" HorizontalAlignment="Left" Margin="20,23,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Height="35" Width="133" FontSize="16"/>
-                <Label Content="Description" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Grid.Row="1" Height="35" Foreground="#FFFCFCFC" FontWeight="Bold" FontSize="16"/>
 
             </Grid>
-        </Viewbox>
-    </Grid>
+            <Label Content="Category management" HorizontalAlignment="Center" VerticalAlignment="Top" Height="37" Background="#FF33B0FF" Width="156" FontFamily="Agency FB" FontSize="20" Foreground="White"/>
+            <ListView x:Name="_categoryList"  ItemsSource="{Binding ctaegoryList}" Margin="267,45,0,33" Background="#4DFFFFFF" SelectedItem="{Binding SelectedProduct}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="80" DisplayMemberBinding="{Binding CategoryID}" />
+                        <GridViewColumn Header="Category" Width="300" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Manage" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding DataContext.ButtonEdit, ElementName=_categoryList}" CommandParameter="{Binding}">
+                                        <TextBlock Text="Edit" />
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding DataContext.ButtonDelete, ElementName=_categoryList}" CommandParameter="{Binding}">
+                                        <TextBlock Text="Delete" />
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Viewbox>
 </UserControl>

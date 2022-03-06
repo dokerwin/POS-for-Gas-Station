@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a72ecf9f89034294a6698f16366a6591" Name="Diagram1" ZoomLevel="80">
+      <Diagram DiagramId="a72ecf9f89034294a6698f16366a6591" Name="Diagram1" ZoomLevel="69">
         <EntityTypeShape EntityType="Gas_stationModel.Advertising" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Gas_stationModel.Cashier" Width="1.5" PointX="9" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Gas_stationModel.Category" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />

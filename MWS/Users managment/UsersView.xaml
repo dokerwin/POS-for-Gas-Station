@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MWS.Users_managment" xmlns:validator="clr-namespace:Gas_station.Validation" xmlns:validator1="clr-namespace:MWS.MWSValidation"
+             xmlns:validator1="clr-namespace:MWS.MWSValidation"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -45,7 +45,7 @@
                 </TextBox.Text>
 
             </TextBox>
-            <TextBox HorizontalAlignment="Left" Margin="72,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="20">
+            <TextBox MaxLength="12" HorizontalAlignment="Left" Margin="72,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="20">
                 <TextBox.Text>
                     <Binding Path="_customer.Person.Phone1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -123,7 +123,7 @@
                     </TextBox.Text>
                 </TextBox>
                 <Label Content="ZIP&#xA;" HorizontalAlignment="Left" Margin="6,200,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
+                <TextBox MaxLength="6" HorizontalAlignment="Left" Margin="62,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
                     <TextBox.Text>
                         <Binding Path="_customer.Person.Adress_zip" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
@@ -144,7 +144,7 @@
                 </TextBox>
                 <Label Content="Address&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="68" FontSize="16" Foreground="White"/>
                 <Label Content="Phone2&#xA;" HorizontalAlignment="Left" Margin="6,265,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="56" RenderTransformOrigin="0.395,2" FontSize="8"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20">
+                <TextBox MaxLength="12" HorizontalAlignment="Left" Margin="62,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20">
                     <Binding Path="_customer.Person.Phone2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator1:LengthValidator MinValue="2" MaxValue="200" />
@@ -174,11 +174,11 @@
                 <Label Content="MOP" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" Height="20" Background="#FF33B0FF" Width="52" FontSize="8"/>
                 <ComboBox ItemsSource="{Binding MopList}"
                           DisplayMemberPath="Mop_Type"
-                SelectedItem="{Binding _customer.LoyaltyCard.MOP.Mop_Type, Mode=TwoWay}" HorizontalAlignment="Left" Margin="57,0,0,0" VerticalAlignment="Center" Width="298" Height="20"/>
+                SelectedItem="{Binding Mop, Mode=TwoWay}" HorizontalAlignment="Left" Margin="57,0,0,0" VerticalAlignment="Center" Width="298" Height="20"/>
                 <Label Content="Currency" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="52" FontSize="8"/>
                 <ComboBox ItemsSource="{Binding MopList}"
                           DisplayMemberPath="Currency"
-                    SelectedItem="{Binding _customer.LoyaltyCard.MOP.Currency, Mode=TwoWay}" HorizontalAlignment="Left" Margin="57,72,0,0" VerticalAlignment="Top" Width="298" Height="20"/>
+                    SelectedItem="{Binding Mop, Mode=TwoWay}" HorizontalAlignment="Left" Margin="57,72,0,0" VerticalAlignment="Top" Width="298" Height="20"/>
                 <Label Content="Method of payment&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="151" FontSize="16" Foreground="White"/>
             </Grid>
 

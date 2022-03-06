@@ -11,72 +11,62 @@
 
 
     <UserControl.Resources>
-            <Style x:Key="TitleText" TargetType="Label">
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="FontFamily" Value="Comic Sans MS"/>
-                <Setter Property="FontSize" Value="18"/>
-            </Style>
-
-            <Style TargetType="TextBox">
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type TextBoxBase}">
-                            <Border CornerRadius="2" Padding="2" Background="#FFBCD0F3" BorderBrush="#FF13265D" BorderThickness="1">
-                                <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-
-        </UserControl.Resources>
+        <Style x:Key="TitleText" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
 
 
-        <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Grid Height="474" Width="835">
-            <ListView x:Name="productList"  ItemsSource="{Binding products}" Margin="228,48,10,10" Background="#4DFFFFFF" SelectedItem="{Binding SelectedProduct}" >
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Barcode" Width="auto" DisplayMemberBinding="{Binding ProductID}" />
-                            <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Name}"/>
-                            <GridViewColumn Header="Category" Width="auto" DisplayMemberBinding="{Binding Category.Name}" />
-                            <GridViewColumn Header="Price" Width="auto" DisplayMemberBinding="{Binding List_Price}"/>
-                            <GridViewColumn Header="Supplier" Width="auto" DisplayMemberBinding="{Binding Distributor.Name}"/>
-                            <GridViewColumn Header="Developer" Width="auto" DisplayMemberBinding="{Binding Developer.Name}"/>
-                            <GridViewColumn Header="Stock Qt" Width="auto" DisplayMemberBinding="{Binding Quantity}"/>
-                            <GridViewColumn Header="Restriction" Width="auto" DisplayMemberBinding="{Binding Restriction_age}"/>
-                            <GridViewColumn Header="Last update" Width="auto" DisplayMemberBinding="{Binding LastUpdate}"/>
-                            <GridViewColumn Header="" Width="auto">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
+
+    </UserControl.Resources>
+
+
+    <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Height="474" Width="835">
+            <ListView x:Name="productList"  ItemsSource="{Binding products}" Margin="0,101,0,0" Background="#4DFFFFFF" SelectedItem="{Binding SelectedProduct}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Barcode" Width="auto" DisplayMemberBinding="{Binding ProductID}" />
+                        <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Category" Width="auto" DisplayMemberBinding="{Binding Category.Name}" />
+                        <GridViewColumn Header="Price" Width="auto" DisplayMemberBinding="{Binding List_Price}"/>
+                        <GridViewColumn Header="Supplier" Width="auto" DisplayMemberBinding="{Binding Distributor.Name}"/>
+                        <GridViewColumn Header="Developer" Width="auto" DisplayMemberBinding="{Binding Developer.Name}"/>
+                        <GridViewColumn Header="Stock Qt" Width="auto" DisplayMemberBinding="{Binding Quantity}"/>
+                        <GridViewColumn Header="Restriction" Width="auto" DisplayMemberBinding="{Binding Restriction_age}"/>
+                        <GridViewColumn Header="Last update" Width="auto" DisplayMemberBinding="{Binding LastUpdate}"/>
+                        <GridViewColumn Header="" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
                                     <Button Command="{Binding ElementName=productList, Path=DataContext.ButtonEdit}" CommandParameter="{Binding}">
                                         <TextBlock Text="Edit" />
                                     </Button>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="" Width="auto">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
                                     <Button Command="{Binding ElementName=productList, Path=DataContext.ButtonDelete}" CommandParameter="{Binding}">
                                         <TextBlock Text="Delete" />
                                     </Button>
                                 </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
-                <Label Content="All products" HorizontalAlignment="Left" Margin="335,-10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="White"/>
-                <TextBox Text="{Binding productID, Mode=TwoWay}" x:Name="Id_receipt_txt" HorizontalAlignment="Left" Height="24" Margin="10,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" />
-                <Label Content="                Product barcode" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Background="#FF1E8AC2" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="213" Height="24"/>
-            <Button Style="{StaticResource btnBlue}"   Command="{Binding Path = FindProductButton}" 
-                    CommandParameter="ParameterValue"  Content="Find product" Margin="10,106,612,335"/>
-            <Button Style="{StaticResource btnBlue}"   Command="{Binding Path = AddProductButton}" 
-                CommandParameter="ParameterValue" Content="Add new product" Margin="10,153,612,290"/>
+            <Label Content="All products" HorizontalAlignment="Center" Margin="0,-10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FF010F84"/>
+            <TextBox Text="{Binding productID, Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="137,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="233" />
+            <Label Content="    Product barcode" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Background="#FF1AA74A" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="127" Height="24"/>
+            <Button Command="{Binding Path = FindProductButton}" 
+                    CommandParameter="ParameterValue"  Content="Find product" Margin="370,53,371,397" Background="#FF1E8AC2" Foreground="White" RenderTransformOrigin="1.21,0.513"/>
+            <Button Command="{Binding Path = AddProductButton}" 
+                CommandParameter="ParameterValue" Content="Add new product" Margin="698,53,10,397" Background="#FF1E8AC2" Foreground="White"/>
 
-            </Grid>
-        </Viewbox>
+        </Grid>
+    </Viewbox>
 
 </UserControl>

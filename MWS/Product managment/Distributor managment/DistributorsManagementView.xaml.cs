@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MWS.MainMenu
+namespace MWS.Product_managment.Distributor_managment
 {
     /// <summary>
-    /// Interaction logic for tets.xaml
+    /// Interaction logic for DistributorsManagementView.xaml
     /// </summary>
-    public partial class tets : UserControl
+    public partial class DistributorsManagementView : UserControl
     {
-        public tets()
+        public DistributorsManagementView()
         {
             InitializeComponent();
         }

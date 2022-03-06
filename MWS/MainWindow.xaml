@@ -42,6 +42,14 @@
             <local:ProductManagmentView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type local1:AllCustomersViewModel}">
+            <local1:AllCustomersView/>
+        </DataTemplate>
+        
+        
+        
+        
+
     </Window.Resources>
     <DockPanel>
         <Border DockPanel.Dock="Left"  BorderThickness="0,0,1,0" Background="#FF0045A5"  BorderBrush="{x:Null}" >

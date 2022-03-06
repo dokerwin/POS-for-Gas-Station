@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MWS.Users_managment
+namespace MWS.Shift_managment
 {
     /// <summary>
-    /// Interaction logic for EmployeeManagmentView.xaml
+    /// Interaction logic for ShiftManagmentView.xaml
     /// </summary>
-    public partial class EmployeeManagmentView : UserControl
+    public partial class ShiftManagmentView : UserControl
     {
-        public EmployeeManagmentView()
+        public ShiftManagmentView()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

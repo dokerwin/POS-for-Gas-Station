@@ -27,6 +27,15 @@ namespace MWS.Users_managment
             return new Customer();
         }
 
+        public static List<Customer> GetAllCustomers()
+        {
+            using (Gas_stationDb db = new Gas_stationDb())
+            {
+                return db.Customers.Include("Person").Include("LoyaltyCard").ToList();
+            }
+        }
+
+
 
         public static int GetNumberOfCustomers()
         {

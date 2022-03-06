@@ -36,11 +36,16 @@ namespace MWS
             PageViewModels.Add(new AddEmployeeModelView());
             PageViewModels.Add(new EmployeeManagmentViewModel());
             PageViewModels.Add(new AddCateforyModelView());
+            PageViewModels.Add(new AllCustomersViewModel());
 
 
-            //Add pae to button 
+
+            //Add page to button 
+            PageButtonsViewModels.Add(new MainViewModel());
             PageButtonsViewModels.Add(new EmployeeManagmentViewModel());
             PageButtonsViewModels.Add(new ProductManagmentViewModel ());
+
+            PageButtonsViewModels.Add(new AddCateforyModelView());
 
 
             // Set starting page
@@ -50,8 +55,8 @@ namespace MWS
             Mediator.Subscribe("AddEmpoyeeView", AddEmployeeView);
             Mediator.Subscribe("AddCustomerView", AddCustomerView);
             Mediator.Subscribe("AllCustomersView", AllCustomersView);
-
-            //Mediator.Subscribe("AddCategoryView", (x) => ChangeViewModel(PageViewModels[6]));
+            Mediator.Subscribe("AddProductView", GoToAddProductView);
+            Mediator.Subscribe("AddCategoryView", GoToAddCategoryView);
 
 
 
@@ -145,14 +150,21 @@ namespace MWS
 
         private void AllCustomersView(object obj)
         {
-           // ChangeViewModel(PageViewModels[5]);
+            ChangeViewModel(PageViewModels[8]);
+        }
+        private void GoToAddProductView(object obj)
+        {
+            PageViewModels[2] = new AddProductModelView(obj, true);
+            ChangeViewModel(PageViewModels[2]);
+        }
+        private void GoToAddCategoryView(object obj)
+        {
+            PageViewModels[7] = new AddCateforyModelView(obj);
+            ChangeViewModel(PageViewModels[7]);
         }
 
 
         
-
-
-
         #endregion
 
 

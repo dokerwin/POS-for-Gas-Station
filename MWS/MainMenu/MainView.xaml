@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
              xmlns:local="clr-namespace:MWS.MainMenu"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -23,8 +24,9 @@
             <Label Content="{Binding _totalCustomers }" HorizontalAlignment="Left" Margin="135,130,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="16" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
             <Label Content="{Binding new_customers }" HorizontalAlignment="Left" Margin="128,116,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="36" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB" Height="38" Width="32" RenderTransformOrigin="-0.291,0.521"/>
             <Label Content="{Binding _totalProducts}" HorizontalAlignment="Left" Margin="639,114,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="36" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB" Height="40" Width="41"/>
-
-        </Grid>
+        
+</Grid>
+        
 
     </Viewbox>
 </UserControl>

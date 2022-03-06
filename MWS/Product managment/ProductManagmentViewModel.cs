@@ -1,6 +1,7 @@
 ﻿using MWS.Helper_Classes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace MWS.Product_managment
     public class ProductManagmentViewModel : ObservableObject, IPageViewModel
     {
 
-        public List<Product> products { get; set; } = new List<Product>();
+        public ObservableCollection<Product> products { get; set; } = new ObservableCollection<Product>();
 
 
         #region IComand buttons
@@ -87,12 +88,14 @@ namespace MWS.Product_managment
         {
             using(Gas_stationDb db = new Gas_stationDb()) 
             {
-                products = db.Products.Include("Developer").Include("Distributor").Include("Category").ToList();  
+                foreach(var product in db.Products.Include("Developer").Include("Distributor").Include("Category").ToList())
+                {
+                    products.Add(product);
+                }
             }
 
             buttonDelete = new RelayCommand(DeleteProduct);
             buttonEdit   = new RelayCommand(EditProduct);
-            addProductButton   = new RelayCommand(AddProduct);
             findProductButton = new RelayCommand(FindProduct);
         }
 
@@ -105,7 +108,7 @@ namespace MWS.Product_managment
 
         public void EditProduct(object obj)
         {
-
+           Mediator.Notify("AddProductView", obj);
         }
 
         public void DeleteProduct(object obj)

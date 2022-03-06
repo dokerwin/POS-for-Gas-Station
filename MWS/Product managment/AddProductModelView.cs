@@ -31,6 +31,9 @@ namespace MWS.Product_managment
         private ICommand addCategoryButton { get; set; }
 
 
+        bool edit = false;
+
+
         public ICommand AddcategoryButton
         {
             get
@@ -55,8 +58,14 @@ namespace MWS.Product_managment
         }
 
 
-        public AddProductModelView() 
+        public AddProductModelView(object obj= null, bool edit = false) 
         {
+            if(obj != null && obj != "")
+            {
+                product = obj as Product;
+                this.edit = edit;
+            }
+
             addProductButton = new RelayCommand(AddProduct);
             RefreshItems();
         }
@@ -105,33 +114,42 @@ namespace MWS.Product_managment
 
 
         public void AddProduct(object obj)
-        {
-            Product Addproduct = new Product()
-            {
-                Name = product.Name,
-                Short_name = product.Short_name,
-                Description = product.Description,
-                Description1 = product.Description1,
-                ID_Category = product.Category.CategoryID,
-                ID_Distributor = product.Distributor.DistributorID,
-                ID_Developer = product.Developer.DeveloperID,
-                ID_Type_Product = product.Type_Product.Type_ProductID,
-                List_price = product.List_price,
-                Stock_price = product.Stock_price,
-                StandartPrice = product.StandartPrice,
-                SellStartDate = product.SellStartDate,
-                SellEndDate = product.SellEndDate,
-                LastUpdate = DateTime.Now,
-                Quantity = product.Quantity,
-                Restriction_age = product.Restriction_age.Equals("True") ? "1" : "0"
-            };
-
+        {  
             using (Gas_stationDb db = new Gas_stationDb())
             {
-                db.Products.Add(Addproduct);
-                db.SaveChanges();
-                MessageBox.Show("Product added");
-                product = new Product();
+                if (edit)
+                {
+                    db.Entry(product).State = EntityState.Modified;                 
+                    db.SaveChanges();
+                    MessageBox.Show("Product changed");
+                }
+                else
+                {
+                    Product Addproduct = new Product()
+                    {
+                        Name = product.Name,
+                        Short_name = product.Short_name,
+                        Description = product.Description,
+                        Description1 = product.Description1,
+                        ID_Category = product.Category.CategoryID,
+                        ID_Distributor = product.Distributor.DistributorID,
+                        ID_Developer = product.Developer.DeveloperID,
+                        ID_Type_Product = product.Type_Product.Type_ProductID,
+                        List_price = product.List_price,
+                        Stock_price = product.Stock_price,
+                        StandartPrice = product.StandartPrice,
+                        SellStartDate = product.SellStartDate,
+                        SellEndDate = product.SellEndDate,
+                        LastUpdate = DateTime.Now,
+                        Quantity = product.Quantity,
+                        Restriction_age = product.Restriction_age.Equals("True") ? "1" : "0"
+                    };
+
+                    db.Products.Add(Addproduct);
+                    db.SaveChanges();
+                    MessageBox.Show("Product added");
+                    product = new Product();
+                }
             }
         }
 

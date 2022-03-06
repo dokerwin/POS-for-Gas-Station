@@ -107,6 +107,7 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper Classes\EventRaiser.cs" />
+    <Compile Include="Helper Classes\MyCommand.cs" />
     <Compile Include="Helper Classes\ObservableObject.cs" />
     <Compile Include="IPageViewModel.cs" />
     <Compile Include="Lgn.cs">
@@ -119,9 +120,6 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu\MainViewModel.cs" />
-    <Compile Include="MainMenu\tets.xaml.cs">
-      <DependentUpon>tets.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Mediator.cs" />
     <Compile Include="MOP.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
@@ -165,6 +163,10 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper Classes\RelayCommand.cs" />
+    <Compile Include="Shift managment\ShiftManagmentView.xaml.cs">
+      <DependentUpon>ShiftManagmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shift managment\ShiftManagmentViewModel.cs" />
     <Compile Include="Shift.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -203,10 +205,6 @@
     <Compile Include="MWSValidation\PhoneValidator.cs" />
     <Compile Include="MWSValidation\RangeValidator.cs" />
     <Page Include="MainMenu\MainView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainMenu\tets.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,6 +251,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Product managment\ProductManagmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shift managment\ShiftManagmentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

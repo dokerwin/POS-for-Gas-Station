@@ -33,7 +33,7 @@ namespace MWS.Users_managment
             {
                 return allEmployeesButton ?? (allEmployeesButton = new RelayCommand(x =>
                 {
-                    Mediator.Notify("AddEmployeesView", "");
+                    Mediator.Notify("AllEmployeesView", "");
                 }));
             }
         }
@@ -57,7 +57,7 @@ namespace MWS.Users_managment
                 }));
             }
         }
-        public ICommand AllCustomerButton
+        public ICommand AllCustomersButton
         {
             get
             {

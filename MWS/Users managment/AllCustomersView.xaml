@@ -6,40 +6,34 @@
              xmlns:local="clr-namespace:MWS.Users_managment"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <ListView x:Name="productList"  ItemsSource="{Binding customers}" Background="#4DFFFFFF" SelectedItem="{Binding SelectedProduct}" >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Name }" />
-                    <GridViewColumn Header="Suranme" Width="auto" DisplayMemberBinding="{Binding Surname}"/>
-                    <GridViewColumn Header="Sex" Width="auto" DisplayMemberBinding="{Binding Sex}" />
-                    <GridViewColumn Header="Phone" Width="auto" DisplayMemberBinding="{Binding Phone1}"/>
-                    <GridViewColumn Header="Email" Width="auto" DisplayMemberBinding="{Binding Email1}"/>
-                    <GridViewColumn Header="Country" Width="auto" DisplayMemberBinding="{Binding Adres_country}"/>
-                    <GridViewColumn Header="City" Width="auto" DisplayMemberBinding="{Binding Adress_city}"/>
-                    <GridViewColumn Header="Street" Width="auto" DisplayMemberBinding="{Binding Adress_street}"/>
-                    <GridViewColumn Header="Build" Width="auto" DisplayMemberBinding="{Binding Adress_build}"/>
-                    <GridViewColumn Header="ZIP" Width="auto" DisplayMemberBinding="{Binding Adress_zip}">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Command="{Binding DataContext.ButtonEdit, ElementName=customers}" CommandParameter="{Binding}">
-                                    <TextBlock Text="Edit" />
-                                </Button>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="" Width="auto">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Command="{Binding DataContext.ButtonDelete, ElementName=customers}" CommandParameter="{Binding}">
-                                    <TextBlock Text="Delete" />
-                                </Button>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+    <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Height="450" Width="800" AutomationProperties.AcceleratorKey="">
 
-    </Grid>
+            <ListView x:Name="customerList"  ItemsSource="{Binding customers}" Background="#4DFFFFFF" SelectedItem="{Binding SelectedCustomer}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="70" DisplayMemberBinding="{Binding Person.Name }" />
+                        <GridViewColumn Header="Suranme" Width="80" DisplayMemberBinding="{Binding Person.Surname}"/>
+                        <GridViewColumn Header="Sex" Width="30" DisplayMemberBinding="{Binding Person.Sex}" />
+                        <GridViewColumn Header="Phone" Width="100" DisplayMemberBinding="{Binding Person.Phone1}"/>
+                        <GridViewColumn Header="Email" Width="100" DisplayMemberBinding="{Binding Person.Email1}"/>
+                        <GridViewColumn Header="Country" Width="100" DisplayMemberBinding="{Binding Person.Adres_country}"/>
+                        <GridViewColumn Header="City" Width="100" DisplayMemberBinding="{Binding Person.Adress_city}"/>
+                        <GridViewColumn Header="Street" Width="80" DisplayMemberBinding="{Binding Person.Adress_street}"/>
+                        <GridViewColumn Header="Build" Width="40" DisplayMemberBinding="{Binding Person.Adress_build}"/>
+                        <GridViewColumn Header="ZIP" Width="40" DisplayMemberBinding="{Binding Person.Adress_zip}"/>
+                        <GridViewColumn Header="" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding ElementName=customerList, Path=DataContext.ButtonDelete}" CommandParameter="{Binding}">
+                                        <TextBlock Text="Delete" />
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Viewbox>
 </UserControl>

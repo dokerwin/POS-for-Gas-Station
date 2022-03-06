@@ -17,9 +17,9 @@ namespace MWS.Users_managment
 
 
         public List<MOP> MopList { get; set; } = MopHandler.GetListMOPs();
+        public  MOP Mop { get; set; } = new MOP();
 
-
-        public Customer _customer = new Customer()
+        public Customer _customer { get; set; } = new Customer()
         {
             LoyaltyCard = new LoyaltyCard()
             {
@@ -86,6 +86,9 @@ namespace MWS.Users_managment
             using (Gas_stationDb db = new Gas_stationDb())
             {
                 _customer.Register_date = DateTime.Now;
+                _customer.LoyaltyCard.ID_MOP = Mop.MopID;
+                db.People.Add(_customer.Person);
+                db.SaveChanges();
                 db.Customers.Add(_customer);
                 OnNotifyPropertyChanged("MyProperty");
                 db.SaveChanges();

@@ -11,7 +11,7 @@
         <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid Height="450" Width="800" AutomationProperties.AcceleratorKey="">
                 <Button Command="{Binding Path = AllEmployeesButton}" 
-                 CommandParameter="ParameterValue" Content="       All &#xD;&#xA;employees" HorizontalAlignment="Left" Margin="216,67,0,0" VerticalAlignment="Top" Height="102" Width="155" Background="#FF27E915" FontSize="24" Foreground="White" FontFamily="Arial Rounded MT Bold"/>
+                 CommandParameter="ParameterValue" Content="       All &#xD;&#xA;employees" HorizontalAlignment="Left" Margin="216,67,0,0" VerticalAlignment="Top" Height="102" Width="155" Background="#FF27E915" FontSize="24" Foreground="White" FontFamily="Arial Rounded MT Bold" Click="Button_Click"/>
                 <Button Command="{Binding Path = AddEmployeeButton}" 
                 CommandParameter="ParameterValue" Content="  Add an &#xD;&#xA;employee" HorizontalAlignment="Left" Margin="30,67,0,0" VerticalAlignment="Top" Height="102" Width="155" Background="#FF27E915" FontSize="24" Foreground="White" FontFamily="Arial Rounded MT Bold"/>
                 <Button Command="{Binding Path = hireEmployeeButton}" 

@@ -1,19 +1,20 @@
 ﻿using MWS;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gas_station.Product_mangment.Category_managment
+namespace MWS.Product_mangment.Category_managment
 {
-    class CategoryHandler
+    public class CategoryHandler
     {
-        public List<Category> GetAllCategories() {
-
+        public static ObservableCollection<Category> GetAllCategories()
+        {
             using (Gas_stationDb db = new Gas_stationDb())
             {
-                return db.Categories.ToList();
+              return new ObservableCollection<Category>(db.Categories);
             }
         }
         public List<Product> GetAllProductByCategory(Category category)
@@ -38,7 +39,5 @@ namespace Gas_station.Product_mangment.Category_managment
                 return db.Categories.FirstOrDefault(r => r.CategoryID == CategoryID);
             }
         }
-
-
     }
 }
