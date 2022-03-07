@@ -75,7 +75,7 @@ namespace MWS.Product_managment.Developer_managment
         {
             get
             {
-                return "DeveloperManagement";
+                return "Developers";
             }
         }
 
@@ -95,7 +95,7 @@ namespace MWS.Product_managment.Developer_managment
 
         public void EditDeveloper(object obj)
         {
-            Mediator.Notify("AddDeveloperView", obj);
+            Mediator.Notify("AddDeveloperViewEdit", obj);
         }
 
         public void DeleteDeveloper(object obj)
@@ -110,6 +110,7 @@ namespace MWS.Product_managment.Developer_managment
                     db.SaveChanges();
                 }
             }
+            Mediator.Notify("AddDeveloperView", null);
         }
         public void AddDeveloper(object obj)
         {

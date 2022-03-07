@@ -9,7 +9,7 @@
     <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid Height="450" Width="800" AutomationProperties.AcceleratorKey="">
 
-            <ListView x:Name="customerList"  ItemsSource="{Binding customers}" Background="#4DFFFFFF" SelectedItem="{Binding SelectedCustomer}" >
+            <ListView x:Name="customerList"  ItemsSource="{Binding customers}" Background="#4DFFFFFF" SelectedItem="{Binding SelectedCustomer}" Margin="0,98,0,0" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Name" Width="70" DisplayMemberBinding="{Binding Person.Name }" />
@@ -22,7 +22,7 @@
                         <GridViewColumn Header="Street" Width="80" DisplayMemberBinding="{Binding Person.Adress_street}"/>
                         <GridViewColumn Header="Build" Width="40" DisplayMemberBinding="{Binding Person.Adress_build}"/>
                         <GridViewColumn Header="ZIP" Width="40" DisplayMemberBinding="{Binding Person.Adress_zip}"/>
-                        <GridViewColumn Header="" Width="auto">
+                        <GridViewColumn Header="Delete" Width="auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Command="{Binding ElementName=customerList, Path=DataContext.ButtonDelete}" CommandParameter="{Binding}">
@@ -31,9 +31,25 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
+                        <GridViewColumn Header="Edit" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding ElementName=customerList, Path=DataContext.ButtonEdit}" CommandParameter="{Binding}">
+                                        <TextBlock Text="Edit" />
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
+            <Label Content="All customers" HorizontalAlignment="Center" Margin="0,-10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FF010F84"/>
+            <TextBox Text="{Binding customer.Person.Name, Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="137,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="233" />
+            <Label Content="    Customer name" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Background="#FF1AA74A" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="127" Height="24"/>
+            <Button Command="{Binding Path = FindCustomerButton}" 
+                    CommandParameter="ParameterValue"  Content="Find customer" Margin="370,53,349,373" Background="#FF1E8AC2" Foreground="White" RenderTransformOrigin="1.21,0.513"/>
+            <Button Command="{Binding Path = AddCustomerButton}" 
+                CommandParameter="ParameterValue" Content="Add new customer" Margin="681,53,10,373" Background="#FF1E8AC2" Foreground="White"/>
         </Grid>
     </Viewbox>
 </UserControl>

@@ -65,7 +65,12 @@ namespace MWS
 
             Mediator.Subscribe("AddEmpoyeeView", AddEmployeeView);
             Mediator.Subscribe("AddCustomerView", AddCustomerView);
+            Mediator.Subscribe("AddCustomerViewEdit", GoToAddCustomerViewEdit);
+
+
             Mediator.Subscribe("AllCustomersView", AllCustomersView);
+
+            Mediator.Subscribe("AddProductViewEdit", GoToAddProductView);
             Mediator.Subscribe("AddProductView",  GoToAddProductView);
             Mediator.Subscribe("AddCategoryView", GoToAddCategoryView);
 
@@ -75,6 +80,9 @@ namespace MWS
 
             Mediator.Subscribe("AddDeveloperView",   GoToAddDeveloperView);
             Mediator.Subscribe("AddDistributorView", GoToAddDistributorView);
+
+            Mediator.Subscribe("AddDeveloperViewEdit", GoToAddDeveloperViewEdit);
+            Mediator.Subscribe("AddDistributorViewEdit", GoToAddDistributorViewEdit);
 
 
         }
@@ -151,6 +159,14 @@ namespace MWS
             ChangeViewModel(new UsersModelView());
         }
 
+        private void GoToAddCustomerViewEdit(object obj)
+        {
+            ChangeViewModel(new UsersModelView(obj));
+        }
+
+
+
+
         private void AddEmployeeView(object obj)
         {
             ChangeViewModel(new AddEmployeeModelView());
@@ -162,8 +178,15 @@ namespace MWS
         }
         private void GoToAddProductView(object obj)
         {
+            ChangeViewModel(new AddProductModelView(obj));
+        }
+
+
+        private void GoToAddProductViewEdit(object obj)
+        {
             ChangeViewModel(new AddProductModelView(obj, true));
         }
+
         private void GoToAddCategoryView(object obj)
         {
             ChangeViewModel(new AddCateforyModelView(obj));
@@ -175,7 +198,6 @@ namespace MWS
          ChangeViewModel(new AddDeveloperViewModel(obj));
         }
 
-
         private void GoToAddDistributorView(object obj)
         {
             ChangeViewModel(new AddDistributorViewModel(obj));
@@ -185,6 +207,19 @@ namespace MWS
         {
             ChangeViewModel(new DevelopersManagmentViewModel(obj));
         }
+
+
+        private void GoToAddDistributorViewEdit(object obj)
+        {
+            ChangeViewModel(new AddDistributorViewModel(obj,true));
+        }
+
+        private void GoToAddDeveloperViewEdit(object obj)
+        {
+            ChangeViewModel(new AddDeveloperViewModel(obj, true));
+        }
+
+
 
         private void GoToDistributorsManagementView(object obj)
         {

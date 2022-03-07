@@ -76,7 +76,7 @@ namespace MWS.Users_managment
         #endregion
         public string Name
         {
-            get { return "User managmnet"; }
+            get { return "Users"; }
         }
         public string ButtonPage
         {

@@ -60,7 +60,7 @@ namespace MWS.Product_managment
 
         public AddProductModelView(object obj= null, bool edit = false) 
         {
-            if(obj != null && obj != "")
+            if(obj != null)
             {
                 product = obj as Product;
                 this.edit = edit;
@@ -151,6 +151,7 @@ namespace MWS.Product_managment
                     product = new Product();
                 }
             }
+            Mediator.Notify("AddProductView", null);
         }
 
         public string Name

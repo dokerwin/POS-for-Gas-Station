@@ -1,6 +1,7 @@
 ﻿using MWS.Helper_Classes;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace MWS.Product_managment.Developer_managment
 
         private ICommand _addDeveloperButton { get; set; }
 
+        private bool edit = false;
         public  ICommand AddDeveloperButton
         {
             get
@@ -27,9 +29,13 @@ namespace MWS.Product_managment.Developer_managment
             }
         }
 
-        public AddDeveloperViewModel(object obj =null)
+        public AddDeveloperViewModel(object obj = null, bool edit = false)
         {
-            developer = obj as Developer;
+            this.edit = edit; 
+            if(obj != null)
+            {
+                developer = obj as Developer;
+            }
             _addDeveloperButton = new RelayCommand(AddDeveloper);
         }
 
@@ -64,15 +70,26 @@ namespace MWS.Product_managment.Developer_managment
 
             using (Gas_stationDb db = new Gas_stationDb())
             {
-                db.Companies.Add(developer.Company);
-                db.SaveChanges();
-                Developer _developer = new Developer()
+
+                if (edit)
                 {
-                    Name = developer.Company.Name,
-                    ID_Company = developer.Company.CompanyID
-                };
-                db.Developers.Add(_developer);
+                    db.Entry(developer).State = EntityState.Modified;
+                    db.SaveChanges();
+                    MessageBox.Show("Product changed");
+                }
+                else
+                {
+                    db.Companies.Add(developer.Company);
+                    db.SaveChanges();
+                    Developer _developer = new Developer()
+                    {
+                        Name = developer.Company.Name,
+                        ID_Company = developer.Company.CompanyID
+                    };
+                    db.Developers.Add(_developer);
+                }
                 MessageBox.Show("Developer added");
+                Mediator.Notify("AddDeveloperView", null);
             }
 
         }

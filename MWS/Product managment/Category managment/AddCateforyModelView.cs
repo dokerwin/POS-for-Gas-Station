@@ -27,7 +27,10 @@ namespace MWS.Product_managment.Category_managment
 
         public AddCateforyModelView(object obj = null)
         {
-            category = obj as Category;
+            if(obj != null)
+            {
+                category = (Category)obj;
+            }
             buttonDelete = new RelayCommand(DeleteCategory);
             buttonEdit = new RelayCommand(EditCategory);
             saveCategoryButton = new RelayCommand(SaveCategory);
@@ -92,6 +95,7 @@ namespace MWS.Product_managment.Category_managment
                     db.SaveChanges();
                 }
             }
+            EditCategory(null);
         }
 
         private void EditCategory(object obj)

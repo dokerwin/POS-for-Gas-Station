@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,11 @@ namespace MWS.Users_managment
             return new Customer();
         }
 
-        public static List<Customer> GetAllCustomers()
+        public static ObservableCollection<Customer> GetAllCustomers()
         {
             using (Gas_stationDb db = new Gas_stationDb())
             {
-                return db.Customers.Include("Person").Include("LoyaltyCard").ToList();
+                return new ObservableCollection<Customer> (db.Customers.Include("Person").Include("LoyaltyCard"));
             }
         }
 

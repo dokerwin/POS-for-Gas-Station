@@ -108,7 +108,7 @@ namespace MWS.Product_managment
 
         public void EditProduct(object obj)
         {
-           Mediator.Notify("AddProductView", obj);
+           Mediator.Notify("AddProductViewEdit", obj);
         }
 
         public void DeleteProduct(object obj)
@@ -124,6 +124,7 @@ namespace MWS.Product_managment
                     db.SaveChanges();
                 }
             }
+            Mediator.Notify("AddProductViewEdit", null);
         }
 
 

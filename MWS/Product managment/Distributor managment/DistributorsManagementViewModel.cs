@@ -72,7 +72,7 @@ namespace MWS.Product_managment.Distributor_managment
         {
             get
             {
-                return "DistributorManagement";
+                return "Distributors";
             }
         }
 
@@ -92,7 +92,7 @@ namespace MWS.Product_managment.Distributor_managment
 
         public void EditDistributor(object obj)
         {
-            Mediator.Notify("AddDistributorView", obj);
+            Mediator.Notify("AddDistributorViewEdit", obj);
         }
 
         public void DeleteDistributor(object obj)
@@ -107,11 +107,9 @@ namespace MWS.Product_managment.Distributor_managment
                     db.SaveChanges();
                 }
             }
+            Mediator.Notify("AddDistributorView", null);
         }
-        public void AddDistributor(object obj)
-        {
 
-        }
         public string ButtonPage
         {
             get { return "Assets/list.png"; }

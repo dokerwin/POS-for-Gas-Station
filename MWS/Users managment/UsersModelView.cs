@@ -28,12 +28,12 @@ namespace MWS.Users_managment
             Person = new Person()
         };
 
-        public UsersModelView()
+        public UsersModelView(object obj = null)
         {
-           
-
-
-
+            if(obj != null)
+            {
+                _customer = (Customer)obj;
+            }
         }
 
         private ICommand _addCustomerButton;
@@ -93,8 +93,9 @@ namespace MWS.Users_managment
                 OnNotifyPropertyChanged("MyProperty");
                 db.SaveChanges();
                 MessageBox.Show("Сustomer added");
-                _customer = new Customer();
             }
+            Mediator.Notify("UserView", null);
+
         }
 
         public string Name

@@ -1,6 +1,7 @@
 ﻿using MWS.Helper_Classes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,39 +11,67 @@ namespace MWS.Users_managment
 {
     public class AllCustomersViewModel : ObservableObject, IPageViewModel
     {
+        public ObservableCollection<Customer> customers { get; set; } = UserHandler.GetAllCustomers();
+        public Customer customer { get; set; } = new Customer();
 
-        public List<Customer> customers { get; set; } = UserHandler.GetAllCustomers();
+        private ICommand findCustomerButton { get; set; }
+        private ICommand buttonDelete { get; set; }
+        private ICommand buttonEdit { get; set; }
+        private ICommand addCustomerButton { get; set; }
 
-        public Customer SelectedCustomer { get; set; } = new Customer();
-
-
-        //private ICommand _buttonEdit;
-
-        public ICommand ButtonDelete { get; private set; }
-
-
-        public AllCustomersViewModel()
+        #region IComand buttons
+        public ICommand AddCustomerButton
         {
-            ButtonDelete = new RelayCommand(Delete);
+            get
+            {
+                return addCustomerButton ?? (addCustomerButton = new RelayCommand(x =>
+                {
+                    Mediator.Notify("AddCustomerView", null);
+                }));
+            }
         }
 
-        //public ICommand ButtonEdit
-        //{
-        //    get
-        //    {
-        //        if (_buttonEdit == null)
-        //        {
-        //            _buttonEdit = new RelayCommand(
-        //                param => Edit()
-        //            );
-        //        }
-        //        return _buttonEdit;
-        //    }
-        //}
+        public ICommand ButtonEdit
+        {
+            get
+            {
+                return buttonEdit;
+            }
+            set
+            {
+                buttonEdit = value;
+            }
+        }
 
+        public ICommand ButtonDelete
+        {
+            get
+            {
+                return buttonDelete;
+            }
+            set
+            {
+                buttonDelete = value;
+            }
+        }
+        #endregion
 
+        #region Constructors
+        public AllCustomersViewModel()
+        {
+            buttonDelete = new RelayCommand(DeleteCustomer);
+            buttonEdit = new RelayCommand(EditCustomer);
+            findCustomerButton = new RelayCommand(FindCustomer);
+        }
+        #endregion
 
-        private void Delete(object customer)
+        #region  Button's method
+        private void EditCustomer(object customer)
+        {
+            Mediator.Notify("AddCutomerViewEdit", customer);
+        }
+
+        private void DeleteCustomer(object customer)
         {
             var item = customer as Customer;
             if (item != null)
@@ -52,12 +81,28 @@ namespace MWS.Users_managment
                     var customer1 = db.Customers.Include("Person").FirstOrDefault(i => i.CustomerID == item.CustomerID);
                     var person = db.People.FirstOrDefault(i => i.PersonID == item.ID_Person);
                     db.Customers.Remove(customer1);
-                    db.People.Remove(person); 
+                    db.People.Remove(person);
                     db.SaveChanges();
                 }
             }
         }
 
+        private void FindCustomer(object cust)
+        {
+            customers.Clear();
+            using (Gas_stationDb db = new Gas_stationDb())
+            {
+                var find = db.Customers.FirstOrDefault(i => i.CustomerID == customer.CustomerID);
+                if (find!=null)
+                {
+                    customers.Clear();
+                    customers.Add(find);
+                }
+            }
+        }
+        #endregion
+
+        #region  Interface implementation
         public string Name
         {
             get { return "AllCustomers"; }
@@ -66,6 +111,6 @@ namespace MWS.Users_managment
         {
             get { return "Assets/person.png"; }
         }
-
+        #endregion
     }
 }
