@@ -7,9 +7,11 @@ using MWS.Product_managment.Distributor_managment;
 using MWS.Users_managment;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace MWS
@@ -25,10 +27,60 @@ namespace MWS
         private List<IPageViewModel> _pagebuttonsViewModels;
         private List<IPageViewModel> _pageViewModels;
 
+        private List<PageCategory> pageCategories;
+
+        public string Name { get; set; } = "Menu";
+
+
+        public List<PageCategory> _PageCategories
+        {
+            get
+            {
+                return pageCategories;
+            }
+            set
+            {
+                pageCategories = value;
+                OnPropertyChanged("_PageCategories");
+            }
+        }
+
+
+
         #endregion
 
         public ApplicationViewModel()
         {
+
+
+
+
+            _PageCategories=  new List<PageCategory>()
+            {
+                new PageCategory("Test")
+                {
+                    PageCategories = new List<PageSubCategory>()
+                    {
+                        new PageSubCategory("Product management")
+                  {
+                    Views = new List<IPageViewModel>()
+                         {
+                           new UsersModelView(),
+                           new AllCustomersViewModel(),
+                           new AddEmployeeModelView()
+                         }
+                  }
+                    }
+                }
+
+            };
+
+
+
+
+
+
+
             // Add available pages
             PageViewModels.Add(new MainViewModel());
             PageViewModels.Add(new AddEmployeeModelView());
@@ -44,25 +96,16 @@ namespace MWS
 
             PageViewModels.Add(new AddDistributorViewModel());
 
-
-
             //Add page to button 
             PageButtonsViewModels.Add(new MainViewModel());
             PageButtonsViewModels.Add(new EmployeeManagmentViewModel());
-            PageButtonsViewModels.Add(new ProductManagmentViewModel ());
-
-
-
+            PageButtonsViewModels.Add(new ProductManagmentViewModel());
             PageButtonsViewModels.Add(new AddCateforyModelView());
-
             PageButtonsViewModels.Add(new DistributorsManagementViewModel());
-
             PageButtonsViewModels.Add(new DevelopersManagmentViewModel());
-
 
             // Set starting page
             CurrentPageViewModel = PageViewModels[0];
-
             Mediator.Subscribe("AddEmpoyeeView", AddEmployeeView);
             Mediator.Subscribe("AddCustomerView", AddCustomerView);
             Mediator.Subscribe("AddCustomerViewEdit", GoToAddCustomerViewEdit);
@@ -71,16 +114,12 @@ namespace MWS
             Mediator.Subscribe("AllCustomersView", AllCustomersView);
 
             Mediator.Subscribe("AddProductViewEdit", GoToAddProductView);
-            Mediator.Subscribe("AddProductView",  GoToAddProductView);
+            Mediator.Subscribe("AddProductView", GoToAddProductView);
             Mediator.Subscribe("AddCategoryView", GoToAddCategoryView);
-
-
             Mediator.Subscribe("DevelopersManagementView", GoToDevelopersManagementView);
             Mediator.Subscribe("DistributorsManagementView", GoToDistributorsManagementView);
-
-            Mediator.Subscribe("AddDeveloperView",   GoToAddDeveloperView);
+            Mediator.Subscribe("AddDeveloperView", GoToAddDeveloperView);
             Mediator.Subscribe("AddDistributorView", GoToAddDistributorView);
-
             Mediator.Subscribe("AddDeveloperViewEdit", GoToAddDeveloperViewEdit);
             Mediator.Subscribe("AddDistributorViewEdit", GoToAddDistributorViewEdit);
 
@@ -145,7 +184,7 @@ namespace MWS
         private void ChangeViewModel(IPageViewModel viewModel)
         {
             if (!PageButtonsViewModels.Contains(viewModel))
-                 PageButtonsViewModels.Add(viewModel);
+                PageButtonsViewModels.Add(viewModel);
 
             CurrentPageViewModel = PageButtonsViewModels
                 .FirstOrDefault(vm => vm == viewModel);
@@ -195,7 +234,7 @@ namespace MWS
 
         private void GoToAddDeveloperView(object obj)
         {
-         ChangeViewModel(new AddDeveloperViewModel(obj));
+            ChangeViewModel(new AddDeveloperViewModel(obj));
         }
 
         private void GoToAddDistributorView(object obj)
@@ -211,7 +250,7 @@ namespace MWS
 
         private void GoToAddDistributorViewEdit(object obj)
         {
-            ChangeViewModel(new AddDistributorViewModel(obj,true));
+            ChangeViewModel(new AddDistributorViewModel(obj, true));
         }
 
         private void GoToAddDeveloperViewEdit(object obj)
@@ -230,11 +269,15 @@ namespace MWS
 
 
 
-
-
-
-
-
-
+        public ICollectionView Navigation
+        {
+            get
+            {
+                var source = CollectionViewSource.GetDefaultView(this._pagebuttonsViewModels);
+                source.GroupDescriptions.Add(new PropertyGroupDescription("Type")
+            );
+                return source;
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Users_managment
 {
@@ -98,15 +99,6 @@ namespace MWS.Users_managment
 
         }
 
-        public string Name
-        {
-            get { return "Customers"; }
-        }
-
-        public string ButtonPage
-        {
-            get { return "Assets/person.png"; }
-        }
 
         #region INotifyPropertyChanged Members
 
@@ -121,6 +113,22 @@ namespace MWS.Users_managment
         #endregion INotifyPropertyChanged Members
 
 
+        #region IPageViewModel interface
 
+        public string Name
+        {
+            get { return "Add customer"; }
+        }
+
+        public string ButtonPage
+        {
+            get { return "Assets/person.png"; }
+        }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.CustomerManagemnet; }
+        }
+        #endregion
     }
 }

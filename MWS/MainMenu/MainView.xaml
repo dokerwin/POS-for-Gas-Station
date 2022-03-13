@@ -14,7 +14,7 @@
             <DataGrid HorizontalAlignment="Center" Height="189" Margin="0,36,0,0" VerticalAlignment="Top" Width="223"  Background="#FF95E864"/>
             <DataGrid HorizontalAlignment="Left" Height="189" Margin="545,36,0,0" VerticalAlignment="Top" Width="223" Background="#FF0045A5"/>
             <Label Content="Total Customers" HorizontalAlignment="Left" Margin="86,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
-            <Label Content="New Customers" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
+            <Label Content="Total transactions" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
             <Label Content="Total products" HorizontalAlignment="Left" Margin="606,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
             <Grid HorizontalAlignment="Center" Height="197" Margin="0,243,0,0" VerticalAlignment="Top" Width="734">
                 <Grid.Background>
@@ -22,8 +22,8 @@
                 </Grid.Background>
             </Grid>
             <Label Content="{Binding _totalCustomers }" HorizontalAlignment="Left" Margin="135,130,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="16" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB"/>
-            <Label Content="{Binding new_customers }" HorizontalAlignment="Left" Margin="128,116,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="36" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB" Height="38" Width="32" RenderTransformOrigin="-0.291,0.521"/>
-            <Label Content="{Binding _totalProducts}" HorizontalAlignment="Left" Margin="639,114,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="36" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB" Height="40" Width="41"/>
+            <Label Content="{Binding _totaltransaction }" HorizontalAlignment="Left" Margin="128,116,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="36" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB" Height="38" Width="32" RenderTransformOrigin="-0.291,0.521"/>
+            <Label Content="{Binding _totalProducts}" HorizontalAlignment="Left" Margin="639,114,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="16" FontWeight="Medium" Background="Transparent" Foreground="#FFFFFBFB" Height="40" Width="41"/>
         
 </Grid>
         

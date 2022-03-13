@@ -7,15 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Product_managment.Distributor_managment
 {
     public class AddDistributorViewModel: ObservableObject, IPageViewModel
     {
         private bool edit = false;
-
-        public Distributor distributor { get; set; } = new Distributor();
-       
+        public Distributor distributor { get; set; } = new Distributor(); 
         private ICommand _addDistributorButton { get; set; }
 
         public ICommand AddDistributorButton
@@ -39,8 +38,6 @@ namespace MWS.Product_managment.Distributor_managment
             }
             _addDistributorButton = new RelayCommand(AddDistibutor);
         }
-
-
 
         void AddDistibutor(object obj)
         {
@@ -91,20 +88,23 @@ namespace MWS.Product_managment.Distributor_managment
                 }
                 Mediator.Notify("AddDistributorView", null);
             }
-
         }
 
-
+        #region IPageViewModel interface
         public string Name
         {
-            get
-            {
-                return "Add distributor";
-            }
+            get { return "Add distributor"; }
         }
+
         public string ButtonPage
         {
-            get { return "Assets/addProduct.png"; }
+            get { return "Assets/person.png"; }
         }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.ProductManagement; }
+        }
+        #endregion
     }
 }

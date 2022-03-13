@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Product_managment
 {
@@ -154,16 +155,22 @@ namespace MWS.Product_managment
             Mediator.Notify("AddProductView", null);
         }
 
+        #region IPageViewModel interface
+
         public string Name
         {
-            get
-            {
-                return "Add product";
-            }
+            get { return "Add product"; }
         }
+
         public string ButtonPage
         {
-            get { return "Assets/addProduct.png"; }
+            get { return "Assets/person.png"; }
         }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.ProductManagement; }
+        }
+        #endregion
     }
 }

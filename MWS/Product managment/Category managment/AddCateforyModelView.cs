@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Product_managment.Category_managment
 {
@@ -116,16 +117,22 @@ namespace MWS.Product_managment.Category_managment
             }
         }
 
+        #region IPageViewModel interface
+
         public string Name
         {
-            get
-            {
-                return "Add category";
-            }
+            get { return "Categories"; }
         }
+
         public string ButtonPage
         {
-            get { return "Assets/addProduct.png"; }
+            get { return "Assets/person.png"; }
         }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.ProductManagement; }
+        }
+        #endregion
     }
 }

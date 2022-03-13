@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS
 {
@@ -11,6 +12,7 @@ namespace MWS
     {
         string Name { get; }
         string ButtonPage { get; }
+        PageType TypeOfPage { get; }
 
         event PropertyChangedEventHandler PropertyChanged;
     }

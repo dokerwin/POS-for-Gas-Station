@@ -44,12 +44,12 @@
                 </ListView.View>
             </ListView>
             <Label Content="All customers" HorizontalAlignment="Center" Margin="0,-10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FF010F84"/>
-            <TextBox Text="{Binding customer.Person.Name, Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="137,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="233" />
+            <TextBox x:Name="Customer_text" Text="{Binding customer.Person.Name, Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="137,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="233" />
             <Label Content="    Customer name" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Background="#FF1AA74A" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="127" Height="24"/>
             <Button Command="{Binding Path = FindCustomerButton}" 
                     CommandParameter="ParameterValue"  Content="Find customer" Margin="370,53,349,373" Background="#FF1E8AC2" Foreground="White" RenderTransformOrigin="1.21,0.513"/>
             <Button Command="{Binding Path = AddCustomerButton}" 
-                CommandParameter="ParameterValue" Content="Add new customer" Margin="681,53,10,373" Background="#FF1E8AC2" Foreground="White"/>
+                CommandParameter="Customer_text" Content="Add new customer" Margin="681,53,10,373" Background="#FF1E8AC2" Foreground="White"/>
         </Grid>
     </Viewbox>
 </UserControl>

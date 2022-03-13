@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Product_managment
 {
@@ -76,14 +77,6 @@ namespace MWS.Product_managment
         }
         #endregion
 
-        public string Name
-        {
-            get
-            {
-                return "Products";
-            }
-        }
-
         public ProductManagmentViewModel( )
         {
             using(Gas_stationDb db = new Gas_stationDb()) 
@@ -132,10 +125,26 @@ namespace MWS.Product_managment
         {
            
         }
+
+
+        #region IPageViewModel interface
+
+        public string Name
+        {
+            get { return "Products managements"; }
+        }
+
         public string ButtonPage
         {
-            get { return "Assets/list.png"; }
+            get { return "Assets/person.png"; }
         }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.ProductManagement; }
+        }
+        #endregion
+
     }
 }
 

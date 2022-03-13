@@ -124,6 +124,9 @@
     <Compile Include="MOP.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MWSUtil\Enums.cs" />
+    <Compile Include="PageCategory.cs" />
+    <Compile Include="PageSubCategory.cs" />
     <Compile Include="Person.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>

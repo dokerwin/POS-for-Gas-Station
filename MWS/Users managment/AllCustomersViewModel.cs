@@ -6,13 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Users_managment
 {
     public class AllCustomersViewModel : ObservableObject, IPageViewModel
     {
         public ObservableCollection<Customer> customers { get; set; } = UserHandler.GetAllCustomers();
-        public Customer customer { get; set; } = new Customer();
+        public Customer customer { get; set; } = new Customer()
+        {
+            Person = new Person()
+        };
 
         private ICommand findCustomerButton { get; set; }
         private ICommand buttonDelete { get; set; }
@@ -40,6 +44,19 @@ namespace MWS.Users_managment
             set
             {
                 buttonEdit = value;
+            }
+        }
+
+
+        public ICommand FindCustomerButton
+        {
+            get
+            {
+                return findCustomerButton;
+            }
+            set
+            {
+                findCustomerButton = value;
             }
         }
 
@@ -92,8 +109,8 @@ namespace MWS.Users_managment
             customers.Clear();
             using (Gas_stationDb db = new Gas_stationDb())
             {
-                var find = db.Customers.FirstOrDefault(i => i.CustomerID == customer.CustomerID);
-                if (find!=null)
+                var find = db.Customers.FirstOrDefault(i => i.Person.Name == customer.Person.Name);
+                if (find != null)
                 {
                     customers.Clear();
                     customers.Add(find);
@@ -102,14 +119,21 @@ namespace MWS.Users_managment
         }
         #endregion
 
-        #region  Interface implementation
+        #region IPageViewModel interface
+
         public string Name
         {
-            get { return "AllCustomers"; }
+            get { return "All customers"; }
         }
+
         public string ButtonPage
         {
             get { return "Assets/person.png"; }
+        }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.CustomerManagemnet; }
         }
         #endregion
     }

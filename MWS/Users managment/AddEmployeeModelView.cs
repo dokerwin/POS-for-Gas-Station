@@ -5,14 +5,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Users_managment
 {
     public class AddEmployeeModelView : ObservableObject, IPageViewModel
     {
+        # region IPageViewModel interface
+
+        public string Name
+        {
+            get { return "Add employee"; }
+        }
+
+        public string ButtonPage
+        {
+            get { return "Assets/person.png"; }
+        }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.CustomerManagemnet; }
+        }
+        #endregion
+
+
         private ICommand _addEmployeeButton;
 
-    
         public List<String> SexList { get; set; } = new List<string> { "Male", "Feamle" };
 
 
@@ -43,16 +62,6 @@ namespace MWS.Users_managment
             {
                 db.Cashiers.Add(_cashier);              
             }
-        }
-
-        public string Name
-        {
-            get { return "Add employee"; }
-        }
-
-        public string ButtonPage
-        {
-            get { return "Assets/person.png"; }
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Product_managment.Developer_managment
 {
@@ -71,13 +72,7 @@ namespace MWS.Product_managment.Developer_managment
         }
         #endregion
 
-        public string Name
-        {
-            get
-            {
-                return "Developers";
-            }
-        }
+
 
         public DevelopersManagmentViewModel(object obj = null)
         {
@@ -116,9 +111,21 @@ namespace MWS.Product_managment.Developer_managment
         {
 
         }
+        #region IPageViewModel interface
+        public string Name
+        {
+            get { return "Developer management"; }
+        }
+
         public string ButtonPage
         {
-            get { return "Assets/list.png"; }
+            get { return "Assets/person.png"; }
         }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.ProductManagement; }
+        }
+        #endregion
     }
 }

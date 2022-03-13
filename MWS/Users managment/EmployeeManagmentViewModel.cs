@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Users_managment
 {
@@ -74,14 +75,22 @@ namespace MWS.Users_managment
         #region Button fuctions
 
         #endregion
+        #region IPageViewModel interface
         public string Name
         {
-            get { return "Users"; }
+            get { return "Employee management"; }
         }
+
         public string ButtonPage
         {
             get { return "Assets/person.png"; }
         }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.ProductManagement; }
+        }
+        #endregion
 
     }
 }

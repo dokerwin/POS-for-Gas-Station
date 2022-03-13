@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static MWS.MWSUtil.Enums;
 
 namespace MWS.Product_managment.Distributor_managment
 {
@@ -68,14 +69,6 @@ namespace MWS.Product_managment.Distributor_managment
         }
         #endregion
 
-        public string Name
-        {
-            get
-            {
-                return "Distributors";
-            }
-        }
-
         public DistributorsManagementViewModel(object obj = null)
         {
             buttonDelete           = new RelayCommand(DeleteDistributor);
@@ -110,10 +103,22 @@ namespace MWS.Product_managment.Distributor_managment
             Mediator.Notify("AddDistributorView", null);
         }
 
+        #region IPageViewModel interface
+        public string Name
+        {
+            get { return "Distributors management"; }
+        }
+
         public string ButtonPage
         {
-            get { return "Assets/list.png"; }
+            get { return "Assets/person.png"; }
         }
+
+        public PageType TypeOfPage
+        {
+            get { return PageType.ProductManagement; }
+        }
+        #endregion
     }
 }
 
