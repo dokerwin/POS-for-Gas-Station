@@ -55,21 +55,47 @@ namespace MWS
 
 
 
-            _PageCategories=  new List<PageCategory>()
+            _PageCategories = new List<PageCategory>()
             {
-                new PageCategory("Test")
+                new PageCategory("Product")
                 {
                     PageCategories = new List<PageSubCategory>()
                     {
-                        new PageSubCategory("Product management")
-                  {
-                    Views = new List<IPageViewModel>()
+                        new PageSubCategory("Add product")
+                     {
+                         Views = new List<IPageViewModel>()
+                         {
+                           new AddCateforyModelView(),
+                           new AddDeveloperViewModel(),
+                           new AddDistributorViewModel(),
+                           new AddProductModelView()
+                         }
+                      },
+                           new PageSubCategory("Products")
+                     {
+                         Views = new List<IPageViewModel>()
+                         {
+                           new ProductManagmentViewModel()
+                         }
+                      }
+                      
+                    }
+                },
+                new PageCategory("Users")
+                {
+                    PageCategories = new List<PageSubCategory>()
+                    {
+
+                      new PageSubCategory("User")
+                     {
+                         Views = new List<IPageViewModel>()
                          {
                            new UsersModelView(),
+                           new AddEmployeeModelView(),
                            new AllCustomersViewModel(),
-                           new AddEmployeeModelView()
                          }
-                  }
+                      }
+
                     }
                 }
 
