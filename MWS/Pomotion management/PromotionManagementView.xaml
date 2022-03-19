@@ -1,0 +1,88 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MWS.Pomotion_management"
+             xmlns:MWSValidation="clr-namespace:MWS.MWSValidation" x:Class="MWS.Pomotion_management.PromotionManagementView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Height="474" Width="835">
+            <ListView x:Name="promoList"  ItemsSource="{Binding promotions}" Margin="10,76,11,124" Background="#4DFFFFFF" SelectedItem="{Binding SelectedPromo}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Promo name" Width="150" DisplayMemberBinding="{Binding Prom_type}" />
+                        <GridViewColumn Header="Start promotion" Width="100" DisplayMemberBinding="{Binding Prom_start}"/>
+                        <GridViewColumn Header="End promotion" Width="100" DisplayMemberBinding="{Binding Prom_end}" />
+                        <GridViewColumn Header="Discount" Width="100" DisplayMemberBinding="{Binding Prom_discount}" />
+                        <GridViewColumn Header="Product barcode" Width="150" DisplayMemberBinding="{Binding ID_Product}" />
+                        <GridViewColumn Header="Edit" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding DataContext.ButtonEdit, ElementName=promoList}" CommandParameter="{Binding}">
+                                        <TextBlock Text="Edit" />
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="delete" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding DataContext.ButtonDelete, ElementName=promoList}" CommandParameter="{Binding}">
+                                        <TextBlock Text="Delete" />
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label Content="Promotions" HorizontalAlignment="Center" Margin="0,-11,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FF010F84"/>
+            <TextBox Text="{Binding promotion.Prom_name, Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="108,47,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" />
+            <Label Content="Promotion name" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Background="#FF1AA74A" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="98" Height="24"/>
+            <Button Command="{Binding FindPromoButton}" 
+                    CommandParameter="ParameterValue"  Content="Find promo" Margin="371,47,370,403" Background="#FF1E8AC2" Foreground="White" RenderTransformOrigin="1.21,0.513"/>
+            <Grid Margin="10,350,11,10" Background="#FF648FFF">
+                <Label Content="Promotion name" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" Width="85" RenderTransformOrigin="1.135,0.65" FontSize="10"/>
+                <TextBox HorizontalAlignment="Left" Margin="95,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="26">
+                    <Binding Path="_cashier.Person.Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <MWSValidation:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label Content="Product barcode" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" FontSize="10" Width="85"/>
+                <TextBox HorizontalAlignment="Left" Margin="95,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="26">
+                    <Binding Path="_cashier.Person.Surname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <MWSValidation:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <DatePicker SelectedDate ="{Binding product.SellStartDate, Mode=TwoWay}" HorizontalAlignment="Left" Margin="446,41,0,0" VerticalAlignment="Top" Width="250" Height="26" RenderTransformOrigin="0.508,1.654">
+                    <DatePicker.BlackoutDates>
+                        <CalendarDateRange Start="1/1/2000" End="12/31/2021"/>
+                    </DatePicker.BlackoutDates>
+                </DatePicker>
+                <Label Content="Start promotion" HorizontalAlignment="Left" Margin="357,41,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="89" FontSize="10"/>
+                <Label Content="End promotion" HorizontalAlignment="Left" Margin="357,8,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="88" FontSize="10"/>
+                <DatePicker SelectedDate ="{Binding product.SellStartDate, Mode=TwoWay}" HorizontalAlignment="Left" Margin="446,8,0,0" VerticalAlignment="Top" Width="250" Height="26" RenderTransformOrigin="0.508,1.654">
+                    <DatePicker.BlackoutDates>
+                        <CalendarDateRange Start="1/1/2000" End="12/31/2021"/>
+                    </DatePicker.BlackoutDates>
+                </DatePicker>
+                <Label Content="Discount %" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="85" FontSize="10"/>
+                <TextBox HorizontalAlignment="Left" Margin="95,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="26">
+                    <Binding Path="_cashier.Person.Surname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <MWSValidation:LengthValidator MinValue="2" MaxValue="200" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Button Command="{Binding AddPromoButton}" 
+                CommandParameter="ParameterValue" Content="Add promo" Margin="720,10,16,80" Background="#FF1E8AC2" Foreground="White"/>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</UserControl>
