@@ -654,6 +654,20 @@ CREATE TABLE [dbo].[Cistern](
 	CONSTRAINT FK_CisternProduct FOREIGN KEY (ID_Product)
     REFERENCES Product (ProductID))
 
+	/****** Object:  Table [dbo].[Cistern]    Script Date: 1/9/2022 1:08:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RecReport](
+	[ReportID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[ID_Shift] [int] NOT NULL,
+	[ID_Mop]   [int]   NOT NULL,
+	[Value] [money] NOT NULL,
+	CONSTRAINT FK_RecReportShift FOREIGN KEY (ID_Shift)
+    REFERENCES Shift (ShiftID),
+	CONSTRAINT FK_RecReportMOP FOREIGN KEY (ID_Mop)
+    REFERENCES MOP (MopID))
 
 /****** Object:  Table [dbo].[FuelDelivery]    Script Date: 1/9/2022 1:08:49 PM ******/
 SET ANSI_NULLS ON
