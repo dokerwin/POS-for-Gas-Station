@@ -482,13 +482,111 @@ GO
 CREATE TABLE [dbo].[Login](
 	[LoginID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY, 
 	[ID_Cashier] [int] NOT NULL,
-	[Login] [nvarchar](10) NOT NULL,
-	[Last_login] [nvarchar](10) NOT NULL,
-	[Password] [nvarchar](10) NOT NULL,
-	[Last_Password] [nvarchar](10) NOT NULL
+	[Login] [nvarchar](40) NOT NULL,
+	[Password] BINARY(64)  NOT NULL,
+	[Salt] UNIQUEIDENTIFIER, 
 	CONSTRAINT FK_LoginCashier FOREIGN KEY (ID_Cashier)
     REFERENCES Cashier (CashierID)
-	)
+	);
+
+
+CREATE PROCEDURE [dbo].[AddLogin]
+    @iD_Cashier   int,
+    @pLogin NVARCHAR(40), 
+    @pPassword NVARCHAR(40),
+	@responseMessage NVARCHAR(250) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON
+
+    DECLARE @salt UNIQUEIDENTIFIER=NEWID()
+    BEGIN TRY
+
+        INSERT INTO dbo.[Login] (ID_Cashier, Login, Password, Salt)
+        VALUES(@iD_Cashier, @pLogin, HASHBYTES('SHA2_512', @pPassword+CAST(@salt AS NVARCHAR(36))), @salt)
+
+       SET @responseMessage='Success'
+
+    END TRY
+    BEGIN CATCH
+        SET @responseMessage=ERROR_MESSAGE() 
+    END CATCH
+
+END
+
+
+CREATE PROCEDURE [dbo].[CheckLogin]
+    @pLoginName NVARCHAR(254),
+    @pPassword NVARCHAR(50),
+	@responseMessage NVARCHAR(254) OUTPUT
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+    DECLARE @loginID INT
+
+    IF EXISTS (SELECT TOP 1 [LoginID] FROM [dbo].[Login] WHERE Login = @pLoginName)
+    BEGIN
+        SET @loginID=(SELECT TOP 1 LoginID FROM [dbo].[Login] WHERE Login = @pLoginName AND Password=HASHBYTES('SHA2_512', @pPassword+CAST(Salt AS NVARCHAR(36))))
+
+        IF(@loginID IS NOT NULL)
+               SET @responseMessage='Success'
+		ELSE
+               SET @responseMessage='Password incorrect'
+    END 
+END
+
+
+
+DECLARE @responseMessage NVARCHAR(250)
+
+EXEC dbo.[AddLogin]
+    @iD_Cashier   = 4,
+    @pLogin = N'Admin', 
+    @pPassword = N'Administartor',
+	 @responseMessage=@responseMessage OUTPUT
+
+
+	  SELECT	@responseMessage as N'@responseMessage'
+
+
+SELECT Login, Password, Salt
+FROM [dbo].[Login]
+
+
+
+DECLARE	@responseMessage nvarchar(250)
+
+--Correct login and password
+EXEC	[dbo].[CheckLogin]
+		@pLoginName = N'Admin',
+		@pPassword = N'Administartor',
+		@responseMessage = @responseMessage OUTPUT
+		
+
+SELECT	@responseMessage as N'@responseMessage'
+
+--Incorrect login
+EXEC	[dbo].[CheckLogin]
+		@pLoginName = N'Admin1', 
+		@pPassword = N'123',
+		@responseMessage = @responseMessage OUTPUT
+
+SELECT	@responseMessage as N'@responseMessage'
+
+--Incorrect password
+EXEC	[dbo].[CheckLogin]
+		@pLoginName = N'Admin', 
+		@pPassword = N'1234',
+		@responseMessage = @responseMessage OUTPUT
+
+SELECT	@responseMessage as N'@responseMessage'
+	
+
+
+
+
 
 
 /****** Object:  Table [dbo].[StationConfiguration]    Script Date: 1/9/2022 1:08:49 PM ******/
