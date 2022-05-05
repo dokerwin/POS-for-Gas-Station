@@ -1,10 +1,12 @@
 ﻿using MWS.Helper_Classes;
 using MWS.MainMenu;
+using MWS.Pomotion_management;
 using MWS.Product_managment;
 using MWS.Product_managment.Category_managment;
 using MWS.Product_managment.Developer_managment;
 using MWS.Product_managment.Distributor_managment;
 using MWS.Users_managment;
+using MWS.Users_managment.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,22 +15,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Input;
+using TorasSQLHelper;
 
 namespace MWS
 {
-    public class ApplicationViewModel : ObservableObject
+    public class ApplicationViewModel : ObservableObject, IObserver
     {
         #region Fields
-
         private ICommand _changePageCommand;
-
-
         private IPageViewModel _currentPageViewModel;
         private List<IPageViewModel> _pagebuttonsViewModels;
         private List<IPageViewModel> _pageViewModels;
-
         private List<PageCategory> pageCategories;
-
         public string Name { get; set; } = "Menu";
 
 
@@ -45,12 +43,24 @@ namespace MWS
             }
         }
 
-
-
         #endregion
 
         public ApplicationViewModel()
         {
+            var UserObserver = new Observer();
+            var addEmployeeModelView = new AddEmployeeModelView(UserObserver);
+            var addCustomerModelView =  new UsersModelView(UserObserver);
+            var allCustomerModelView =  new AllCustomersViewModel(UserObserver);
+            var allEmployeesViewModel =  new AllEmployeesViewModel(UserObserver);
+
+
+            UserObserver.Notify();
+
+            UserObserver.Attach(addEmployeeModelView);
+            UserObserver.Attach(addCustomerModelView);
+            UserObserver.Attach(allCustomerModelView);
+            UserObserver.Attach(allEmployeesViewModel);
+
 
 
 
@@ -65,10 +75,11 @@ namespace MWS
                      {
                          Views = new List<IPageViewModel>()
                          {
-                           new AddCateforyModelView(),
-                           new AddDeveloperViewModel(),
-                           new AddDistributorViewModel(),
-                           new AddProductModelView()
+                           addEmployeeModelView,
+                           allEmployeesViewModel,
+                           addCustomerModelView,
+                           allCustomerModelView,
+                          
                          }
                       },
                            new PageSubCategory("Products")
@@ -78,14 +89,12 @@ namespace MWS
                            new ProductManagmentViewModel()
                          }
                       }
-                      
                     }
                 },
                 new PageCategory("Users")
                 {
                     PageCategories = new List<PageSubCategory>()
                     {
-
                       new PageSubCategory("User")
                      {
                          Views = new List<IPageViewModel>()
@@ -93,52 +102,41 @@ namespace MWS
                            new UsersModelView(),
                            new AddEmployeeModelView(),
                            new AllCustomersViewModel(),
+                           new AllEmployeesViewModel(),
                          }
                       }
+                    }
+                },
 
+                  new PageCategory("Promotions")
+                {
+                    PageCategories = new List<PageSubCategory>()
+                    {
+                      new PageSubCategory("Promo")
+                     {
+                         Views = new List<IPageViewModel>()
+                         {
+                           new PromotionManagementViewModel(null),
+                           new CategoryPromotionManagementModelView()
+                         }
+                      }
                     }
                 }
-
             };
 
 
 
-
-
-
-
+            // Set starting page
             // Add available pages
             PageViewModels.Add(new MainViewModel());
-            PageViewModels.Add(new AddEmployeeModelView());
-            PageViewModels.Add(new AddProductModelView());
-            PageViewModels.Add(new ProductManagmentViewModel());
-            PageViewModels.Add(new UsersModelView());
-            PageViewModels.Add(new AddEmployeeModelView());
-            PageViewModels.Add(new EmployeeManagmentViewModel());
-            PageViewModels.Add(new AddCateforyModelView());
-            PageViewModels.Add(new AllCustomersViewModel());
-
-            PageViewModels.Add(new AddDeveloperViewModel());
-
-            PageViewModels.Add(new AddDistributorViewModel());
-
-            //Add page to button 
-            PageButtonsViewModels.Add(new MainViewModel());
-            PageButtonsViewModels.Add(new EmployeeManagmentViewModel());
-            PageButtonsViewModels.Add(new ProductManagmentViewModel());
-            PageButtonsViewModels.Add(new AddCateforyModelView());
-            PageButtonsViewModels.Add(new DistributorsManagementViewModel());
-            PageButtonsViewModels.Add(new DevelopersManagmentViewModel());
-
-            // Set starting page
             CurrentPageViewModel = PageViewModels[0];
+
+
             Mediator.Subscribe("AddEmpoyeeView", AddEmployeeView);
+            Mediator.Subscribe("AddEmployeeViewEdit", GoToAddEmployeeViewView);
             Mediator.Subscribe("AddCustomerView", AddCustomerView);
             Mediator.Subscribe("AddCustomerViewEdit", GoToAddCustomerViewEdit);
-
-
             Mediator.Subscribe("AllCustomersView", AllCustomersView);
-
             Mediator.Subscribe("AddProductViewEdit", GoToAddProductView);
             Mediator.Subscribe("AddProductView", GoToAddProductView);
             Mediator.Subscribe("AddCategoryView", GoToAddCategoryView);
@@ -148,6 +146,7 @@ namespace MWS
             Mediator.Subscribe("AddDistributorView", GoToAddDistributorView);
             Mediator.Subscribe("AddDeveloperViewEdit", GoToAddDeveloperViewEdit);
             Mediator.Subscribe("AddDistributorViewEdit", GoToAddDistributorViewEdit);
+            Mediator.Subscribe("PromotionManagementViewEdit", GoToPromotionManagementViewEdit);
 
 
         }
@@ -229,13 +228,16 @@ namespace MWS
             ChangeViewModel(new UsersModelView(obj));
         }
 
-
-
-
         private void AddEmployeeView(object obj)
         {
             ChangeViewModel(new AddEmployeeModelView());
         }
+
+        private void GoToAddEmployeeViewView(object obj)
+        {
+            ChangeViewModel(new AddEmployeeModelView((Cashier)obj));
+        }
+
 
         private void AllCustomersView(object obj)
         {
@@ -246,7 +248,6 @@ namespace MWS
             ChangeViewModel(new AddProductModelView(obj));
         }
 
-
         private void GoToAddProductViewEdit(object obj)
         {
             ChangeViewModel(new AddProductModelView(obj, true));
@@ -254,9 +255,8 @@ namespace MWS
 
         private void GoToAddCategoryView(object obj)
         {
-            ChangeViewModel(new AddCateforyModelView(obj));
+            ChangeViewModel(new AddCategoryModelView(obj));
         }
-
 
         private void GoToAddDeveloperView(object obj)
         {
@@ -284,16 +284,21 @@ namespace MWS
             ChangeViewModel(new AddDeveloperViewModel(obj, true));
         }
 
-
-
         private void GoToDistributorsManagementView(object obj)
         {
             ChangeViewModel(new DistributorsManagementViewModel(obj));
         }
 
         #endregion
+        private void GoToPromotionManagementViewEdit(object obj = null)
+        {
+            ChangeViewModel(new PromotionManagementViewModel(obj));
+        }
 
-
+        public void Update(ISubject subject)
+        {
+            throw new NotImplementedException();
+        }
 
         public ICollectionView Navigation
         {

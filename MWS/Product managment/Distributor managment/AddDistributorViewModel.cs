@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using static MWS.MWSUtil.Enums;
+using TorasSQLHelper;
 
 namespace MWS.Product_managment.Distributor_managment
 {
@@ -70,13 +71,13 @@ namespace MWS.Product_managment.Distributor_managment
             {
                 if (edit)
                 {
-                    db.Entry(distributor).State = EntityState.Modified;
+                    db.ObjectStateManager.ChangeObjectState(distributor, System.Data.EntityState.Modified);
                     db.SaveChanges();
                     MessageBox.Show("Distributor changed");
                 }
                 else
                 {
-                    db.Companies.Add(distributor.Company);
+                    db.Companies.AddObject(distributor.Company);
                     db.SaveChanges();
                     MessageBox.Show("Distributor added");
                     Distributor _distributor = new Distributor()
@@ -84,7 +85,7 @@ namespace MWS.Product_managment.Distributor_managment
                         Name = distributor.Company.Name,
                         ID_Company = distributor.Company.CompanyID
                     };
-                    db.Distributors.Add(_distributor);
+                    db.Distributors.AddObject(_distributor);
                 }
                 Mediator.Notify("AddDistributorView", null);
             }

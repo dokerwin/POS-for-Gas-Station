@@ -1,0 +1,73 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MWS.Product_managment"
+                    xmlns:local1="clr-namespace:MWS.Users_managment" 
+                    xmlns:local2="clr-namespace:MWS.Product_managment.Category_managment" 
+                    xmlns:localDistributor="clr-namespace:MWS.Product_managment.Distributor_managment"
+                    xmlns:localDeveloper="clr-namespace:MWS.Product_managment.Developer_managment"
+                    xmlns:localPromo="clr-namespace:MWS.Pomotion_management"
+                    xmlns:lmain="clr-namespace:MWS.MainMenu" 
+                    xmlns:userView="clr-namespace:MWS.Users_managment.Views"
+                    xmlns:userModelView="clr-namespace:MWS.Users_managment.ViewModels">
+
+    <DataTemplate DataType="{x:Type lmain:MainViewModel}">
+        <lmain:MainView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type local1:UsersModelView}">
+        <local1:UsersView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type local1:EmployeeManagmentViewModel}">
+        <local1:EmployeeManagmentView />
+    </DataTemplate> 
+
+    <DataTemplate DataType="{x:Type local2:AddCategoryModelView}">
+        <local2:AddCategoryView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type local1:AddEmployeeModelView}">
+        <local1:AddEmployeeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type local:AddProductModelView}">
+        <local:AddProductView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type local:ProductManagmentViewModel}">
+        <local:ProductManagmentView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type local1:AllCustomersViewModel}">
+        <local1:AllCustomersView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type userModelView:AllEmployeesViewModel}">
+        <userView:AllEmployeesView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localDistributor:AddDistributorViewModel}">
+        <localDistributor:AddDistributorView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localDistributor:DistributorsManagementViewModel}">
+        <localDistributor:DistributorsManagementView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localDeveloper:AddDeveloperViewModel}">
+        <localDeveloper:AddDeveloperView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localDeveloper:DevelopersManagmentViewModel}">
+        <localDeveloper:DevelopersManagementView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localPromo:CategoryPromotionManagementModelView}">
+        <localPromo:CategoryPromotionManagementView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localPromo:PromotionManagementViewModel}">
+        <localPromo:PromotionManagementView/>
+    </DataTemplate>
+
+</ResourceDictionary>

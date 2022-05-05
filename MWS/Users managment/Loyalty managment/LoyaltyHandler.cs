@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TorasSQLHelper;
 namespace MWS.Users_managment.Loyalty_managment
 {
     public class LoyaltyHandler

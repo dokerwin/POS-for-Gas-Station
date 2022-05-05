@@ -12,6 +12,7 @@ namespace MWS.MWSUtil
         {
             Main,
             ProductManagement,
+            PromotionManagement,
             CustomerManagemnet,
             ShiftManagement
         }

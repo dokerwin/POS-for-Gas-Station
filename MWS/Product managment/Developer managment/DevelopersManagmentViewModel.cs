@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using static MWS.MWSUtil.Enums;
-
+using TorasSQLHelper;
 namespace MWS.Product_managment.Developer_managment
 {
     public class DevelopersManagmentViewModel : ObservableObject, IPageViewModel
@@ -101,7 +101,7 @@ namespace MWS.Product_managment.Developer_managment
                 using (Gas_stationDb db = new Gas_stationDb())
                 {
                     var devel = db.Developers.FirstOrDefault(i => i.DeveloperID == item.DeveloperID);
-                    db.Developers.Remove(devel);
+                    db.Developers.DeleteObject(devel);
                     db.SaveChanges();
                 }
             }

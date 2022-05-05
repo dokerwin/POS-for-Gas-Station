@@ -3,10 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MWS.Shift_managment"
+             xmlns:local="clr-namespace:MWS.Shift_managment" xmlns:MWSValidation="clr-namespace:MWS.MWSValidation"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Height="450" Width="800">
+            <ListView x:Name="shiftList"  ItemsSource="{Binding shifts}" Margin="0,76,0,119" Background="#4DFFFFFF" SelectedItem="{Binding SelectedPromo}" FlowDirection="LeftToRight" FontWeight="DemiBold" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="780" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Shift number" Width="150" DisplayMemberBinding="{Binding Prom_type}" />
+                        <GridViewColumn Header="Start shift" Width="120" DisplayMemberBinding="{Binding Prom_start}"/>
+                        <GridViewColumn Header="End shift" Width="120" DisplayMemberBinding="{Binding Prom_end}" />
+                        <GridViewColumn Header="Cashier ID" Width="100" DisplayMemberBinding="{Binding Prom_discount}" />
+                        <GridViewColumn Header="Cashier name" Width="150" DisplayMemberBinding="{Binding shift.}" />
+                        <GridViewColumn Header="Deatils" Width="70">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding DataContext.ButtonDetails, ElementName=shiftList}" CommandParameter="{Binding}">
+                                        <TextBlock Text="Deatils" />
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label Content="Shift day" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Background="#FF1AA74A" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="60" Height="26"/>
+            <Button Command="{Binding FindShiftButton}" 
+                    CommandParameter="ParameterValue"  Content="Find shift" Margin="320,47,422,377" Background="#FF1E8AC2" Foreground="White" RenderTransformOrigin="1.21,0.513" HorizontalContentAlignment="Center"/>
+            <Grid Margin="10,331,11,10">
+                <Button Command="{Binding ForceShiftEndButton}" 
+                CommandParameter="ParameterValue" Content="Force shift end" Margin="681,73,10,10" Background="#FF1E8AC2" Foreground="White"/>
+                <Label Content="Actual shift ID" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="88" FontSize="10" HorizontalContentAlignment="Center" Margin="10,10,0,0"/>
+                <Label Content="Cashier" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="88" FontSize="10" HorizontalContentAlignment="Center" Margin="10,50,0,0"/>
+                <Label Content="{Binding actualShift.ShiftID}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.488,2.296" Width="197" FontSize="10"  Margin="98,10,0,0"/>
+                <Label Content="{Binding actualShift.Cashier.Person.Name}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.488,2.296" Width="197" FontSize="10"  Margin="98,50,0,0"/>
+            </Grid>
+            <DatePicker SelectedDate ="{Binding ShiftToSearchByDate, Mode=OneWayToSource}" HorizontalAlignment="Left" Margin="70,47,0,0" VerticalAlignment="Top" Width="250" Height="26" RenderTransformOrigin="0.508,1.654">
+                <DatePicker.BlackoutDates>
+                    <CalendarDateRange Start="1/1/2000" End="12/31/2021"/>
+                </DatePicker.BlackoutDates>
+            </DatePicker>
+            <Label Content="Shifts" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FF1AA74A" Foreground="#FFF0ECEC" RenderTransformOrigin="2.525,0.551" Width="85" Height="35" FontSize="22" HorizontalContentAlignment="Center"/>
+        </Grid>
+    </Viewbox>
 </UserControl>

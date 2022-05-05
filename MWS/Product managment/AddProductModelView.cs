@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using static MWS.MWSUtil.Enums;
+using TorasSQLHelper;
 
 namespace MWS.Product_managment
 {
@@ -30,22 +31,31 @@ namespace MWS.Product_managment
 
         private ICommand addProductButton { get; set; }
         private ICommand addCategoryButton { get; set; }
-
+        private ICommand addMessureButton { get; set; }
 
         bool edit = false;
 
-
-        public ICommand AddcategoryButton
+        public ICommand AddCategoryButton
         {
             get
             {
                 return addCategoryButton ?? (addCategoryButton = new RelayCommand(x =>
                 {
-                    Mediator.Notify("AddCategoryView", "");
+                    Mediator.Notify("AddCategoryView", null);
                 }));
             }
         }
-
+        public ICommand AddMessureButton
+        {
+            get
+            {
+                return addMessureButton;
+            }
+            set
+            {
+                addMessureButton = value;
+            }
+        }
         public ICommand AddProductButton
         {
             get
@@ -73,6 +83,7 @@ namespace MWS.Product_managment
 
         private void RefreshItems()
         {
+ 
             using (Gas_stationDb db = new Gas_stationDb())
             {
                 categories = db.Categories.ToList();
@@ -120,7 +131,7 @@ namespace MWS.Product_managment
             {
                 if (edit)
                 {
-                    db.Entry(product).State = EntityState.Modified;                 
+                 db.ObjectStateManager.ChangeObjectState(product, System.Data.EntityState.Modified);        
                     db.SaveChanges();
                     MessageBox.Show("Product changed");
                 }
@@ -142,11 +153,11 @@ namespace MWS.Product_managment
                         SellStartDate = product.SellStartDate,
                         SellEndDate = product.SellEndDate,
                         LastUpdate = DateTime.Now,
-                        Quantity = product.Quantity,
-                        Restriction_age = product.Restriction_age.Equals("True") ? "1" : "0"
+                        QT_InStock = product.QT_InStock,
+                        Restriction_age = product.Restriction_age
                     };
 
-                    db.Products.Add(Addproduct);
+                    db.Products.AddObject(Addproduct);
                     db.SaveChanges();
                     MessageBox.Show("Product added");
                     product = new Product();

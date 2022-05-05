@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using static MWS.MWSUtil.Enums;
-
+using TorasSQLHelper;
 namespace MWS.Product_managment.Developer_managment
 {
     public class AddDeveloperViewModel:ObservableObject, IPageViewModel
@@ -74,20 +74,20 @@ namespace MWS.Product_managment.Developer_managment
 
                 if (edit)
                 {
-                    db.Entry(developer).State = EntityState.Modified;
+                    db.ObjectStateManager.ChangeObjectState(developer, System.Data.EntityState.Modified);
                     db.SaveChanges();
                     MessageBox.Show("Product changed");
                 }
                 else
                 {
-                    db.Companies.Add(developer.Company);
+                    db.Companies.AddObject(developer.Company);
                     db.SaveChanges();
                     Developer _developer = new Developer()
                     {
                         Name = developer.Company.Name,
                         ID_Company = developer.Company.CompanyID
                     };
-                    db.Developers.Add(_developer);
+                    db.Developers.AddObject(_developer);
                 }
                 MessageBox.Show("Developer added");
                 Mediator.Notify("AddDeveloperView", null);

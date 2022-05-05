@@ -4,102 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         mc:Ignorable="d"
-        xmlns:local1="clr-namespace:MWS.Users_managment" 
-         xmlns:local2="clr-namespace:MWS.Product_managment.Category_managment" 
-        xmlns:local="clr-namespace:MWS.Product_managment"
-        xmlns:localDistributor="clr-namespace:MWS.Product_managment.Distributor_managment"
-        xmlns:localDeveloper="clr-namespace:MWS.Product_managment.Developer_managment"
-         xmlns:lmain="clr-namespace:MWS.MainMenu"
         xmlns:mws="clr-namespace:MWS"
         Title="MainWindow"  MinHeight="550" MinWidth="800">
-
     <Window.Resources>
-
-        <DataTemplate DataType="{x:Type lmain:MainViewModel}">
-            <lmain:MainView />
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type local1:UsersModelView}">
-            <local1:UsersView />
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type local1:EmployeeManagmentViewModel}">
-            <local1:EmployeeManagmentView />
-        </DataTemplate>
-
-
-        <DataTemplate DataType="{x:Type local2:AddCateforyModelView}">
-            <local2:AddCategoryView/>
-        </DataTemplate>
-
-
-        <DataTemplate DataType="{x:Type local1:AddEmployeeModelView}">
-            <local1:AddEmployeeView />
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type local:AddProductModelView}">
-            <local:AddProductView/>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type local:ProductManagmentViewModel}">
-            <local:ProductManagmentView/>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type local1:AllCustomersViewModel}">
-            <local1:AllCustomersView/>
-        </DataTemplate>
-
-
-
-
-        <DataTemplate DataType="{x:Type localDistributor:AddDistributorViewModel}">
-            <localDistributor:AddDistributorView/>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type localDistributor:DistributorsManagementViewModel}">
-            <localDistributor:DistributorsManagementView/>
-        </DataTemplate>
-
-
-        <DataTemplate DataType="{x:Type localDeveloper:AddDeveloperViewModel}">
-            <localDeveloper:AddDeveloperView/>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type localDeveloper:DevelopersManagmentViewModel}">
-            <localDeveloper:DevelopersManagementView/>
-        </DataTemplate>
-
-
-
-
-        <HierarchicalDataTemplate ItemsSource="{Binding PageCategories}" DataType="{x:Type mws:PageSubCategory}">
+        <ResourceDictionary>
+            <HierarchicalDataTemplate ItemsSource="{Binding PageCategories}" DataType="{x:Type mws:PageSubCategory}">
             <Label Content="{Binding PageSubCategoryName}"/>
-        </HierarchicalDataTemplate>
-
-        <DataTemplate DataType="{x:Type mws:IPageViewModel}">
-              
-            
-            <Button Content="{Binding Name }" 
+            </HierarchicalDataTemplate>
+            <DataTemplate DataType="{x:Type mws:IPageViewModel}">
+                <Button Content="{Binding Name}" 
                                 Command="{Binding DataContext.ChangePageCommand}"
                                 CommandParameter="{Binding }"
-                               Background="{x:Null}" FontFamily="Century Gothic" FontSize="15" Foreground="#FF0045A5" BorderBrush="{x:Null}">
-            </Button>
-        </DataTemplate>
-
+                                Background="{x:Null}" FontFamily="Century Gothic" FontSize="15" Foreground="#FF0045A5" BorderBrush="{x:Null}">
+                </Button>
+            </DataTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source= "/ExternalResources/PagesResources.xaml">
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
         <Border Width="180"  DockPanel.Dock="Left"  BorderThickness="0,0,0,0" Background="#FF0045A5"  BorderBrush="{x:Null}" >
-            <!--<ItemsControl ItemsSource="{Binding PageButtonsViewModels}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Height="40" Width="auto" Content="{Binding Name }" 
-                                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                CommandParameter="{Binding }"
-                               Background="{x:Null}" FontFamily="Century Gothic" FontSize="15" Foreground="#FFFBFBFB" BorderBrush="{x:Null}">
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>-->
             <TreeView x:Name="MainTreeView" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" ItemsSource="{Binding _PageCategories}">
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate ItemsSource="{Binding PageCategories}" DataType="{x:Type mws:PageCategory}">
@@ -122,9 +48,6 @@
                 </TreeView.ItemTemplate>
             </TreeView>
         </Border>
-
         <ContentControl Content="{Binding CurrentPageViewModel}" Background ="#FF0045A5"/>
     </DockPanel>
-    <!--</Grid>-->
-
 </Window>

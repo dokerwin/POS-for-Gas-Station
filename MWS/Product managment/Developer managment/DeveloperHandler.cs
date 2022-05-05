@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TorasSQLHelper;
 namespace MWS.Product_managment.Developer_managment
 {
     internal class DeveloperHandler

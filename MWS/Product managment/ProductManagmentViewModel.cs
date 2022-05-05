@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using static MWS.MWSUtil.Enums;
+using TorasSQLHelper;
 
 namespace MWS.Product_managment
 {
@@ -92,7 +93,6 @@ namespace MWS.Product_managment
             findProductButton = new RelayCommand(FindProduct);
         }
 
-
         public void FindProduct(object obj)
         {
 
@@ -112,7 +112,7 @@ namespace MWS.Product_managment
                 using (Gas_stationDb db = new Gas_stationDb())
                 {
                     var prod = db.Products.FirstOrDefault(i=> i.ProductID == item.ProductID);
-                    db.Products.Remove(prod);
+                    db.Products.DeleteObject(prod);
 
                     db.SaveChanges();
                 }
@@ -120,12 +120,10 @@ namespace MWS.Product_managment
             Mediator.Notify("AddProductViewEdit", null);
         }
 
-
         public void AddProduct(object obj)
         {
            
         }
-
 
         #region IPageViewModel interface
 

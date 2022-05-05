@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using static MWS.MWSUtil.Enums;
+using TorasSQLHelper;
 
 namespace MWS.Product_managment.Distributor_managment
 {
@@ -96,7 +97,7 @@ namespace MWS.Product_managment.Distributor_managment
                 using (Gas_stationDb db = new Gas_stationDb())
                 {
                     var distrib = db.Distributors.FirstOrDefault(i => i.DistributorID == item.DistributorID);
-                    db.Distributors.Remove(distrib);
+                    db.Distributors.DeleteObject(distrib);
                     db.SaveChanges();
                 }
             }

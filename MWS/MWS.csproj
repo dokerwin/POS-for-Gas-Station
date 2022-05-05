@@ -8,15 +8,31 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MWS</RootNamespace>
     <AssemblyName>MWS</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -41,10 +57,17 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
@@ -57,6 +80,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="TorasPromotion">
+      <HintPath>..\TorasPromotion\bin\Debug\net48\TorasPromotion.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -66,78 +92,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Advertising.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ApplicationViewModel.cs" />
     <Compile Include="BaseViewModel.cs" />
-    <Compile Include="Cashier.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+    <Compile Include="Fuel managment\FuelManagementView.xaml.cs">
+      <DependentUpon>FuelManagementView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Category.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CatPromotion.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Cistern.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Company.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Customer.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Developer.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Distributor.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Forecourt.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FuelDelivery.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Fuel managment\FuelManagemtViewModel.cs" />
+    <Compile Include="Helper Classes\EnumHelper.cs" />
     <Compile Include="Helper Classes\EventRaiser.cs" />
     <Compile Include="Helper Classes\MyCommand.cs" />
+    <Compile Include="Helper Classes\MyEvent.cs" />
     <Compile Include="Helper Classes\ObservableObject.cs" />
+    <Compile Include="Helper Classes\ValueDescription.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="IPageViewModel.cs" />
-    <Compile Include="Lgn.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LoyaltyCard.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MainMenu\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu\MainViewModel.cs" />
     <Compile Include="Mediator.cs" />
-    <Compile Include="MOP.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MWSUtil\Enums.cs" />
+    <Compile Include="MWSValidation\InverseAndBooleansToBooleanConverter.cs" />
     <Compile Include="PageCategory.cs" />
     <Compile Include="PageSubCategory.cs" />
-    <Compile Include="Person.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+    <Compile Include="Pomotion management\Views\CategoryPromotionManagementView.xaml.cs">
+      <DependentUpon>CategoryPromotionManagementView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProdPromotion.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+    <Compile Include="Pomotion management\ViewModels\CategoryPromotionManagementViewModel.cs" />
+    <Compile Include="Pomotion management\Views\PromotionManagementView.xaml.cs">
+      <DependentUpon>PromotionManagementView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pomotion management\ViewModels\PromotionManagementViewModel.cs" />
     <Compile Include="Product managment\AddProductModelView.cs" />
     <Compile Include="Product managment\AddProductView.xaml.cs">
       <DependentUpon>AddProductView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Product managment\Category managment\AddCateforyModelView.cs" />
+    <Compile Include="Product managment\Category managment\AddCategoryModelView.cs" />
     <Compile Include="Product managment\Category managment\AddCategoryView.xaml.cs">
       <DependentUpon>AddCategoryView.xaml</DependentUpon>
     </Compile>
@@ -160,63 +150,57 @@
       <DependentUpon>DistributorsManagementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product managment\Distributor managment\DistributorsManagementViewModel.cs" />
-    <Compile Include="Product managment\Messure managment\AddMessure.xaml.cs" />
     <Compile Include="Product managment\MOP managment\MopHandler.cs" />
     <Compile Include="Product managment\ProductHandler.cs" />
     <Compile Include="Product managment\ProductManagmentView.xaml.cs">
       <DependentUpon>ProductManagmentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductReceipt.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Receipt.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Helper Classes\RelayCommand.cs" />
+    <Compile Include="Shift managment\ShiftDetailsView.xaml.cs">
+      <DependentUpon>ShiftDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shift managment\ShiftDetailsViewModel.cs" />
     <Compile Include="Shift managment\ShiftManagmentView.xaml.cs">
       <DependentUpon>ShiftManagmentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shift managment\ShiftManagmentViewModel.cs" />
-    <Compile Include="Shift.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+    <Compile Include="Station settings\Views\StationAddressView.xaml.cs">
+      <DependentUpon>StationAddressView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Station.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+    <Compile Include="Station settings\Views\StationSettingsView.xaml.cs">
+      <DependentUpon>StationSettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TypeOfEmployment.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Type_Product.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Users managment\AddEmployeeModelView.cs" />
-    <Compile Include="Users managment\AddEmployeeView.xaml.cs">
+    <Compile Include="Users managment\UserEnums.cs" />
+    <Compile Include="Users managment\ViewModels\AddEmployeeModelView.cs" />
+    <Compile Include="Users managment\ViewModels\AllEmployeesViewModel.cs" />
+    <Compile Include="Users managment\Views\AddEmployeeView.xaml.cs">
       <DependentUpon>AddEmployeeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Users managment\AllCustomersView.xaml.cs">
+    <Compile Include="Users managment\Views\AllCustomersView.xaml.cs">
       <DependentUpon>AllCustomersView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Users managment\AllCustomersViewModel.cs" />
-    <Compile Include="Users managment\EmployeeManagmentView.xaml.cs">
+    <Compile Include="Users managment\ViewModels\AllCustomersViewModel.cs" />
+    <Compile Include="Users managment\Views\AllEmployeesView.xaml.cs">
+      <DependentUpon>AllEmployeesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users managment\Views\EmployeeManagmentView.xaml.cs">
       <DependentUpon>EmployeeManagmentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Users managment\EmployeeManagmentViewModel.cs" />
+    <Compile Include="Users managment\ViewModels\EmployeeManagmentViewModel.cs" />
     <Compile Include="Users managment\Loyalty managment\LoyaltyHandler.cs" />
     <Compile Include="Users managment\UserHandler.cs" />
-    <Compile Include="Users managment\UsersModelView.cs" />
-    <Compile Include="Users managment\UsersView.xaml.cs">
+    <Compile Include="Users managment\ViewModels\UsersModelView.cs" />
+    <Compile Include="Users managment\Views\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MWSValidation\EmailValidator.cs" />
     <Compile Include="MWSValidation\LengthValidator.cs" />
     <Compile Include="MWSValidation\PhoneValidator.cs" />
     <Compile Include="MWSValidation\RangeValidator.cs" />
+    <Page Include="Fuel managment\FuelManagementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainMenu\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -229,20 +213,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pomotion management\Views\CategoryPromotionManagementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pomotion management\Views\PromotionManagementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Product managment\AddProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -267,11 +249,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Product managment\Messure managment\AddMessure.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Product managment\ProductManagmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExternalResources\PagesResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shift managment\ShiftDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -279,19 +265,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Users managment\AddEmployeeView.xaml">
+    <Page Include="Station settings\Views\StationAddressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Users managment\AllCustomersView.xaml">
+    <Page Include="Station settings\Views\StationSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Users managment\EmployeeManagmentView.xaml">
+    <Page Include="Users managment\Views\AddEmployeeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Users managment\UsersView.xaml">
+    <Page Include="Users managment\Views\AllCustomersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users managment\Views\AllEmployeesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users managment\Views\EmployeeManagmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users managment\Views\UsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -315,13 +313,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DbModel.edmx.diagram">
-      <DependentUpon>DbModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -340,13 +331,18 @@
       <Project>{cf1b7d25-4744-4b04-b725-7f2d8223806b}</Project>
       <Name>HamburgerMenu</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TorasSQLHelper\TorasSQLHelper.csproj">
+      <Project>{8c5df7b9-22e6-4997-9f5a-c9b712c683a8}</Project>
+      <Name>TorasSQLHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WpfPageTransitions\WpfPageTransitions.csproj">
       <Project>{22a46d61-1d40-43a9-802c-b9d43dadd9ec}</Project>
       <Name>WpfPageTransitions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Fuel managment\" />
+    <Folder Include="Product managment\Messure managment\" />
+    <Folder Include="Station settings\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\addCustomer.png" />
@@ -367,24 +363,28 @@
     <Resource Include="MainMenu\FMS.png" />
     <Resource Include="Assets\FMS.png" />
     <Resource Include="Assets\GasStationJPG.jpg" />
-    <Content Include="DbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DbModel.Context.cs</LastGenOutput>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="DbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-      <LastGenOutput>DbModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="total.png" />
-    <Resource Include="Product managment\Messure managment\messagebox.jpg" />
     <Resource Include="Product managment\Distributor managment\messagebox.jpg" />
     <Resource Include="Product managment\Developer managment\messagebox.jpg" />
     <Resource Include="Product managment\Category managment\messagebox.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
