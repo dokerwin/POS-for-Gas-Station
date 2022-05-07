@@ -21,7 +21,7 @@
                 <Label Content="Country&#xA;" HorizontalAlignment="Left" Margin="6,39,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
                 <TextBox HorizontalAlignment="Left" Margin="47,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Adress_country" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Adress_country" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -31,7 +31,7 @@
                 <Label Content="City&#xA;" HorizontalAlignment="Left" Margin="6,70,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
                 <TextBox HorizontalAlignment="Left" Margin="47,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Adress_city" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Adress_city" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -41,7 +41,7 @@
                 <Label Content="Street&#xA;" HorizontalAlignment="Left" Margin="6,102,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
                 <TextBox HorizontalAlignment="Left" Margin="47,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Adress_street" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Adress_street" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -52,7 +52,7 @@
                 <Label Content="Level&#xA;" HorizontalAlignment="Left" Margin="6,171,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
                 <TextBox HorizontalAlignment="Left" Margin="47,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="19">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Adress_level" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Adress_level" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -62,7 +62,7 @@
                 <Label Content="ZIP&#xA;" HorizontalAlignment="Left" Margin="6,202,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
                 <TextBox HorizontalAlignment="Left" Margin="47,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="19">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Adress_zip" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Adress_zip" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -73,7 +73,7 @@
                 <Label Content="TAX&#xA;" HorizontalAlignment="Left" Margin="6,235,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
                 <TextBox x:Name="tax" HorizontalAlignment="Left" Margin="47,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="19">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Fax" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Fax" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -83,7 +83,7 @@
                 <Label Content="Address&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="68" FontSize="16" Foreground="White"/>
                 <TextBox x:Name="build" HorizontalAlignment="Left" Margin="47,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Adress_build" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Adress_build" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -112,7 +112,7 @@
                 <Label Content="Name&#xA;" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" Width="41" RenderTransformOrigin="1.135,0.65" FontSize="8"/>
                 <TextBox  Style="{StaticResource MyWaterMarkStyle}" Tag="Enter name" HorizontalAlignment="Left" Margin="51,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -122,7 +122,7 @@
                 <Label Content="Surname&#xA;" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" FontSize="8" Width="41"/>
                 <TextBox  Style="{StaticResource MyWaterMarkStyle}" Tag="Enter surname"  HorizontalAlignment="Left" Margin="51,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Surname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Surname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -131,11 +131,11 @@
                 </TextBox>
                 <Label Content="Sex&#xA;" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Height="18" Background="#FF33B0FF" Width="41" FontSize="8"/>
                 <ComboBox ItemsSource= "{Binding Path = SexList}"
-                 SelectedItem="{Binding _cashier.Person.Sex, Mode=TwoWay}"  HorizontalAlignment="Left" Margin="51,108,0,0" VerticalAlignment="Top" Width="184" Height="19"/>
+                 SelectedItem="{Binding cashier.Person.Sex, Mode=TwoWay}"  HorizontalAlignment="Left" Margin="51,108,0,0" VerticalAlignment="Top" Width="184" Height="19"/>
                 <Label Content="Age&#xA;" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Height="21" Background="#FF33B0FF" Width="41" FontSize="8"/>
                 <TextBox  Style="{StaticResource MyWaterMarkStyle}" Tag="Enter age"  HorizontalAlignment="Left" Margin="51,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="21" SelectionOpacity="0">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Age" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Age" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:RangeValidator MinValue="18" MaxValue="99" />
                             </Binding.ValidationRules>
@@ -145,7 +145,7 @@
                 <Label Content="Phone1&#xA;" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Height="18" Background="#FF33B0FF" Width="41" FontSize="8"/>
                 <TextBox  Style="{StaticResource MyWaterMarkStyle}" Tag="(xxx) xxx-xxxx" MaxLength="20"  HorizontalAlignment="Left" Margin="51,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Phone1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Phone1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="12" />
                             </Binding.ValidationRules>
@@ -155,7 +155,7 @@
                 <Label Content="Phone2&#xA;" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Height="18" Background="#FF33B0FF" Width="41" RenderTransformOrigin="0.395,2" FontSize="8"/>
                 <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="(xxx) xxx-xxxx" MaxLength="12" HorizontalAlignment="Left" Margin="51,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="18">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Phone2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Phone2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="12" />
                             </Binding.ValidationRules>
@@ -165,7 +165,7 @@
                 <Label Content="Email1&#xA;" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
                 <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="***@***.**" HorizontalAlignment="Left" Margin="51,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Email1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Email1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="100" />
                             </Binding.ValidationRules>
@@ -175,7 +175,7 @@
                 <Label Content="Email2&#xA;" HorizontalAlignment="Left" Margin="10,267,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
                 <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="***@***.**" HorizontalAlignment="Left" Margin="51,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.Email2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.Email2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="100" />
                             </Binding.ValidationRules>
@@ -185,7 +185,7 @@
                 <Label Content="CardID&#xA;" HorizontalAlignment="Left" Margin="10,298,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="41" FontSize="8"/>
                 <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="ABC-xxxxxxx" MaxLength="20" HorizontalAlignment="Left" Margin="51,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Person.IDCard" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Person.IDCard" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="8" MaxValue="20" />
                             </Binding.ValidationRules>
@@ -198,7 +198,7 @@
                 <Label Content="Pesel&#xA;" HorizontalAlignment="Left" Margin="6,39,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="54" FontSize="8"/>
                 <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="xxxx-xxxx-xxx" HorizontalAlignment="Left" Margin="60,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.PESEL" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.PESEL" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -210,7 +210,7 @@
                 <Label Content="Salary&#xA;" HorizontalAlignment="Left" Margin="6,136,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="54" FontSize="8"/>
                 <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="Please enter salary here!" HorizontalAlignment="Left" Margin="60,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Salary" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Salary" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:RangeValidator MinValue="1" MaxValue="50000" />
                             </Binding.ValidationRules>
@@ -223,7 +223,7 @@
                 <Label Content="Phone&#xA;" HorizontalAlignment="Left" Margin="6,205,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="54" FontSize="8"/>
                 <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="(xxx) xxx-xxxx" HorizontalAlignment="Left" Margin="60,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="19">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Work_phone" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Work_phone" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>
@@ -233,7 +233,7 @@
                 <Label Content="Hire&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="45" FontSize="16" Foreground="White"/>
                 <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="***@***.**" HorizontalAlignment="Left" Margin="60,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="20">
                     <TextBox.Text>
-                        <Binding Path="_cashier.Work_email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding Path="cashier.Work_email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <validator1:LengthValidator MinValue="2" MaxValue="200" />
                             </Binding.ValidationRules>

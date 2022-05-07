@@ -103,15 +103,14 @@ namespace MWS.Users_managment.ViewModels
         #endregion
 
         #region Constructors
-        public AllEmployeesViewModel()
+        public AllEmployeesViewModel(Observer observer)
         {
+            observer.Attach(this);
             buttonDelete = new RelayCommand(FireEmployee);
             buttonEdit = new RelayCommand(EditEmployee);
             findEmployeeButton = new RelayCommand(FindEmployee);
+            _cashierList = EmployeeHelper.GetAllEmployees(FilterType.All);
 
-            _cashierList = UserHandler.GetAllEmployees(FilterType.All);
-
-            MyEvent.GetInstance().SomeEvent += this.UpdateEmployeeList;
         }
         #endregion
 
@@ -148,7 +147,7 @@ namespace MWS.Users_managment.ViewModels
 
         public void UpdateEmployeeList(FilterType filterType)
         {
-            _cashierList = UserHandler.GetAllEmployees(filterType);
+            _cashierList = EmployeeHelper.GetAllEmployees(filterType);
         }
 
         private void FindEmployee(object cust)
@@ -167,7 +166,7 @@ namespace MWS.Users_managment.ViewModels
 
         public void Update(ISubject subject)
         {
-            throw new NotImplementedException();
+            UpdateEmployeeList(FilterType.All);
         }
         #endregion
 
@@ -175,7 +174,7 @@ namespace MWS.Users_managment.ViewModels
 
         public string Name
         {
-            get { return "All customers"; }
+            get { return "All employees"; }
         }
 
         public string ButtonPage

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MWS.Users_managment.UsersView"
+﻿<UserControl x:Class="MWS.Users_managment.AddCustomerView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,7 +15,7 @@
             <Label Content="Age&#xA;" HorizontalAlignment="Left" Margin="16,151,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="57" FontSize="8"/>
             <Label Content="Phone1&#xA;" HorizontalAlignment="Left" Margin="16,187,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="57" FontSize="8"/>
             <Label Content="Email1&#xA;" HorizontalAlignment="Left" Margin="16,224,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="57" FontSize="8"/>
-            <TextBox HorizontalAlignment="Left" Margin="72,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="21">
+            <TextBox Name="surname" HorizontalAlignment="Left" Margin="72,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="21">
                 <TextBox.Text>
                     <Binding Path="_customer.Person.Surname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -25,17 +25,17 @@
                 </TextBox.Text>
 
             </TextBox>
-            <TextBox HorizontalAlignment="Left" Margin="72,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="20">
+            <TextBox Name="name" HorizontalAlignment="Left" Margin="72,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="20" MaxLength="30">
                 <TextBox.Text>
                     <Binding Path="_customer.Person.Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
-                            <validator1:LengthValidator MinValue="2" MaxValue="200" />
+                            <validator1:LengthValidator MinValue="2" MaxValue="30" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
 
             </TextBox>
-            <TextBox HorizontalAlignment="Left" Margin="72,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="20" SelectionOpacity="0">
+            <TextBox Name="age" HorizontalAlignment="Left" Margin="72,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="20" SelectionOpacity="0">
                 <TextBox.Text>
                     <Binding Path="_customer.Person.Age" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -45,7 +45,7 @@
                 </TextBox.Text>
 
             </TextBox>
-            <TextBox MaxLength="12" HorizontalAlignment="Left" Margin="72,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="20">
+            <TextBox Name ="phone1"  MaxLength="12" HorizontalAlignment="Left" Margin="72,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="20">
                 <TextBox.Text>
                     <Binding Path="_customer.Person.Phone1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -54,7 +54,7 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <TextBox HorizontalAlignment="Left" Margin="72,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="20">
+            <TextBox Name ="email1" HorizontalAlignment="Left" Margin="72,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="20">
                 <TextBox.Text>
                     <Binding Path="_customer.Person.Email1" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -66,14 +66,41 @@
             <Label Content="Sex&#xA;" HorizontalAlignment="Left" Margin="15,116,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" Width="57" FontSize="8"/>
             <ComboBox ItemsSource="{Binding Path = SexList}"
              SelectedItem="{Binding _customer.Person.Sex, Mode=TwoWay}" HorizontalAlignment="Left" Margin="72,116,0,0" VerticalAlignment="Top" Width="301" Height="19"/>
-            <Button Style="{StaticResource btnBlue}"   Command="{Binding Path = AddCustomerButton}" 
-                CommandParameter="ParameterValue"  Content="Add customer" HorizontalAlignment="Center" Margin="0,409,0,0" VerticalAlignment="Top" Height="27" Width="128" FontSize="12"/>
+            <Button  Command="{Binding Path = AddCustomerButton}" 
+                CommandParameter="ParameterValue"  Content="Add customer" HorizontalAlignment="Center" Margin="0,409,0,0" VerticalAlignment="Top" Height="27" Width="128" FontSize="12" BorderBrush="#FF82BAD8" Background="#FF2A67FD" Foreground="#FFFBFBFB">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=name}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=surname}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=phone1}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=phone2}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=email1}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=email2}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=country}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=city}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=street}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=level}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=zip}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=fax}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=cardId}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                
+            </Button>
 
             <Label Content="Label" HorizontalAlignment="Left" Margin="552,59,0,0" VerticalAlignment="Top" FontSize="2"/>
             <Label Content="Add customer" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Height="37" Background="#FF33B0FF" Width="97" FontFamily="Agency FB" FontSize="20" Foreground="White"/>
             <Grid Margin="400,52,24,55" Background="#FF7663E0">
                 <Label Content="Country&#xA;" HorizontalAlignment="Left" Margin="6,39,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20">
+                <TextBox Name="country" HorizontalAlignment="Left" Margin="62,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20">
                     <TextBox.Text>
                         <Binding Path="_customer.Person.Adress_country" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
@@ -83,7 +110,7 @@
                     </TextBox.Text>
                 </TextBox>
                 <Label Content="City&#xA;" HorizontalAlignment="Left" Margin="6,70,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="21">
+                <TextBox Name="city" HorizontalAlignment="Left" Margin="62,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="21">
                     <TextBox.Text>
                         <Binding Path="_customer.Person.Adress_city" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
@@ -93,7 +120,7 @@
                     </TextBox.Text>
                 </TextBox>
                 <Label Content="Street&#xA;" HorizontalAlignment="Left" Margin="6,103,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
+                <TextBox Name="street" HorizontalAlignment="Left" Margin="62,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
                     <TextBox.Text>
                         <Binding Path="_customer.Person.Adress_street" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
@@ -113,7 +140,7 @@
                     </TextBox.Text>
                 </TextBox>
                 <Label Content="Level&#xA;" HorizontalAlignment="Left" Margin="6,168,0,0" VerticalAlignment="Top" Height="18" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
+                <TextBox Name="level" HorizontalAlignment="Left" Margin="62,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
                     <TextBox.Text>
                         <Binding Path="_customer.Person.Adress_level" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
@@ -123,7 +150,7 @@
                     </TextBox.Text>
                 </TextBox>
                 <Label Content="ZIP&#xA;" HorizontalAlignment="Left" Margin="6,200,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
-                <TextBox MaxLength="6" HorizontalAlignment="Left" Margin="62,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
+                <TextBox Name="zip"  MaxLength="6" HorizontalAlignment="Left" Margin="62,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
                     <TextBox.Text>
                         <Binding Path="_customer.Person.Adress_zip" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
@@ -133,7 +160,7 @@
                     </TextBox.Text>
                 </TextBox>
                 <Label Content="FAX&#xA;" HorizontalAlignment="Left" Margin="6,230,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
-                <TextBox HorizontalAlignment="Left" Margin="62,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
+                <TextBox Name="fax" HorizontalAlignment="Left" Margin="62,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="19">
                     <TextBox.Text>
                         <Binding Path="_customer.Person.Fax"  UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
@@ -144,7 +171,7 @@
                 </TextBox>
                 <Label Content="Address&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="68" FontSize="16" Foreground="White"/>
                 <Label Content="Phone2&#xA;" HorizontalAlignment="Left" Margin="6,265,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" Width="56" RenderTransformOrigin="0.395,2" FontSize="8"/>
-                <TextBox MaxLength="12" HorizontalAlignment="Left" Margin="62,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20">
+                <TextBox Name="phone2" MaxLength="12" HorizontalAlignment="Left" Margin="62,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20">
                     <Binding Path="_customer.Person.Phone2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator1:LengthValidator MinValue="2" MaxValue="200" />
@@ -152,7 +179,7 @@
                     </Binding>
                 </TextBox>
                 <Label Content="Email2&#xA;" HorizontalAlignment="Left" Margin="6,299,0,0" VerticalAlignment="Top" Height="19" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="56" FontSize="8"/>
-                <TextBox HorizontalAlignment="Left" Margin="61,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" Height="19">
+                <TextBox Name="email2" HorizontalAlignment="Left" Margin="61,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" Height="19">
                     <Binding Path="_customer.Person.Email2" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
                             <validator1:LengthValidator MinValue="2" MaxValue="200" />
@@ -161,7 +188,7 @@
                 </TextBox>
             </Grid>
             <Label Content="CardID&#xA;" HorizontalAlignment="Left" Margin="16,258,0,0" VerticalAlignment="Top" Height="20" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="57" FontSize="8"/>
-            <TextBox HorizontalAlignment="Left" Margin="72,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="20">
+            <TextBox Name ="cardId" HorizontalAlignment="Left" Margin="72,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="20">
                 <TextBox.Text>
                     <Binding Path="_customer.Person.IDCard" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -181,6 +208,9 @@
                     SelectedItem="{Binding Mop, Mode=TwoWay}" HorizontalAlignment="Left" Margin="57,72,0,0" VerticalAlignment="Top" Width="298" Height="20"/>
                 <Label Content="Method of payment&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Background="#FF33B0FF" RenderTransformOrigin="0.488,2.296" Width="151" FontSize="16" Foreground="White"/>
             </Grid>
+
+          
+
 
         </Grid>
     </Viewbox>

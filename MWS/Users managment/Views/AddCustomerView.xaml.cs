@@ -18,9 +18,9 @@ namespace MWS.Users_managment
     /// <summary>
     /// Interaction logic for UsersView.xaml
     /// </summary>
-    public partial class UsersView : UserControl
+    public partial class AddCustomerView : UserControl
     {
-        public UsersView()
+        public AddCustomerView()
         {
             InitializeComponent();
         }

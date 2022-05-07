@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MWS.Users_managment
 {
-    public class E
+    public enum CustomerSortType
     {
+        ById,
+        ByName
     }
+
 }

@@ -11,12 +11,13 @@ using System.Windows;
 using System.Windows.Input;
 using static MWS.MWSUtil.Enums;
 using TorasSQLHelper;
+using MWS.MWSValidation;
 
-namespace MWS.Users_managment
+namespace MWS.Users_managment.ViewModels
 {
-   public class UsersModelView : ObservableObject, IPageViewModel, INotifyPropertyChanged, IObserver
+   public class AddCustomerModelView : ObservableObject, IPageViewModel, INotifyPropertyChanged, IObserver
     {
-
+        private Observer _customerObserver;
         private bool edit = false;
         public List<MOP> MopList { get; set; } = MopHandler.GetListMOPs();
         public  MOP Mop { get; set; } = new MOP();
@@ -29,14 +30,18 @@ namespace MWS.Users_managment
             Person = new Person()
         };
 
-        public UsersModelView(object obj = null)
+        public AddCustomerModelView(Observer observer = null, Customer customer = null)
         {
-            if(obj != null)
+            if(observer != null)
             {
-                _customer = (Customer)obj;
+                _customerObserver = observer;
+                _customerObserver.Attach(this);
+            }
+            if(customer != null)
+            {
+                _customer = customer;
                 edit = true;
             }
-
         }
 
         private ICommand _addCustomerButton;
@@ -58,6 +63,7 @@ namespace MWS.Users_managment
             }
         }
 
+
         private void SaveCustomer()
         {
             using (Gas_stationDb db = new Gas_stationDb())
@@ -69,7 +75,7 @@ namespace MWS.Users_managment
                         db.Attach(_customer);
                         db.ObjectStateManager.ChangeObjectState(_customer, System.Data.EntityState.Modified);
                         db.SaveChanges();
-                        MessageBox.Show("Employee data changed");
+                        MessageBox.Show("Customer data changed");
                     }
                     catch (Exception ex)
                     {
@@ -78,18 +84,26 @@ namespace MWS.Users_managment
                 }
                 else
                 {
-                    _customer.Register_date = DateTime.Now;
-                    _customer.LoyaltyCard.ID_MOP = Mop.MopID;
-                    db.People.AddObject(_customer.Person);
-                    db.SaveChanges();
-    
-                    MessageBox.Show("Сustomer added");
+                    try
+                    {
+                        
+
+
+                        _customer.Register_date = DateTime.Now;
+                        _customer.LoyaltyCard.ID_MOP = Mop.MopID;
+                        db.People.AddObject(_customer.Person);
+                        db.SaveChanges();
+                        MessageBox.Show("Сustomer added");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Please check data");
+                    }
                 }
             }
             Mediator.Notify("AddCustomerView", null);
 
-            MyEvent.GetInstance().OnUpdateCustomerListEvent();
-
+            _customerObserver.Notify();
         }
 
 
@@ -105,7 +119,7 @@ namespace MWS.Users_managment
 
         public void Update(ISubject subject)
         {
-            throw new NotImplementedException();
+            MopList = MopHandler.GetListMOPs();
         }
 
         #endregion INotifyPropertyChanged Members

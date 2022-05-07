@@ -8,7 +8,7 @@ using TorasSQLHelper;
 
 namespace MWS.Product_managment
 {
-    public class ProductHandler
+    public class ProductHelper
     {
         public static int GetNumberOfProducts()
         {
@@ -21,7 +21,8 @@ namespace MWS.Product_managment
         {
             using (Gas_stationDb db = new Gas_stationDb())
             {
-                return new ObservableCollection<Product>(db.Products);
+                return new ObservableCollection<Product>
+                    (db.Products.Include("Developer").Include("Distributor").Include("Category").ToList());
             }
         }
         public static ObservableCollection<Product> GetAllProductsByCategory(Category category)
@@ -38,5 +39,27 @@ namespace MWS.Product_managment
                 return new ObservableCollection<Product>(db.Products.Where(c => c.ID_Category == categoryID));
             }
         }
+
+        public static ObservableCollection<Product> FindProductByNameOrBarcode(string searchParam)
+        {
+            using (Gas_stationDb db = new Gas_stationDb())
+            {
+                var find = db.Products.Where(i => i.Name == searchParam
+                || i.Short_name == searchParam);
+                if (find != null)
+                {
+                    return new ObservableCollection<Product>(find);
+                }
+            }
+            return new ObservableCollection<Product>();
+        }
+
+
+        public static void DeleteProduct (int IdProduct)
+        {
+          
+        }
+
+
     }
 }

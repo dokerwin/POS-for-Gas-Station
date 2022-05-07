@@ -27,6 +27,24 @@ namespace MWS
         private List<IPageViewModel> _pagebuttonsViewModels;
         private List<IPageViewModel> _pageViewModels;
         private List<PageCategory> pageCategories;
+
+
+
+        private Observer customerObserver = new Observer();
+        private Observer employeeObserver = new Observer();
+        private Observer productObserver  = new Observer();
+
+        private AddEmployeeModelView addEmployeeModelView;
+        private AllEmployeesViewModel allEmployeesViewModel;
+        private AddCustomerModelView addCustomerModelView;
+        private AllCustomersViewModel allCustomerModelView;
+
+        private AddCategoryModelView addCategoryModelView;
+        private AddDeveloperViewModel addDeveloperViewModel;
+        private AddDistributorViewModel addDistributorViewModel;
+        private AddProductModelView addProductModelView;
+        private ProductManagmentViewModel productManagmentViewModel;
+
         public string Name { get; set; } = "Menu";
 
 
@@ -47,23 +65,16 @@ namespace MWS
 
         public ApplicationViewModel()
         {
-            var UserObserver = new Observer();
-            var addEmployeeModelView = new AddEmployeeModelView(UserObserver);
-            var addCustomerModelView =  new UsersModelView(UserObserver);
-            var allCustomerModelView =  new AllCustomersViewModel(UserObserver);
-            var allEmployeesViewModel =  new AllEmployeesViewModel(UserObserver);
-
-
-            UserObserver.Notify();
-
-            UserObserver.Attach(addEmployeeModelView);
-            UserObserver.Attach(addCustomerModelView);
-            UserObserver.Attach(allCustomerModelView);
-            UserObserver.Attach(allEmployeesViewModel);
-
-
-
-
+            addEmployeeModelView      = new AddEmployeeModelView(employeeObserver);
+            allEmployeesViewModel     = new AllEmployeesViewModel(employeeObserver);
+            addCustomerModelView      = new AddCustomerModelView(customerObserver);
+            allCustomerModelView      = new AllCustomersViewModel(customerObserver);
+                                      
+            addCategoryModelView      = new AddCategoryModelView();
+            addDeveloperViewModel     = new AddDeveloperViewModel();
+            addDistributorViewModel   = new AddDistributorViewModel();
+            addProductModelView       = new AddProductModelView(productObserver);
+            productManagmentViewModel = new ProductManagmentViewModel(productObserver);
 
             _PageCategories = new List<PageCategory>()
             {
@@ -75,18 +86,17 @@ namespace MWS
                      {
                          Views = new List<IPageViewModel>()
                          {
-                           addEmployeeModelView,
-                           allEmployeesViewModel,
-                           addCustomerModelView,
-                           allCustomerModelView,
-                          
+                           addCategoryModelView,
+                           addDeveloperViewModel,
+                           addDistributorViewModel,
+                           addProductModelView
                          }
                       },
                            new PageSubCategory("Products")
                      {
                          Views = new List<IPageViewModel>()
                          {
-                           new ProductManagmentViewModel()
+                           productManagmentViewModel
                          }
                       }
                     }
@@ -99,10 +109,10 @@ namespace MWS
                      {
                          Views = new List<IPageViewModel>()
                          {
-                           new UsersModelView(),
-                           new AddEmployeeModelView(),
-                           new AllCustomersViewModel(),
-                           new AllEmployeesViewModel(),
+                             addEmployeeModelView,
+                             addCustomerModelView,
+                             allCustomerModelView,
+                             allEmployeesViewModel
                          }
                       }
                     }
@@ -133,7 +143,7 @@ namespace MWS
 
 
             Mediator.Subscribe("AddEmpoyeeView", AddEmployeeView);
-            Mediator.Subscribe("AddEmployeeViewEdit", GoToAddEmployeeViewView);
+            Mediator.Subscribe("AddEmployeeViewEdit", GoToAddEmployeeViewEdit);
             Mediator.Subscribe("AddCustomerView", AddCustomerView);
             Mediator.Subscribe("AddCustomerViewEdit", GoToAddCustomerViewEdit);
             Mediator.Subscribe("AllCustomersView", AllCustomersView);
@@ -220,12 +230,12 @@ namespace MWS
         #region Methods
         private void AddCustomerView(object obj)
         {
-            ChangeViewModel(new UsersModelView());
+            ChangeViewModel(new AddCustomerModelView());
         }
 
         private void GoToAddCustomerViewEdit(object obj)
         {
-            ChangeViewModel(new UsersModelView(obj));
+            ChangeViewModel(new AddCustomerModelView(customerObserver,(Customer)obj));
         }
 
         private void AddEmployeeView(object obj)
@@ -233,9 +243,10 @@ namespace MWS
             ChangeViewModel(new AddEmployeeModelView());
         }
 
-        private void GoToAddEmployeeViewView(object obj)
+        private void GoToAddEmployeeViewEdit(object obj)
         {
-            ChangeViewModel(new AddEmployeeModelView((Cashier)obj));
+            addEmployeeModelView.cashier = obj as Cashier;
+            ChangeViewModel(addEmployeeModelView);
         }
 
 
@@ -245,12 +256,12 @@ namespace MWS
         }
         private void GoToAddProductView(object obj)
         {
-            ChangeViewModel(new AddProductModelView(obj));
+            ChangeViewModel(new AddProductModelView());
         }
 
         private void GoToAddProductViewEdit(object obj)
         {
-            ChangeViewModel(new AddProductModelView(obj, true));
+            ChangeViewModel(new AddProductModelView(obj));
         }
 
         private void GoToAddCategoryView(object obj)

@@ -24,8 +24,8 @@ namespace MWS.MainMenu
 
         public MainViewModel()
         {
-            _totalProducts = ProductHandler.GetNumberOfProducts();
-            _totalCustomers = UserHandler.GetNumberOfCustomers();
+            _totalProducts = ProductHelper.GetNumberOfProducts();
+            _totalCustomers = CustomerHelper.GetNumberOfCustomers();
             //_totalTransactions = ReceiptHanler.GetTotalReceipts();
         }
 

@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MWS.Users_managment
+namespace MWS.Product_managment.Messure_managment
 {
     /// <summary>
-    /// Interaction logic for EmployeeManagmentView.xaml
+    /// Interaction logic for AddMesure.xaml
     /// </summary>
-    public partial class EmployeeManagmentView : UserControl
+    public partial class AddMesure : UserControl
     {
-        public EmployeeManagmentView()
+        public AddMesure()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
